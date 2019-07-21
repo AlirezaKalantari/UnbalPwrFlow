@@ -46,4 +46,4 @@ for g in G
 end
 
 
-println("Salam bar shoma bandeye saleh khoda")
+println("Salam bar shoma bandeye saleh khodaye bozoerg")
