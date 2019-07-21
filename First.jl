@@ -13,8 +13,8 @@ using Ipopt
 using Cbc
 
 
-G=collect(1:2)
-D=collect(1:2)
+G=collect(1:3)
+D=collect(1:3)
 
 Demand=zeros(size(D))
 for d in D
