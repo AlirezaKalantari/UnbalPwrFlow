@@ -32,3 +32,5 @@ N == A[F.p, :]
 q=UpperTriangular(A)
 
 w=LowerTriangular(A)
+
+println( "I have found this file that seems to work for being better in developing and start to coding in few hours: www.sas.upenn.edu/~jesusfv/Chapter_HPC_8_Julia.pdf")
