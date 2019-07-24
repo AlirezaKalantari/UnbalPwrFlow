@@ -33,4 +33,5 @@ q=UpperTriangular(A)
 
 w=LowerTriangular(A)
 
+println("SAEED: Remember that you don't need to learn EVERYTHING about Julia!! You just need to implement the algorithm for the paper AS NEEDED! ");
 println( "I have found this file that seems to work for being better in developing and start to coding in few hours: www.sas.upenn.edu/~jesusfv/Chapter_HPC_8_Julia.pdf")
