@@ -1,5 +1,7 @@
 using Pkg
 
+using SparseArrays
+Pkg.add("SparseArrays")
 #Pkg.add("JuMP")
 using JuMP
 
@@ -13,7 +15,7 @@ using Ipopt
 using Cbc
 
 using LinearAlgebra
-
+b=1
 A = [-4 -17 1; 2 2 3; 12 8 -5]
 
 f=tr(A)
@@ -23,14 +25,81 @@ c=det(A)
 d=inv(A)
 
 F=lu(A)
-F.L
+ F.L
 F.U
-N=F.L *F.u
+N=F.L *F.U
 N == A[F.p, :]
+rationalize(1.2)
+convert(2)
+b+=1
 
-
-q=UpperTriangular(A)
-
-w=LowerTriangular(A)
-
+expm1(3)
+a = ["Economics" 2;  3.1 true]
+size(a)
 println( "I have found this file that seems to work for being better in developing and start to coding in few hours: www.sas.upenn.edu/~jesusfv/Chapter_HPC_8_Julia.pdf")
+c=a
+
+a[1,2]=3
+
+a
+
+a=[1;2;3]
+
+b=[1 2 2]
+
+a = collect(1.0:0.5:4)
+
+a[3,1]
+a = range(1, 5, length=2)
+a= 1:2:10
+
+a=collect(a)
+
+a = ["micro", "macro", "econometrics"]
+for (index, value) in enumerate(a)
+println("$index$value")
+end
+
+a = [1 2; 3 4]
+
+a[1, :]'
+a = fill(3,3,4)
+a = trues(2,2)
+
+
+b = repeat(a, 2,3)
+b = repeat(a, 1,3)
+a
+a[:]
+a = fill(1,3,4,4)
+a
+inv(a)
+a = [1 2; 3 4]
+
+triu(a)
+
+a = [[1 3]; [1 2]]
+
+vcat([3 2],[1 2])
+
+a = reshape(1:10, 5, 2)
+
+a = diagm(0=>[1; 2; 3
+
+a = spzeros(100,100)
+
+Int32('a')
+
+'a'+1
+
+a ="I like economics"
+
+b = a[end]
+
+b = a[1:1]
+
+println("""I like economics "with" quotes""")
+
+firstindex("Economics")
+
+reverse("Economics")
