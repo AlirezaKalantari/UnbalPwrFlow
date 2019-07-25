@@ -45,6 +45,7 @@ a
 
 a=[1;2;3]
 
+<<<<<<< HEAD
 b=[1 2 2]
 
 a = collect(1.0:0.5:4)
@@ -103,3 +104,7 @@ println("""I like economics "with" quotes""")
 firstindex("Economics")
 
 reverse("Economics")
+=======
+println("SAEED: Remember that you don't need to learn EVERYTHING about Julia!! You just need to implement the algorithm for the paper AS NEEDED! ");
+println( "I have found this file that seems to work for being better in developing and start to coding in few hours: www.sas.upenn.edu/~jesusfv/Chapter_HPC_8_Julia.pdf")
+>>>>>>> 820bc68fbdcd7c75009cdec45d1822a1809a08c7
