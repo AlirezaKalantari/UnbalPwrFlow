@@ -17,10 +17,12 @@ using Cbc
 
 G=collect(1:4)    #number of generator
 L=collect(1:4)    #number of load
+Y=zeros(4,4)
+E_k=[1+0im ,1+0im ,1+0im ,1+0im]'
 
 Pg=zeros(size(G))
 Pl=zeros(size(L))
-p_sp=zeros(size(G))
+P_sp=zeros(size(G))
 
 Qg=zeros(size(G))
 Ql=zeros(size(L))
@@ -46,7 +48,22 @@ for l in L
 
 end
 
-P_sp=broadcast(-,broadcast(+,Pg,Qg),broadcast(+,Pl,Ql))'
+P_sp=broadcast(-,Pg,Pl)'
+Q_sp=broadcast(-,Qg,Ql)'
+
+Ybus=Y
+
+V_rk=real(E_k)
+V_mk=imag(E_k)
+
+G_y=real(Ybus)
+B_y=imag(Ybus)
+
+for (Pl>=0)
+    
+
+
+
 
 
 
@@ -56,8 +73,8 @@ I=zeros(size(G))
 
 
 
-    println("This is dispatch of unit $(g): $(JuMP.value(p[g]))")
-end
+    #println("This is dispatch of unit $(g): $(JuMP.value(P[g]))")
+#end
 
 
 println("salam saeed jan, How can Import sum data such as Pg, Pl, Ybus in julia?")
