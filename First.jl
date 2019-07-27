@@ -68,9 +68,12 @@ for g in G
     P_cal[g]=V_rk[g]*real(I_cal)[g]'
     Q_cal[g]=V_mk[g]*imag(I_cal)[g]'
 
+<<<<<<< HEAD
     delP[g]=P_sp[g]-P_cal[g]
     delQ[g]=Q_sp[g]-Q_cal[g]
 
+=======
+>>>>>>> b18e318ce10efb970ac3bafbf6b76a453c2733c9
 end
 
 
@@ -79,7 +82,10 @@ end
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b18e318ce10efb970ac3bafbf6b76a453c2733c9
 
 
 
