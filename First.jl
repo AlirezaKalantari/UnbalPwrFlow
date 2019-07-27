@@ -18,16 +18,21 @@ using Cbc
 G=collect(1:4)    #number of generator
 L=collect(1:4)    #number of load
 Y=zeros(4,4)
-E_k=[1+0im ,1+0im ,1+0im ,1+0im]'
+J=zeros(4,4)
+E_k=[1+0im ,1+0im ,1+0im ,1+0im]
+I_cal=[1+0im ,1+0im ,1+0im ,1+0im]
 
 Pg=zeros(size(G))
 Pl=zeros(size(L))
 P_sp=zeros(size(G))
+P_cal=zeros(size(G))
+delP=zeros(size(G))
 
 Qg=zeros(size(G))
 Ql=zeros(size(L))
 Q_sp=zeros(size(G))
-
+Q_cal=zeros(size(G))
+delQ=zeros(size(G))
 
 
 for l in L
@@ -59,12 +64,23 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
-for (Pl>=0)
-    
+for g in G
+    P_cal[g]=V_rk[g]*real(I_cal)[g]'
+    Q_cal[g]=V_mk[g]*imag(I_cal)[g]'
+
+end
 
 
 
 
+
+
+
+
+
+
+
+real(I_cal)'
 
 
 
