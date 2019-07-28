@@ -92,15 +92,24 @@ for g in G
     del_I[(2*g),1]=delI_m[g]
 
 end
-for a in j
-    for b in j
+for a in G
+    for b in G
         if a==b
-            J[a,b]=imag(Ybus[a,b])-α_k[a,a]
-            J[a,b+1]=real(Ybus[a,b])-β_k[a,a]
+
+            J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
+            J[2*a-1,b+1]=real(Ybus[a,a+1])-β_k[a,a]
+            a=a+1
+            J[a,b]=real(Ybus[a,a-1])-α_k[a-1,a-1]
+            J[a,b+1]=-real(Ybus[a,a])+β_k[a-1,a-1]
+            a=a-1
         elseif a!==b
-            c=b+1
+            c=2*b-1
             J[a,c]=imag(Ybus[a,b])
-            J[a,c+1]=imag(Ybus[a,b])   
+            J[a,c+1]=real(Ybus[a,b])
+            a=a+1
+            J[a,c]=real(Ybus[a,b])
+            J[a,c+1]=-imag(Ybus[a,b])
+            a=a-1
 
         end
 
