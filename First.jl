@@ -72,26 +72,6 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
-for g in G
-    P_cal[g]=V_rk[g]*real(I_cal)[g]'+V_mk[g]*imag(I_cal)[g]'
-    Q_cal[g]=V_mk[g]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
-
-    delP[g]=P_sp[g]-P_cal[g]
-    delQ[g]=Q_sp[g]-Q_cal[g]
-
-    α_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)-2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
-    β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)+2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
-    δ_k=α_k
-    γ_k=-β_k
-
-
-    delI_r[g]=(delP[g]*V_rk[g]+V_mk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
-    delI_m[g]=(delP[g]*V_mk[g]+V_rk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
-
-    del_I[(2*g-1),1]=delI_r[g]
-    del_I[(2*g),1]=delI_m[g]
-
-end
 for a in G
     for b in G
         if a==b
@@ -115,6 +95,28 @@ for a in G
 
     end
 end
+
+for g in G
+    P_cal[g]=V_rk[g]*real(I_cal)[g]'+V_mk[g]*imag(I_cal)[g]'
+    Q_cal[g]=V_mk[g]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
+
+    delP[g]=P_sp[g]-P_cal[g]
+    delQ[g]=Q_sp[g]-Q_cal[g]
+
+
+    delI_r[g]=(delP[g]*V_rk[g]+V_mk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+    delI_m[g]=(delP[g]*V_mk[g]+V_rk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+
+    del_I[(2*g-1),1]=delI_r[g]
+    del_I[(2*g),1]=delI_m[g]
+
+    α_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)-2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
+    β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)+2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
+    δ_k=α_k
+    γ_k=-β_k
+
+end
+
 
 
 J
