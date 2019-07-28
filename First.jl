@@ -97,18 +97,18 @@ for a in G
         if a==b
 
             J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
-            J[2*a-1,b+1]=real(Ybus[a,a+1])-β_k[a,a]
+            J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
             a=a+1
-            J[a,b]=real(Ybus[a,a-1])-α_k[a-1,a-1]
-            J[a,b+1]=-real(Ybus[a,a])+β_k[a-1,a-1]
+            J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
+            J[a,b+1]=-real(Ybus[a-1,a-1])+β_k[a-1,a-1]
             a=a-1
         elseif a!==b
             c=2*b-1
             J[a,c]=imag(Ybus[a,b])
             J[a,c+1]=real(Ybus[a,b])
             a=a+1
-            J[a,c]=real(Ybus[a,b])
-            J[a,c+1]=-imag(Ybus[a,b])
+            J[a,c]=real(Ybus[a-1,b])
+            J[a,c+1]=-imag(Ybus[a-1,b])
             a=a-1
 
         end
