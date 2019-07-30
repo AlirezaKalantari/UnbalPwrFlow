@@ -14,7 +14,7 @@ using Cbc
 
 
 
-
+Iter=collect(1:1000)
 G=collect(1:4)    #number of generator
 j=collect(1:8)
 L=collect(1:4)    #number of load
@@ -36,6 +36,7 @@ delP=zeros(size(G))
 del_I=zeros(8,1)
 J=ones(8,8)
 del_V=zeros(8,1)
+newdel_V=zeros(8,1)
 del_v=zeros(8,1)
 
 Qg=zeros(size(G))
@@ -74,6 +75,7 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
+for i in Iter
 
 
 for g in G
@@ -131,24 +133,10 @@ for g in G
     del_V[2*g,1]=V_mk[g]
 
 end
-del_V=del_v+del_V
+newdel_V=del_v+del_V
+newdel_V=del_V
+
+end
 
 
-J
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-println("salam saeed jan, How can Import sum data such as Pg, Pl, Ybus in julia?")
-println("Salaam, Check out PowerModels.jl")
+println("salam saeed jan, could you please see this last version of code and check that if it it works true or not?")
