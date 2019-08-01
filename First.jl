@@ -13,7 +13,7 @@ using Ipopt
 using Cbc
 
 
-
+PV_bus=zeros(1,1)
 Iter=collect(1:1000)
 G=collect(1:4)    #number of generator
 j=collect(1:8)
@@ -75,7 +75,6 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
-for i in Iter
 
 
 for g in G
@@ -100,7 +99,6 @@ for g in G
     del_I[(2*g),1]=delI_m[g]
 
 
-
 end
 
 for a in G
@@ -122,10 +120,26 @@ for a in G
             J[a,c+1]=-imag(Ybus[a-1,b])
             a=a-1
 
+
+
         end
 
     end
 end
+
+#PV_bus
+#if a!==b && Ql[a]!==0
+#    c=2*b-1
+#    J[a,c]=imag(Ybus[a,b])-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
+#    J[a,c+1]=real(Ybus[a,b])
+#    a=a+1
+#    J[a,c]=imag(Ybus[a-1,b])-(real(Ybus[a-1,b])(V_mk[a-1]/V_rk[a-1]))
+#    J[a,c+1]=real(Ybus[a-1,b])
+#    a=a-1
+
+#end
+
+
 del_v=J\del_I
 
 for g in G
@@ -136,7 +150,4 @@ end
 newdel_V=del_v+del_V
 newdel_V=del_V
 
-end
-
-
-+println("salam saeed jan, could you please see this last version of code and check that if it it works true or not?")
+println("salam saeed jan, could you please see this last version of code and check that if it it works true or not?")
