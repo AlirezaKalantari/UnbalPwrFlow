@@ -128,7 +128,7 @@ for a in G
 end
 
 #PV_bus
-#for b in G    
+#for b in G
 #if a!==b && Ql[a]!==0
 #    c=2*b-1
 #    J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
@@ -158,4 +158,4 @@ end
 newdel_V=del_v+del_V
 newdel_V=del_V
 
-println("salam saeed jan, could you please see this last version of code and check that if it it works true or not?")
+++println("salam saeed jan, could you please see this last version of code and check that it is what you want?")
