@@ -138,11 +138,11 @@ end
 #    J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
 #    a=a-1
 #if a==b
-#    J[2*a-1,b]=imag(Ybus[a,a])-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
-#    J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
+#    J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_mk[a]/V_rk[a])))
+#    J[2*a-1,b+1]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
 #    a=a+1
-#    J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]-(real(Ybus[a-1,b])(V_mk[a-1]/V_rk[a-1]))
-#    J[a,b+1]=-real(Ybus[a-1,a-1])+β_k[a-1,a-1]
+#    J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])(V_mk[a-1]/V_rk[a-1])))
+#    J[a,b+1]=-V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
 #    a=a-1
 #
 #end
@@ -158,4 +158,4 @@ end
 newdel_V=del_v+del_V
 newdel_V=del_V
 
-++println("salam saeed jan, I tell you what has happened to me, I promise you to work harder?")
+println("salam saeed jan, I tell you what has happened to me, I promise you to work harder?")
