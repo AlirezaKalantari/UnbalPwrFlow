@@ -128,6 +128,7 @@ for a in G
 end
 
 #PV_bus
+#for a in G
 #for b in G
 #if a!==b && Ql[a]!==0
 #    c=2*b-1
@@ -144,7 +145,13 @@ end
 #    J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])(V_mk[a-1]/V_rk[a-1])))
 #    J[a,b+1]=-V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
 #    a=a-1
-#
+#    delI_m[a]=V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
+#    delI_r[a]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
+#    del_I[(2*a-1),1]=delI_r[g]
+#    del_I[(2*a),1]=delI_m[g]
+
+
+#end
 #end
 
 
