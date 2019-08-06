@@ -75,100 +75,96 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
-while iter==0
-
-
-
-for g in G
-    α_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)-2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
-    β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)+2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
-    δ_k=α_k
-    γ_k=-β_k
-
-end
-for g in G
-    P_cal[g]=V_rk[g]*real(I_cal)[g]'+V_mk[g]*imag(I_cal)[g]'
-    Q_cal[g]=V_mk[g]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
-
-    delP[g]=P_sp[g]-P_cal[g]
-    delQ[g]=Q_sp[g]-Q_cal[g]
-
-
-    delI_r[g]=(delP[g]*V_rk[g]+V_mk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
-    delI_m[g]=(delP[g]*V_mk[g]+V_rk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
-
-    del_I[(2*g-1),1]=delI_r[g]
-    del_I[(2*g),1]=delI_m[g]
-
-
-end
-
-for a in G
-    for b in G
-        if a==b
-
-            J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
-            J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
-            a=a+1
-            J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
-            J[a,b+1]=-real(Ybus[a-1,a-1])+β_k[a-1,a-1]
-            a=a-1
-        elseif a!==b
-            c=2*b-1
-            J[a,c]=imag(Ybus[a,b])
-            J[a,c+1]=real(Ybus[a,b])
-            a=a+1
-            J[a,c]=real(Ybus[a-1,b])
-            J[a,c+1]=-imag(Ybus[a-1,b])
-            a=a-1
-
-
-
-        end
+if iter==0
+    for g in G
+        α_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)-2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
+        β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)+2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
+        δ_k=α_k
+        γ_k=-β_k
 
     end
+    for g in G
+        P_cal[g]=V_rk[g]*real(I_cal)[g]'+V_mk[g]*imag(I_cal)[g]'
+        Q_cal[g]=V_mk[g]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
+
+        delP[g]=P_sp[g]-P_cal[g]
+        delQ[g]=Q_sp[g]-Q_cal[g]
+
+
+        delI_r[g]=(delP[g]*V_rk[g]+V_mk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+        delI_m[g]=(delP[g]*V_mk[g]+V_rk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+
+        del_I[(2*g-1),1]=delI_r[g]
+        del_I[(2*g),1]=delI_m[g]
+
+
+    end
+    for a in G
+        for b in G
+            if a==b
+
+                J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
+                J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
+                a=a+1
+                J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
+                J[a,b+1]=-real(Ybus[a-1,a-1])+β_k[a-1,a-1]
+                a=a-1
+            elseif a!==b
+                c=2*b-1
+                J[a,c]=imag(Ybus[a,b])
+                J[a,c+1]=real(Ybus[a,b])
+                a=a+1
+                J[a,c]=real(Ybus[a-1,b])
+                J[a,c+1]=-imag(Ybus[a-1,b])
+                a=a-1
+
+
+
+            end
+
+        end
+    end
+    #PV_bus
+    #for a in G
+    #for b in G
+    #if a!==b && Ql[a]!==0
+    #    c=2*b-1
+    #    J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
+    #    J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
+    #    a=a+1
+    #    J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_mk[a-1]/V_rk[a-1]))
+    #    J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
+    #    a=a-1
+    #if a==b
+    #    J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_mk[a]/V_rk[a])))
+    #    J[2*a-1,b+1]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
+    #    a=a+1
+    #    J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])(V_mk[a-1]/V_rk[a-1])))
+    #    J[a,b+1]=-V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
+    #    a=a-1
+    #    delI_m[a]=V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
+    #    delI_r[a]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
+    #    del_I[(2*a-1),1]=delI_r[g]
+    #    del_I[(2*a),1]=delI_m[g]
+
+
+    #end
+    #end
+
+
+    del_v=J\del_I
+    for g in G
+        del_V[2*g-1,1]=V_rk[g]
+        del_V[2*g,1]=V_mk[g]
+
+    end
+    newdel_V=del_v+del_V
+    newdel_V=del_V
+    for g in G
+         if del_v[g]-del_V[g]<10^(-(10)^100)
+         iter=1
+         end
+    end
+
+
 end
-
-#PV_bus
-#for a in G
-#for b in G
-#if a!==b && Ql[a]!==0
-#    c=2*b-1
-#    J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
-#    J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
-#    a=a+1
-#    J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_mk[a-1]/V_rk[a-1]))
-#    J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
-#    a=a-1
-#if a==b
-#    J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_mk[a]/V_rk[a])))
-#    J[2*a-1,b+1]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
-#    a=a+1
-#    J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])(V_mk[a-1]/V_rk[a-1])))
-#    J[a,b+1]=-V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
-#    a=a-1
-#    delI_m[a]=V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
-#    delI_r[a]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
-#    del_I[(2*a-1),1]=delI_r[g]
-#    del_I[(2*a),1]=delI_m[g]
-
-
-#end
-#end
-
-
-del_v=J\del_I
-
-for g in G
-    del_V[2*g-1,1]=V_rk[g]
-    del_V[2*g,1]=V_mk[g]
-
-end
-newdel_V=del_v+del_V
-newdel_V=del_V
-
-if del_v-del_V<10^(-(10)^100)
-    inter=1
-end
-end
-println("salam saeed jan, I tell you what has happened to me, I promise you to work harder?")
