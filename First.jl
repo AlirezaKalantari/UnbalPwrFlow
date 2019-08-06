@@ -12,7 +12,7 @@ using Ipopt
 #Pkg.add("Cbc")
 using Cbc
 
-
+iter=0
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
 G=collect(1:4)    #number of generator
@@ -74,6 +74,8 @@ V_mk=imag(E_k)
 
 G_y=real(Ybus)
 B_y=imag(Ybus)
+
+while iter==0
 
 
 
@@ -165,4 +167,8 @@ end
 newdel_V=del_v+del_V
 newdel_V=del_V
 
+if del_v-del_V<10^(-(10)^100)
+    inter=1
+end
+end
 println("salam saeed jan, I tell you what has happened to me, I promise you to work harder?")
