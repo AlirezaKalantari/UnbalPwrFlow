@@ -13,6 +13,11 @@ using Ipopt
 using Cbc
 
 data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case4_dist.m")
+data["bus"]
+data["branch"]
+data["gen"]
+data["load"]
+
 
 iter=0
 PV_bus=zeros(1,1)
