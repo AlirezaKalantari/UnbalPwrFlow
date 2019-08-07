@@ -12,6 +12,8 @@ using Ipopt
 #Pkg.add("Cbc")
 using Cbc
 
+data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case4_dist.m")
+
 iter=0
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
