@@ -12,11 +12,15 @@ using Ipopt
 #Pkg.add("Cbc")
 using Cbc
 
-data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case4_dist.m")
+data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case5.m")
 data["bus"]
 data["branch"]
 data["gen"]
 data["load"]
+
+display(data)
+PowerModels.print_summary(data)
+PowerModels.component_table(data, "bus", ["vmin", "vmax"]) 
 
 
 iter=0
