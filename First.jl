@@ -20,8 +20,9 @@ data["load"]
 
 display(data)
 PowerModels.print_summary(data)
-PowerModels.component_table(data, "bus", ["vmin", "vmax"]) 
-
+ct1 =PowerModels.component_table(data, "bus", "va")
+ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
+ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 
 iter=0
 PV_bus=zeros(1,1)
