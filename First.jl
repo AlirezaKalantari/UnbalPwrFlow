@@ -23,6 +23,7 @@ PowerModels.print_summary(data)
 ct1 =PowerModels.component_table(data, "bus", "va")
 ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
+ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 
 iter=0
 PV_bus=zeros(1,1)
