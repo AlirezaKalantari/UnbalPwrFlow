@@ -27,20 +27,22 @@ ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 yb_re=zeros(5,5)
 y_Re=0
 y_RE=0
-L=collect(1:6)
+L=collect(1:5)
 for  l in L
     for g in L
-        if ct4[g,2]==l
-            y_RE=ct4[g,2]
-            y_re=y_RE+y_re
+        if ct4[g,4]==l
+            y_RE=ct4[g,4]
+            y_Re=y_RE+y_Re
 
 
         end
-        yb_re(l,l)=y_re
+        yb_re[l,l]=y_Re
     end
 
 
 end
+
+
 iter=0
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
