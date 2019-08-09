@@ -20,11 +20,27 @@ data["load"]
 
 display(data)
 PowerModels.print_summary(data)
-ct1 =PowerModels.component_table(data, "bus", "va")
+ct1 =PowerModels.component_table(data, "bus", "va")'
 ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
+yb_re=zeros(5,5)
+y_Re=0
+y_RE=0
+L=collect(1:6)
+for  l in L
+    for g in L
+        if ct4[g,2]==l
+            y_RE=ct4[g,2]
+            y_re=y_RE+y_re
 
+
+        end
+        yb_re(l,l)=y_re
+    end
+
+
+end
 iter=0
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
