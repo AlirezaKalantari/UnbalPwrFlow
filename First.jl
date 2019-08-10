@@ -33,8 +33,14 @@ for g in q
         yb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
 
 end
+for l=1:5
+    for m=1:5
+        if yb_re[l,m]!==0
+            yb_re[m,l]=yb_re[l,m]
 
-
+        end
+    end
+end
 yb_re #y_bus
 
 
