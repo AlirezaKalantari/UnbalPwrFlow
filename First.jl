@@ -25,7 +25,7 @@ ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 yb_re=zeros(5,5)
-y_RE=zeros(5,5)
+y_RE=ones(5,5)
 
 q=collect(1:6)
 
@@ -42,8 +42,11 @@ for l=1:5
         end
     end
 end
-yb_re #y_bus
 
+for l=1:5
+        yb_re[l,l]=-(yb_re[l,1]+yb_re[l,2]+yb_re[l,3]+yb_re[l,4]+yb_re[l,5])
+    end
+yb_re #y_bus
 
 iter=0
 PV_bus=zeros(1,1)
