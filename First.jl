@@ -25,22 +25,17 @@ ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 yb_re=zeros(5,5)
-y_Re=0
-y_RE=0
-L=collect(1:5)
-for  l in L
-    for g in L
-        if ct4[g,4]==l
-            y_RE=ct4[g,4]
-            y_Re=y_RE+y_Re
+y_RE=zeros(5,5)
 
+q=collect(1:6)
 
-        end
-        yb_re[l,l]=y_Re
-    end
-
+for g in q
+        yb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
 
 end
+
+
+yb_re #y_bus
 
 
 iter=0
