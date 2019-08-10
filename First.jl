@@ -30,9 +30,10 @@ y_RE=zeros(5,5)
 q=collect(1:6)
 
 for g in q
-        yb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
+        yb_re[ct4[g,2],ct4[g,3]]=-1/ct4[g,4]
 
 end
+
 for l=1:5
     for m=1:5
         if yb_re[l,m]!==0
