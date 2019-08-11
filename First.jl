@@ -71,7 +71,8 @@ for l=1:5
 end
 
 yb_re #y_bus
-yb_im
+1im*yb_im
+
 iter=0
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
