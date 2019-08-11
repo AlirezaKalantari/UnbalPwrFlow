@@ -72,6 +72,7 @@ end
 
 yb_re #y_bus
 1im*yb_im
+YBUS=yb_re+(1im*yb_im)
 
 iter=0
 PV_bus=zeros(1,1)
