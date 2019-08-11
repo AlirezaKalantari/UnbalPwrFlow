@@ -53,7 +53,7 @@ end
 
 
 for g in q
-        yb_im[ct4[g,2],ct4[g,3]]=-1/ct4[g,4]
+        yb_im[ct4[g,2],ct4[g,3]]=-1/ct4[g,5]
 
 end
 
@@ -71,7 +71,7 @@ for l=1:5
 end
 
 yb_re #y_bus
-
+yb_im
 iter=0
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
