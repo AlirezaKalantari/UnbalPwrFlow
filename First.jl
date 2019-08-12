@@ -27,7 +27,7 @@ ct1 =PowerModels.component_table(data, "bus", "va")'
 ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
-ct5=PowerModels.component_table(data, "load", ["pd","qd"])
+ct5=PowerModels.component_table(data, "load", ["load_bus","pd","qd"])
 
 yb_re=zeros(5,5)
 
@@ -113,7 +113,7 @@ Q_cal=zeros(size(G))
 delQ=zeros(size(G))
 
 
-for l in L
+#=for l in L
     Pl[l]=100*l
 end
 
@@ -129,6 +129,10 @@ end
 for l in L
     Qg[l]=120*l
 
+end=#
+for i=1:3
+    Pl[ct5[i,2]]=ct5[i,3]
+    Ql[ct5[i,2]]=ct5[i,4]
 end
 
 P_sp=broadcast(-,Pg,Pl)'
@@ -219,7 +223,7 @@ if iter==0
     #end
 
 
-    del_v=J\del_I
+    del_v\del_I
     for g in G
         del_V[2*g-1,1]=V_rk[g]
         del_V[2*g,1]=V_mk[g]
