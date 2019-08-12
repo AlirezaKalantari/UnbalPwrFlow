@@ -3,6 +3,9 @@ using Pkg
 #Pkg.add("JuMP")
 using JuMP
 
+#Pkg.add("LinearAlgebra")
+using LinearAlgebra
+
 #Pkg.add("PowerModels")
 using PowerModels
 
