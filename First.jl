@@ -24,6 +24,8 @@ ct1 =PowerModels.component_table(data, "bus", "va")'
 ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
+ct5=PowerModels.component_table(data, "load", ["pd","qd"])
+
 yb_re=zeros(5,5)
 
 yb_im=zeros(5,5)
@@ -129,8 +131,8 @@ end
 P_sp=broadcast(-,Pg,Pl)'
 Q_sp=broadcast(-,Qg,Ql)'
 
-Ybus=Y
-
+#Ybus=Y
+Ybus=YBUS
 V_rk=real(E_k)
 V_mk=imag(E_k)
 
