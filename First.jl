@@ -30,24 +30,24 @@ ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 ct5=PowerModels.component_table(data, "load", ["load_bus","pd","qd"])
 ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
 
-yb_re=zeros(5,5)
+zb_re=zeros(5,5)
 
-yb_im=zeros(5,5)
-yb_im=complex(yb_im);
+zb_im=zeros(5,5)
+zb_im=complex(yb_im);
 
-y_RE=ones(5,5)
+z_RE=ones(5,5)
 
 q=collect(1:6)
 
 for g in q
-        yb_re[ct4[g,2],ct4[g,3]]=-1/ct4[g,4]
+        zb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
 
 end
 
 for l=1:5
     for m=1:5
-        if yb_re[l,m]!==0
-            yb_re[m,l]=yb_re[l,m]
+        if zb_re[l,m]!==0
+            zb_re[m,l]=zb_re[l,m]
 
         end
     end
@@ -79,8 +79,10 @@ end
 yb_re #y_bus
 1im*yb_im
 YBUS=yb_re+(1im*yb_im)
+(YBUS)^-1
 
 iter=0
+
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
 G=collect(1:4)    #number of generator
@@ -145,6 +147,7 @@ Q_sp=broadcast(-,Qg,Ql)'
 
 #Ybus=Y
 Ybus=YBUS
+
 V_rk=real(E_k)
 V_mk=imag(E_k)
 
