@@ -76,10 +76,10 @@ for l=1:5
         zb_im[l,l]=-(zb_im[l,1]+zb_im[l,2]+zb_im[l,3]+zb_im[l,4]+zb_im[l,5])
 end
 
-yb_re #y_bus
-1im*yb_im
-YBUS=yb_re+(1im*yb_im)
-(YBUS)^-1
+zb_re #y_bus
+1im*zb_im
+ZBUS=zb_re+(1im*zb_im)
+YBUS=(ZBUS)^-1
 
 iter=0
 
