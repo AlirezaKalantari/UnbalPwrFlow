@@ -54,26 +54,26 @@ for l=1:5
 end
 
 for l=1:5
-        yb_re[l,l]=-(yb_re[l,1]+yb_re[l,2]+yb_re[l,3]+yb_re[l,4]+yb_re[l,5])
+        zb_re[l,l]=-(zb_re[l,1]+zb_re[l,2]+zb_re[l,3]+zb_re[l,4]+zb_re[l,5])
 end
 
 
 for g in q
-        yb_im[ct4[g,2],ct4[g,3]]=-1/ct4[g,5]
+        zb_im[ct4[g,2],ct4[g,3]]=ct4[g,5]
 
 end
 
 for l=1:5
     for m=1:5
-        if yb_im[l,m]!==0
-            yb_im[m,l]=yb_im[l,m]
+        if zb_im[l,m]!==0
+            zb_im[m,l]=zb_im[l,m]
 
         end
     end
 end
 
 for l=1:5
-        yb_im[l,l]=-(yb_im[l,1]+yb_im[l,2]+yb_im[l,3]+yb_im[l,4]+yb_im[l,5])
+        zb_im[l,l]=-(zb_im[l,1]+zb_im[l,2]+zb_im[l,3]+zb_im[l,4]+zb_im[l,5])
 end
 
 yb_re #y_bus
