@@ -242,8 +242,11 @@ if iter==0
     for g in G
          if del_v[g]-del_V[g]<10^(-(10)^100)
          iter=1
+
          end
     end
-
-
+        for g=1:4
+        E_k[g]=V_rk[g]+1*im(V_mk[g])
+        tete[g]=atand(V_mk[g]/V_rk[g])
+    end
 end
