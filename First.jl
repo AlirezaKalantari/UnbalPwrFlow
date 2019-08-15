@@ -257,9 +257,9 @@ if iter==0
 
              end
          end
-     end
 
-    del_v\del_I
+     end
+ del_v\del_I
     for g in G
         del_V[2*g-1,1]=V_rk[g]
         del_V[2*g,1]=V_mk[g]
@@ -270,14 +270,11 @@ if iter==0
     for g in G
          if del_v[g]-del_V[g]<10^(-(10)^100)
          iter=1
-
          end
-    end
-        for g=1:4
-        E_k[g]=V_rk[g]+1*im(V_mk[g])
-
-        tete[g]=atand(V_mk[g]/V_rk[g])
-
-    end
-end
+     end
+  for g=1:4
+       E_k[g]=V_rk[g]+1*im(V_mk[g])
+       tete[g]=atand(V_mk[g]/V_rk[g])
+     end
+ end
 +println("salam saeed jan, I travel to Gorgan this night and start it the day ahead")
