@@ -230,7 +230,23 @@ if iter==0
     #end
     #end
 
+    for a in G
+        for b in G
+            if a!==b && Ql[a]!==0
+                c=2*b-1
+                J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
+                J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
+                a=a+1
+                J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_mk[a-1]/V_rk[a-1]))
+                J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
+                a=a-1
 
+
+            end
+        end
+    end
+
+    
     del_v\del_I
     for g in G
         del_V[2*g-1,1]=V_rk[g]
