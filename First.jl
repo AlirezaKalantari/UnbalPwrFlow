@@ -186,7 +186,7 @@ if iter==0
                 J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
                 a=a+1
                 J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
-                J[a,b+1]=-real(Ybus[a-1,a-1])+β_k[a-1,a-1]
+                J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
                 a=a-1
             elseif a!==b
                 c=2*b-1
