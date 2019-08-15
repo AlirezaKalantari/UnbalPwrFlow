@@ -278,6 +278,8 @@ if iter==0
        tete[g]=atand(V_mk[g]/V_rk[g])
     end
 end
-#
+#V_ra=[V_rka V_rkb V_rkc]
+#V_ma=[V_mka V_mkb V_mkc]
+
 
 +println("salam saeed jan, I travel to Gorgan this night and start it the day ahead")
