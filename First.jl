@@ -155,14 +155,14 @@ G_y=real(Ybus)
 B_y=imag(Ybus)
 
 if iter==0
-    for g in G
+ for g in G
         α_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)-2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
         β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_mk[g]^2)+2*V_mk[g]*V_rk[g]*P_sp[g])/((V_mk[g]^2+V_rk[g]^2)^2)
         δ_k=α_k
         γ_k=-β_k
 
     end
-    for g in G
+  for g in G
         P_cal[g]=V_rk[g]*real(I_cal)[g]'+V_mk[g]*imag(I_cal)[g]'
         Q_cal[g]=V_mk[g]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
 
@@ -177,8 +177,9 @@ if iter==0
         del_I[(2*g),1]=delI_m[g]
 
 
+
     end
-    for a in G
+ for a in G
         for b in G
             if a==b
 
@@ -188,7 +189,7 @@ if iter==0
                 J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
                 J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
                 a=a-1
-            elseif a!==b
+             elseif a!==b
                 c=2*b-1
                 J[a,c]=imag(Ybus[a,b])
                 J[a,c+1]=real(Ybus[a,b])
@@ -255,10 +256,10 @@ if iter==0
                 del_I[(2*a-1),1]=delI_r[g]
                 del_I[(2*a),1]=delI_m[g]
 
-             end
-         end
+            end
+        end
 
-     end
+    end
  del_v\del_I
     for g in G
         del_V[2*g-1,1]=V_rk[g]
@@ -270,11 +271,13 @@ if iter==0
     for g in G
          if del_v[g]-del_V[g]<10^(-(10)^100)
          iter=1
-         end
-     end
+        end
+    end
   for g=1:4
        E_k[g]=V_rk[g]+1*im(V_mk[g])
        tete[g]=atand(V_mk[g]/V_rk[g])
-     end
- end
+    end
+end
+#
+
 +println("salam saeed jan, I travel to Gorgan this night and start it the day ahead")
