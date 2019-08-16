@@ -280,6 +280,8 @@ if iter==0
 end
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
+#V_rm=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]'
+
 
 
 +println("salam saeed jan, I travel to Gorgan this night and start it the day ahead")
