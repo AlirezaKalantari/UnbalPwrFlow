@@ -232,21 +232,21 @@ if iter==0
     #end
 
     #=for g in G
-           α_k[g,g]=(Q_sp[g]*(V_rm[g]^2-V_rm[g+3]^2)-2*V_rm[g+3]*V_rk[g]*P_sp[g])/((V_rm[g+3]^2+V_rk[g]^2)^2)
-           β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_rm[g+3]^2)+2*V_rm[g+3]*V_rk[g]*P_sp[g])/((V_rm[g+3]^2+V_rk[g]^2)^2)
+           α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rk[g,1]^2)^2)
+           β_k[g,g]=(Q_sp[g]*(V_rk[g,1]^2-V_rm[g+3,1]^2)+2*V_rm[g+3,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rk[g,1]^2)^2)
            δ_k=α_k
            γ_k=-β_k
 
 
        end
      for g in G
-           P_cal[g]=V_rm[g]*real(I_cal)[g]'+V_rm[g+3]*imag(I_cal)[g]'
-           Q_cal[g]=V_rm[g+3]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
+           P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3,1]*imag(I_cal)[g]'
+           Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rk[g,1]*imag(I_cal)[g]'
 
            delP[g]=P_sp[g]-P_cal[g]
            delQ[g]=Q_sp[g]-Q_cal[g]
-           delI_r[g]=(delP[g]*V_rm[g]+V_rm[g+3]*delQ[g])/(V_rm[g+3]^2+V_rm[g]^2)
-           delI_m[g]=(delP[g]*V_rm[g+3]+V_rm[g]*delQ[g])/(V_rm[g+3]^2+V_rm[g]^2)
+           delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
+           delI_m[g]=(delP[g]*V_rm[g+3,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
            del_I[(2*g-1),1]=delI_r[g]
            del_I[(2*g),1]=delI_m[g]
        end
