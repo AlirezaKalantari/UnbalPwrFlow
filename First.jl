@@ -231,6 +231,47 @@ if iter==0
     #end
     #end
 
+    #=for g in G
+           α_k[g,g]=(Q_sp[g]*(V_rm[g]^2-V_rm[g+3]^2)-2*V_rm[g+3]*V_rk[g]*P_sp[g])/((V_rm[g+3]^2+V_rk[g]^2)^2)
+           β_k[g,g]=(Q_sp[g]*(V_rk[g]^2-V_rm[g+3]^2)+2*V_rm[g+3]*V_rk[g]*P_sp[g])/((V_rm[g+3]^2+V_rk[g]^2)^2)
+           δ_k=α_k
+           γ_k=-β_k
+
+
+       end
+     for g in G
+           P_cal[g]=V_rk[g]*real(I_cal)[g]'+V_mk[g]*imag(I_cal)[g]'
+           Q_cal[g]=V_mk[g]*real(I_cal)[g]'-V_rk[g]*imag(I_cal)[g]'
+
+           delP[g]=P_sp[g]-P_cal[g]
+           delQ[g]=Q_sp[g]-Q_cal[g]
+           delI_r[g]=(delP[g]*V_rk[g]+V_mk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+           delI_m[g]=(delP[g]*V_mk[g]+V_rk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+           del_I[(2*g-1),1]=delI_r[g]
+           del_I[(2*g),1]=delI_m[g]
+       end
+     for a in G
+           for b in G
+               if a==b
+                   J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
+                   J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
+                   a=a+1
+                   J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
+                   J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
+                   a=a-1
+                elseif a!==b
+                   c=2*b-1
+                   J[a,c]=imag(Ybus[a,b])
+                   J[a,c+1]=real(Ybus[a,b])
+                   a=a+1
+                   J[a,c]=real(Ybus[a-1,b])
+                   J[a,c+1]=-imag(Ybus[a-1,b])
+                   a=a-1
+               end
+              end
+       end
+
+   end=#
     for a in G
         for b in G
             if a!==b && Ql[a]!==0
