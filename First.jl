@@ -322,8 +322,11 @@ end
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
 #V_rm=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]'
+#o[l,l]=zeros(3,3)
+#p[l,l]=zeros(3,3)
 #for i 1:3
 #    o[l,l]=[v_rm[l,1]/(V_rm[l,1]^2+V_rm[l+3,1]^2)]
+#    p[l,l]=[-vrm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)]
 #end
 
 +println("salam saeed jan, I travel to Gorgan this night and start it the day ahead")
