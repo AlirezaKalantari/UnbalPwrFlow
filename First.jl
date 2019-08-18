@@ -277,20 +277,20 @@ if iter==0
             if a!==b && Ql[a]!==0
                 c=2*b-1
                 J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_mk[a]/V_rk[a]))
-                J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
+                J[a,c+4]=real(Ybus[a,b])-β_k[a,a]
                 a=a+1
                 J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_mk[a-1]/V_rk[a-1]))
-                J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
+                J[a,c+4]=real(Ybus[a-1,b])-α_k[a-1,a-1]
                 a=a-1
 
 
             end
             if a==b
                 J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_mk[a]/V_rk[a])))
-                J[2*a-1,b+1]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
+                J[2*a-1,b+4]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
                 a=a+1
                 J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])(V_mk[a-1]/V_rk[a-1])))
-                J[a,b+1]=-V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
+                J[a,b+4]=-V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
                 a=a-1
                 delI_m[a]=V_mk[a]/(V_rk[a]^2+V_mk[a]^2)
                 delI_r[a]=V_rk[a]/(V_rk[a]^2+V_mk[a]^2)
