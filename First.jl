@@ -85,8 +85,8 @@ iter=0
 
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
-G=collect(1:4)    #number of generator
-j=collect(1:8)
+G=collect(1:(4*6))    #number of generator
+j=collect(1:(8*6))
 L=collect(1:4)    #number of load
 Y=ones(4,4)
 J=zeros(4,4)
