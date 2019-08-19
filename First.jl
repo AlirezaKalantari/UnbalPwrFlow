@@ -170,8 +170,8 @@ if iter==0
         delQ[g]=Q_sp[g]-Q_cal[g]
 
 
-        delI_r[g]=(delP[g]*V_rk[g]+V_mk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
-        delI_m[g]=(delP[g]*V_mk[g]+V_rk[g]*delQ[g])/(V_mk[g]^2+V_rk[g]^2)
+        delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
+        delI_m[g]=(delP[g]*V_rm[g+3,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
 
         del_I[(2*g-1),1]=delI_r[g]
         del_I[(2*g),1]=delI_m[g]
