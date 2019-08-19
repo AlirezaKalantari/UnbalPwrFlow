@@ -303,8 +303,8 @@ if iter==0
     end
  del_v\del_I
     for g in G
-        del_V[2*g-1,1]=V_rk[g]
-        del_V[2*g,1]=V_mk[g]
+        del_V[2*g-1,1]=V_rm[g,1]
+        del_V[2*g,1]=V_rm[g+3,1]
 
     end
     newdel_V=del_v+del_V
