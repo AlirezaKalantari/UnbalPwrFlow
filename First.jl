@@ -241,7 +241,7 @@ if iter==0
        end
      for g in G
            P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3,1]*imag(I_cal)[g]'
-           Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rk[g,1]*imag(I_cal)[g]'
+           Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
            delP[g]=P_sp[g]-P_cal[g]
            delQ[g]=Q_sp[g]-Q_cal[g]
