@@ -287,10 +287,10 @@ if iter==0
             end
             if a==b
                 J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_rm[a+3,1]/V_rm[a,1])))
-                J[2*a-1,b+4]=V_rk[a]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+                J[2*a-1,b+4]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
                 a=a+1
                 J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])V_rm[a+2,1]/V_rm[a-1,1])))
-                J[a,b+4]=-V_mk[a]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+                J[a,b+4]=-V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
                 a=a-1
                 delI_m[a]=V_mk[a]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
                 delI_r[a]=V_rk[a]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
