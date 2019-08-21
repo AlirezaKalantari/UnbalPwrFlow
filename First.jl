@@ -155,14 +155,13 @@ G_y=real(Ybus)
 B_y=imag(Ybus)
 
 if iter==0
- for g in G
+    for g in G
         α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
         β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3,]^2)+2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
         δ_k=α_k
         γ_k=-β_k
-
     end
-  for g in G
+    for g in G
         P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3,1]*imag(I_cal)[g]'
         Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
@@ -179,7 +178,7 @@ if iter==0
 
 
     end
- for a in G
+    for a in G
         for b in G
             if a==b
 
@@ -231,7 +230,7 @@ if iter==0
     #end
     #end
 
-    #=for g in G
+    #=  for g in G
            α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rk[g,1]^2)^2)
            β_k[g,g]=(Q_sp[g]*(V_rk[g,1]^2-V_rm[g+3,1]^2)+2*V_rm[g+3,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rk[g,1]^2)^2)
            δ_k=α_k
@@ -239,7 +238,7 @@ if iter==0
 
 
        end
-     for g in G
+        for g in G
            P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3,1]*imag(I_cal)[g]'
            Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
@@ -250,16 +249,16 @@ if iter==0
            del_I[(2*g-1),1]=delI_r[g]
            del_I[(2*g),1]=delI_m[g]
        end
-     for a in G
-           for b in G
-               if a==b
+        for a in G
+            for b in G
+                if a==b
                    J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
                    J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
                    a=a+1
                    J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
                    J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
                    a=a-1
-                elseif a!==b
+                 elseif a!==b
                    c=2*b-1
                    J[a,c]=imag(Ybus[a,b])
                    J[a,c+1]=real(Ybus[a,b])
@@ -313,21 +312,20 @@ if iter==0
     newdel_V=del_v+del_V
     newdel_V=del_V
     for g in G
-         if del_v[g]-del_V[g]<10^(-(10)^100)
+        if del_v[g]-del_V[g]<10^(-(10)^100)
          iter=1
         end
     end
-  for g=1:4
+    for g=1:4
        E_k[g]=V_rm[g,1]+1*im(V_rm[g+3,1])
        tete[g]=atand(V_rm[g+3,1]/V_rm[g,1])
     end
 end
-V_new=complex(zeros(12,1))
-#=for i 1:12
+ # V_new=complex(zeros(12,1))
+  #=for i 1:12
     V_new[2*i-1,1]=V_rm[i,1]
     V_new[2*i,1]=V_rm[i+3,1]
-end=#
-end
+  end=#
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
 #V_rm=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]'
