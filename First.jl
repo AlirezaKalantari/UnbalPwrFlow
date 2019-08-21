@@ -305,7 +305,10 @@ if iter==0
     for g in G
         del_V[2*g-1,1]=V_rm[g,1]
         del_V[2*g,1]=V_rm[g+3,1]
-
+        #=for i 1:3
+            del_V[i,1]=V_rm[i,1]
+            del_V[i+3,1]=V_rm[i+3,1]
+        end=#
     end
     newdel_V=del_v+del_V
     newdel_V=del_V
