@@ -33,7 +33,7 @@ ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
 zb_re=zeros(5,5)
 
 zb_im=zeros(5,5)
-zb_im=complex(yb_im);
+zb_im=complex(zb_im);
 
 z_RE=ones(5,5)
 
@@ -85,8 +85,8 @@ iter=0
 
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
-G=collect(1:(4*6))    #number of generator
-j=collect(1:(8*6))
+G=collect(1:(4))    #number of generator
+j=collect(1:(8))
 L=collect(1:4)    #number of load
 Y=ones(4,4)
 J=zeros(4,4)
@@ -137,10 +137,10 @@ for i=1:3
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
 end
-#=for i=1:4
+for i=1:4
     Pg[ct6[i,2]]=ct6[i,3]
     Qg[ct6[i,2]]=ct6[i,4]
-end=#
+end
 
 P_sp=broadcast(-,Pg,Pl)'
 Q_sp=broadcast(-,Qg,Ql)'
@@ -154,6 +154,7 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
+V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1] imag(E_k)[2,1] imag(E_k)[3,1] imag(E_k)[4,1]]'
 if iter==0
     for g in G
         α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
@@ -270,7 +271,7 @@ if iter==0
               end
        end
 
-   end=#
+    end=#
     for a in G
         for b in G
             if a!==b && Ql[a]!==0
@@ -321,11 +322,13 @@ if iter==0
        tete[g]=atand(V_rm[g+3,1]/V_rm[g,1])
     end
 end
- # V_new=complex(zeros(12,1))
-  #=for i 1:12
-    V_new[2*i-1,1]=V_rm[i,1]
-    V_new[2*i,1]=V_rm[i+3,1]
-  end=#
+
+
+# V_new=complex(zeros(12,1))
+#=for i 1:12
+V_new[2*i-1,1]=V_rm[i,1]
+V_new[2*i,1]=V_rm[i+3,1]
+end=#
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
 #V_rm=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]'
@@ -341,7 +344,7 @@ end
 #V_rm_k[i]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
 #V_i=zeros(6,1)
 #=for i 1:3
-    V_I[i,1]=V_i_R_S[i,1]
+V_I[i,1]=V_i_R_S[i,1]
 end
 del_V=zeros(3*size(PowerModels.component_table(data, "bus", "bus_type"),1)),1)
 for i 1:(size(PowerModels.component_table(data, "bus", "bus_type"),1))
@@ -350,4 +353,4 @@ for i 1:(size(PowerModels.component_table(data, "bus", "bus_type"),1))
      end
 end=#
 
-++println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
+println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
