@@ -156,6 +156,34 @@ B_y=imag(Ybus)
 
 V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1] imag(E_k)[2,1] imag(E_k)[3,1] imag(E_k)[4,1]]'
 
+for a in G
+    for b in G
+        if a!==b && Ql[a]!==0
+            c=2*b-1
+            J[a,c]=imag(Ybus[a,b])-α_k[a,a]-((real(Ybus[a,b]))*(V_rm[a+3,1]/V_rm[a,1]))
+            J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
+            a=a+1
+            J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-((real(Ybus[a-1,b]))*(V_rm[a+2,1]/V_rm[a-1,1]))
+            J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
+            a=a-1
+
+
+        end
+        if a==b
+            J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])*(V_rm[a+3,1]/V_rm[a,1]))
+            J[2*a-1,b+1]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+            a=a+1
+            J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])*(V_rm[a+2,1]/V_rm[a-1,1]))
+            J[a,b+1]=-V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+            a=a-1
+            delI_m[a]=V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+            delI_r[a]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+
+        end
+    end
+
+end
+
 
 if iter==0
     for g in G
@@ -278,40 +306,37 @@ if iter==0
         for b in G
             if a!==b && Ql[a]!==0
                 c=2*b-1
-                J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_rm[a+3,1]/V_rm[a,1]))
-                J[a,c+4]=real(Ybus[a,b])-β_k[a,a]
+                J[a,c]=imag(Ybus[a,b])-α_k[a,a]-((real(Ybus[a,b]))*(V_rm[a+3,1]/V_rm[a,1]))
+                J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
                 a=a+1
-                J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_rm[a+2,1]/V_rm[a-1,1]))
-                J[a,c+4]=real(Ybus[a-1,b])-α_k[a-1,a-1]
+                J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-((real(Ybus[a-1,b]))*(V_rm[a+2,1]/V_rm[a-1,1]))
+                J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
                 a=a-1
-
 
             end
             if a==b
-                J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_rm[a+3,1]/V_rm[a,1])))
-                J[2*a-1,b+4]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+                J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])*(V_rm[a+3,1]/V_rm[a,1]))
+                J[2*a-1,b+1]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
                 a=a+1
-                J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])V_rm[a+2,1]/V_rm[a-1,1])))
-                J[a,b+4]=-V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+                J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])*(V_rm[a+2,1]/V_rm[a-1,1]))
+                J[a,b+1]=-V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
                 a=a-1
                 delI_m[a]=V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
                 delI_r[a]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
-                del_I[(2*a-1),1]=delI_m[g]
-                del_I[(2*a),1]=delI_r[g]
 
             end
         end
 
     end
  del_v\del_I
-    for g in G
+    #=for g in G
         del_V[2*g-1,1]=V_rm[g,1]
         del_V[2*g+2,1]=V_rm[g+3,1]
         #=for i 1:3
             del_V[i,1]=V_rm[i,1]
             del_V[i+3,1]=V_rm[i+3,1]
         end=#
-    end
+    end=#
     newdel_V=del_v+del_V
     newdel_V=del_V
     for g in G
@@ -320,11 +345,10 @@ if iter==0
         end
     end
     for g=1:4
-       E_k[g]=V_rm[g,1]+1*im(V_rm[g+3,1])
-       tete[g]=atand(V_rm[g+3,1]/V_rm[g,1])
+       E_k[g]=V_rm[g,1]+(1*im(V_rm[g+4,1]))
+       tete[g]=atand(V_rm[g+4,1]/V_rm[g,1])
     end
 end
-
 
 # V_new=complex(zeros(12,1))
 #=for i 1:12
