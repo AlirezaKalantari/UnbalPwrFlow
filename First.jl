@@ -114,7 +114,7 @@ Ql=zeros(size(L))
 Q_sp=zeros(size(G))
 Q_cal=zeros(size(G))
 delQ=zeros(size(G))
-
+tete=zeros(4,1)
 
 #=for l in L
     Pl[l]=100*l
@@ -345,7 +345,7 @@ if iter==0
         end
     end
     for g=1:4
-       E_k[g]=V_rm[g,1]+(1*im(V_rm[g+4,1]))
+       E_k[g]=V_rm[g,1]+((V_rm[g+4,1])*im)
        tete[g]=atand(V_rm[g+4,1]/V_rm[g,1])
     end
 end
