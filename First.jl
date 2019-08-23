@@ -336,4 +336,18 @@ end
 #    p[l,l]=[-vrm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)]
 #end
 
-+println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
+#ABC TYPE
+
+#V_rm_k[i]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
+#V_i=zeros(6,1)
+#=for i 1:3
+    V_I[i,1]=V_i_R_S[i,1]
+end
+del_V=zeros(3*size(PowerModels.component_table(data, "bus", "bus_type"),1)),1)
+for i 1:(size(PowerModels.component_table(data, "bus", "bus_type"),1))
+     for j 1:6
+         del_V[6*(i-1)+j,1]=V_I[j,1]
+     end
+end=#
+
+++println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
