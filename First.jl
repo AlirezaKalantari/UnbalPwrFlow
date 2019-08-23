@@ -154,9 +154,9 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
-
-
 V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1] imag(E_k)[2,1] imag(E_k)[3,1] imag(E_k)[4,1]]'
+
+
 if iter==0
     for g in G
         α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+4,1]^2)-2*V_rm[g+4,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+4,1]^2+V_rm[g,1]^2)^2)
@@ -172,8 +172,8 @@ if iter==0
         delQ[g]=Q_sp[g]-Q_cal[g]
 
 
-        delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
-        delI_m[g]=(delP[g]*V_rm[g+3,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
+        delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+4,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
+        delI_m[g]=(delP[g]*V_rm[g+4,1]+V_rm[g,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
 
         del_I[(2*g-1),1]=delI_r[g]
         del_I[(2*g),1]=delI_m[g]
@@ -186,18 +186,18 @@ if iter==0
             if a==b
 
                 J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
-                J[2*a-1,b+4]=real(Ybus[a,a])-β_k[a,a]
+                J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
                 a=a+1
                 J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
-                J[a,b+4]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
+                J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
                 a=a-1
              elseif a!==b
                 c=2*b-1
                 J[a,c]=imag(Ybus[a,b])
-                J[a,c+4]=real(Ybus[a,b])
+                J[a,c+1]=real(Ybus[a,b])
                 a=a+1
                 J[a,c]=real(Ybus[a-1,b])
-                J[a,c+4]=-imag(Ybus[a-1,b])
+                J[a,c+1]=-imag(Ybus[a-1,b])
                 a=a-1
 
 
