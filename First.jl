@@ -154,17 +154,19 @@ V_mk=imag(E_k)
 G_y=real(Ybus)
 B_y=imag(Ybus)
 
+
+
 V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1] imag(E_k)[2,1] imag(E_k)[3,1] imag(E_k)[4,1]]'
 if iter==0
     for g in G
-        α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
-        β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3,]^2)+2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
+        α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+4,1]^2)-2*V_rm[g+4,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+4,1]^2+V_rm[g,1]^2)^2)
+        β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+4,]^2)+2*V_rm[g+4,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+4,1]^2+V_rm[g,1]^2)^2)
         δ_k=α_k
         γ_k=-β_k
     end
     for g in G
-        P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3,1]*imag(I_cal)[g]'
-        Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
+        P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+4,1]*imag(I_cal)[g]'
+        Q_cal[g]=V_rm[g+4,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
         delP[g]=P_sp[g]-P_cal[g]
         delQ[g]=Q_sp[g]-Q_cal[g]
