@@ -372,8 +372,9 @@ end=#
 #=for i 1:3
 V_I[i,1]=V_i_R_S[i,1]
 end
-del_V=zeros(3*size(PowerModels.component_table(data, "bus", "bus_type"),1)),1)
-for i 1:(size(PowerModels.component_table(data, "bus", "bus_type"),1))
+a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+del_V=zeros(3*a,1)
+for i 1:a
      for j 1:6
          del_V[6*(i-1)+j,1]=V_I[j,1]
      end
