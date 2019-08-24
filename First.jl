@@ -239,21 +239,21 @@ if iter==0
     #for b in G
     #if a!==b && Ql[a]!==0
     #    c=2*b-1
-    #    J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_rm[a+3,1]/V_rm[a,1]))
+    #    J[a,c]=imag(Ybus[a,b])-α_k[a,a]-(real(Ybus[a,b])(V_rm[a+4,1]/V_rm[a,1]))
     #    J[a,c+4]=real(Ybus[a,b])-β_k[a,a]
     #    a=a+1
-    #    J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_rm[a+2,1]/V_rm[a+2]))
+    #    J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-(real(Ybus[a-1,b])(V_rm[a+3,1]/V_rm[a+3]))
     #    J[a,c+4]=real(Ybus[a-1,b])-α_k[a-1,a-1]
     #    a=a-1
     #if a==b
-    #    J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_rm[a+3,1]/V_rm[a])))
-    #    J[2*a-1,b+4]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+    #    J[2*a-1,b]=real(Ybus[a,a])-β_k[a,a]-((imag(Ybus[a,b])-α_k[a,a])(V_rm[a+4,1]/V_rm[a])))
+    #    J[2*a-1,b+4]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+4,1]^2)
     #    a=a+1
     #    J[a,b]=J[2*a-1,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]+((imag(Ybus[a-1,b])+β_k[a-1,a-1])(V_rm[a+2,1]/V_rm[a+2,1])))
-    #    J[a,b+4]=-V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+    #    J[a,b+4]=-V_rm[a+4,1]/(V_rm[a,1]^2+V_rm[a+4,1]^2)
     #    a=a-1
-    #    delI_m[a]=V_rm[a+3,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
-    #    delI_r[a]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+3,1]^2)
+    #    delI_m[a]=V_rm[a+4,1]/(V_rm[a,1]^2+V_rm[a+4,1]^2)
+    #    delI_r[a]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+4,1]^2)
     #    del_I[(2*a-1),1]=delI_r[g]
     #    del_I[(2*a),1]=delI_m[g]
 
@@ -262,21 +262,21 @@ if iter==0
     #end
 
     #=  for g in G
-           α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rk[g,1]^2)^2)
-           β_k[g,g]=(Q_sp[g]*(V_rk[g,1]^2-V_rm[g+3,1]^2)+2*V_rm[g+3,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rk[g,1]^2)^2)
+           α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+4,1]^2)-2*V_rm[g+4,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+4,1]^2+V_rk[g,1]^2)^2)
+           β_k[g,g]=(Q_sp[g]*(V_rk[g,1]^2-V_rm[g+4,1]^2)+2*V_rm[g+4,1]*V_rk[g,1]*P_sp[g])/((V_rm[g+4,1]^2+V_rk[g,1]^2)^2)
            δ_k=α_k
            γ_k=-β_k
 
 
        end
         for g in G
-           P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3,1]*imag(I_cal)[g]'
-           Q_cal[g]=V_rm[g+3,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
+           P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+4,1]*imag(I_cal)[g]'
+           Q_cal[g]=V_rm[g+4,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
            delP[g]=P_sp[g]-P_cal[g]
            delQ[g]=Q_sp[g]-Q_cal[g]
-           delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
-           delI_m[g]=(delP[g]*V_rm[g+3,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
+           delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+4,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
+           delI_m[g]=(delP[g]*V_rm[g+4,1]+V_rm[g,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
            del_I[(2*g-1),1]=delI_r[g]
            del_I[(2*g),1]=delI_m[g]
        end
@@ -368,9 +368,9 @@ end=#
 #ABC TYPE
 
 #V_rm_k[i]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
-#V_i=zeros(6,1)
+#V_I=zeros(6,1)
 #=for i 1:3
-V_I[i,1]=V_i_R_S[i,1]
+
 end
 a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
 del_V=zeros(3*a,1)
