@@ -277,8 +277,8 @@ if iter==0
            delQ[g]=Q_sp[g]-Q_cal[g]
            delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+4,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
            delI_m[g]=(delP[g]*V_rm[g+4,1]+V_rm[g,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
-           del_I[(2*g-1),1]=delI_r[g]
-           del_I[(2*g),1]=delI_m[g]
+           del_I[(2*g-1),1]=delI_m[g]
+           del_I[(2*g),1]=delI_r[g]
        end
         for a in G
             for b in G
@@ -302,7 +302,7 @@ if iter==0
        end
 
     end=#
-    for a in G
+    #=for a in G
         for b in G
             if a!==b && Ql[a]!==0
                 c=2*b-1
@@ -327,7 +327,7 @@ if iter==0
             end
         end
 
-    end
+    end=#
  del_v\del_I
     #=for g in G
         del_V[2*g-1,1]=V_rm[g,1]
