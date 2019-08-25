@@ -203,8 +203,8 @@ if iter==0
         delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+4,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
         delI_m[g]=(delP[g]*V_rm[g+4,1]+V_rm[g,1]*delQ[g])/(V_rm[g+4,1]^2+V_rm[g,1]^2)
 
-        del_I[(2*g-1),1]=delI_r[g]
-        del_I[(2*g),1]=delI_m[g]
+        del_I[(2*g-1),1]=delI_m[g]
+        del_I[(2*g),1]=delI_r[g]
 
 
 
