@@ -163,7 +163,7 @@ for a in G
             J[a,c]=imag(Ybus[a,b])-α_k[a,a]-((real(Ybus[a,b]))*(V_rm[a+4,1]/V_rm[a,1]))
             J[a,c+1]=real(Ybus[a,b])-β_k[a,a]
             a=a+1
-            J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-((real(Ybus[a-1,b]))*(V_rm[a+3,1]/V_rm[a,1]))
+            J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-((real(Ybus[a-1,b]))*(V_rm[a+4,1]/V_rm[a,1]))
             J[a,c+1]=real(Ybus[a-1,b])-α_k[a-1,a-1]
             a=a-1
 
