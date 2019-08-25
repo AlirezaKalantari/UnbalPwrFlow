@@ -254,8 +254,8 @@ if iter==0
     #    a=a-1
     #    delI_m[a]=V_rm[a+4,1]/(V_rm[a,1]^2+V_rm[a+4,1]^2)
     #    delI_r[a]=V_rm[a,1]/(V_rm[a,1]^2+V_rm[a+4,1]^2)
-    #    del_I[(2*a-1),1]=delI_r[g]
-    #    del_I[(2*a),1]=delI_m[g]
+    #    del_I[(2*a-1),1]=delI_m[g]
+    #    del_I[(2*a),1]=delI_r[g]
 
 
     #end
