@@ -334,7 +334,7 @@ if iter==0
         del_V[2*g+2,1]=V_rm[g+3,1]
         #=for i 1:3
             del_V[i,1]=V_rm[i,1]
-            del_V[i+3,1]=V_rm[i+4,1]
+            del_V[i+3,1]=V_rm[i+3,1]
         end=#
     end=#
     newdel_V=del_v+del_V
@@ -353,7 +353,7 @@ end
 # V_new=complex(zeros(12,1))
 #=for i 1:12
 V_new[2*i-1,1]=V_rm[i,1]
-V_new[2*i,1]=V_rm[i+4,1]
+V_new[2*i,1]=V_rm[i+3,1]
 end=#
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
