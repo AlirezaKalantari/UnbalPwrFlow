@@ -370,7 +370,7 @@ end=#
 #V_rm_k[i]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
 #V_I=zeros(6,1)
 #=for i 1:3
-
+    V_I[i,1]=v_rm_k[i,1]
 end
 a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
 del_V=zeros(3*a,1)
