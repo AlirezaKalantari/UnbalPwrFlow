@@ -351,7 +351,7 @@ if iter==0
 end
 
 # V_new=complex(zeros(24,1))
-#=for i 1:12
+#=for i 1:14
 V_new[2*i-1,1]=V_rm[i,1]
 V_new[2*i,1]=V_rm[i+3,1]
 end=#
@@ -361,8 +361,8 @@ end=#
 #o[l,l]=zeros(3,3)
 #p[l,l]=zeros(3,3)
 #for i 1:3
-#    o[l,l]=[v_rm[l,1]/(V_rm[l,1]^2+V_rm[l+3,1]^2)]
-#    p[l,l]=[-vrm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)]
+#    o[l,l]=v_rm[l,1]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
+#    p[l,l]=-vrm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
 #end
 
 #ABC TYPE
