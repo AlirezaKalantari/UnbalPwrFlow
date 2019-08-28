@@ -353,9 +353,11 @@ end
 # V_new=complex(zeros(24,1))
 #=for i 1:12
     for j 1:3
-        V_new[j,1]=V_rm_k[6*(i-1)+j,1]
+        V_new[6*(i-1)+j,1]=V_rm_k[j,1]
     end
-    
+    for k 1:3
+        V_new[6*i+k-3,1]=V_rm_k[k+3,1]
+    end
 end=#
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
