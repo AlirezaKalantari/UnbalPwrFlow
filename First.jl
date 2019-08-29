@@ -357,7 +357,7 @@ end
 
 #=for i 1:a
     #=for i 1:6
-        V_I[i,1]=v_rm_k[i,1]
+        V_I[i,1]=V_rm_k[i,1]
     end
     for j 1:3
         V_new[6*(i-1)+j,1]=V_I[j,1]
@@ -365,7 +365,10 @@ end
     for k 1:3
         V_new[6*i+k-3,1]=V_I[k+3,1]
     end
-    
+    for l 1:6
+        V_rm_k[l,1]=VRM[l,1]
+    end
+
 end=#
 #V_ra=[V_rka V_rkb V_rkc]
 #V_ma=[V_mka V_mkb V_mkc]
