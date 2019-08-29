@@ -354,6 +354,10 @@ end
 
 #V_rm_k[i]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
 #V_I=zeros(6,1)
+#VRM=zeros(6,1)
+#=for u 1:a
+    VRM[u,1]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
+end=#
 
 #=for i 1:a
     #=for i 1:6
