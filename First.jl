@@ -349,9 +349,9 @@ if iter==0
        tete[g]=atand(V_rm[g+3,1]/V_rm[g,1])
     end
 end
-
+#a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
 # V_new=complex(zeros(24,1))
-#=for i 1:12
+#=for i 1:a
     for j 1:3
         V_new[6*(i-1)+j,1]=V_rm_k[j,1]
     end
