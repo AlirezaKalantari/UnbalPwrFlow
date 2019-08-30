@@ -394,5 +394,6 @@ for i 1:a
          del_V[6*(i-1)+j,1]=V_I[j,1]
      end
 end=#
+#V_rm=V_new
 
 println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
