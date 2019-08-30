@@ -398,7 +398,18 @@ end=#
 #ABC TYPE
 
 
+<<<<<<< HEAD
 
 #V_rm=V_new=#
+=======
+a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+del_V=zeros(3*a,1)
+for i 1:a
+     for j 1:6
+         del_V[6*(i-1)+j,1]=V_new[j,1]
+     end
+end=#
+#V_rm=V_new
+>>>>>>> 122e2b96a4d96eb692115ecf76fe011cbb5f307f
 
 println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
