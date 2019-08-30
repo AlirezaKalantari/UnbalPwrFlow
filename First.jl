@@ -156,6 +156,8 @@ B_y=imag(Ybus)
 
 V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1] imag(E_k)[2,1] imag(E_k)[3,1] imag(E_k)[4,1]]'
 
+#V_rm=V_new
+
 for a in G
     for b in G
         if a!==b && Ql[a]!==0
@@ -337,6 +339,15 @@ if iter==0
             del_V[i+3,1]=V_rm[i+3,1]
         end=#
     end=#
+
+    #=a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+    del_V=zeros(3*a,1)
+    for i 1:a
+         for j 1:6
+             del_V[6*(i-1)+j,1]=V_new[j,1]
+         end
+    end=#
+
     newdel_V=del_v+del_V
     newdel_V=del_V
     for g in G
@@ -387,13 +398,7 @@ end=#
 #ABC TYPE
 
 
-a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
-del_V=zeros(3*a,1)
-for i 1:a
-     for j 1:6
-         del_V[6*(i-1)+j,1]=V_I[j,1]
-     end
-end=#
-#V_rm=V_new
+
+#V_rm=V_new=#
 
 println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
