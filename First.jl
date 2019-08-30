@@ -391,7 +391,7 @@ a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
 del_V=zeros(3*a,1)
 for i 1:a
      for j 1:6
-         del_V[6*(i-1)+j,1]=V_I[j,1]
+         del_V[6*(i-1)+j,1]=V_new[j,1]
      end
 end=#
 #V_rm=V_new
