@@ -381,7 +381,7 @@ end=#
 #p[l,l]=zeros(3,3)
 #for i 1:3
 #    o[l,l]=v_rm[l,1]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
-#    p[l,l]=-vrm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
+#    p[l,l]=-v_rm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
 #end
 
 #ABC TYPE
