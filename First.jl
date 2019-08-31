@@ -158,6 +158,7 @@ V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1]
 
 #V_rm=V_new
 #G=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+##V_rm[a+3]=V[a]
 for a in G
     for b in G
         if a!==b && Ql[a]!==0
