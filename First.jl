@@ -358,9 +358,9 @@ if iter==0
          iter=1
         end
     end
-    for g=1:3
-       E_k[g]=V_rm[g,1]+((V_rm[g+3,1])*im)
-       tete[g]=atand(V_rm[g+3,1]/V_rm[g,1])
+    for g=1:4
+       E_k[g]=V_rm[g,1]+((V_rm[g+4,1])*im)
+       tete[g]=atand(V_rm[g+4,1]/V_rm[g,1])
     end
 end
 #a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
@@ -399,12 +399,8 @@ end=#
 #end
 
 #ABC TYPE
-
-
-<<<<<<< HEAD
-
 #V_rm=V_new=#
-=======
+
 a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
 del_V=zeros(3*a,1)
 for i 1:a
@@ -413,6 +409,6 @@ for i 1:a
      end
 end=#
 #V_rm=V_new
->>>>>>> 122e2b96a4d96eb692115ecf76fe011cbb5f307f
+
 
 println("salam saeed jan, I travel to Tehran this night and start it the day ahead")
