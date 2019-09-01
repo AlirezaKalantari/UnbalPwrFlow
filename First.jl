@@ -401,7 +401,7 @@ end=#
 #ABC TYPE
 #V_rm=V_new=#
 
-a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+#=a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
 del_V=zeros(3*a,1)
 for i 1:a
      for j 1:6
