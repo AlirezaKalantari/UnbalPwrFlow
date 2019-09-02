@@ -91,7 +91,7 @@ L=collect(1:4)    #number of load
 Y=ones(4,4)
 J=zeros(4,4)
 E_k=[1+0im ,1+0im ,1+0im ,1+0im] #E_k=ones(a,1); #E_k=E_k(complex)
-I_cal=[1+0im ,1+0im ,1+0im ,1+0im]
+I_cal=[1+0im ,1+0im ,1+0im ,1+0im]  #I_cal=ones(a,1);   ##I_cal=I_cal(complex)
 α_k=zeros(4,4)
 β_k=zeros(4,4)
 γ_k=zeros(4,4)
