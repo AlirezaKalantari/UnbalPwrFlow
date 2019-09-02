@@ -114,7 +114,7 @@ Ql=zeros(size(L))
 Q_sp=zeros(size(G))
 Q_cal=zeros(size(G))
 delQ=zeros(size(G))
-tete=zeros(4,1)
+tete=zeros(4,1)  #tete=zeros(a,1)
 
 #=for l in L
     Pl[l]=100*l
