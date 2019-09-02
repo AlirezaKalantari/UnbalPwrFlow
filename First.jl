@@ -161,7 +161,7 @@ V_rm=[real(E_k)[1,1] real(E_k)[2,1] real(E_k)[3,1] real(E_k)[4,1] imag(E_k)[1,1]
 ##V_rm[a+3]=V[a]
 #for v_rm[..]=v_rm[a+3] and for v_rm[...]=v_new
 # all V_rm[a+3] must be change to [a+4]
-for a in G       #all [a+3] must change to [a+4]
+for a in G       #all [a+3] must change to [a+4] #Y_bus must change
     for b in G
         if a!==b && Ql[a]!==0
             c=2*b-1
@@ -214,7 +214,7 @@ if iter==0     #in this part too
 
 
     end
-    for a in G
+    for a in G      #J must be 9*a*a
         for b in G
             if a==b
 
