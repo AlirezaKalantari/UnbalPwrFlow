@@ -397,6 +397,11 @@ end=#
 #    o[l,l]=v_rm[l,1]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
 #    p[l,l]=-v_rm[l,l]/(V_rm[l,1]^2+V_rm[l+3,1]^2)
 #end
+###for i 1:4
+###    o[l,l]=v_rm[l,1]/(V_rm[l,1]^2+V_rm[l+4,1]^2)
+###   p[l,l]=-v_rm[l,l]/(V_rm[l,1]^2+V_rm[l+4,1]^2)
+###end
+
 
 #ABC TYPE
 #V_rm=V_new=#
