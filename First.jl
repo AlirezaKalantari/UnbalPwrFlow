@@ -90,7 +90,7 @@ j=collect(1:(8))
 L=collect(1:4)    #number of load
 Y=ones(4,4)
 J=zeros(4,4)
-E_k=[1+0im ,1+0im ,1+0im ,1+0im]
+E_k=[1+0im ,1+0im ,1+0im ,1+0im] #E_k=ones(a,1);
 I_cal=[1+0im ,1+0im ,1+0im ,1+0im]
 α_k=zeros(4,4)
 β_k=zeros(4,4)
