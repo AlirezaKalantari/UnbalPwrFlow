@@ -343,7 +343,8 @@ if iter==0     #in this part too
         end=#
     end=#
 
-    #=a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+    #=
+    (PowerModels.component_table(data, "bus", "bus_type"),1)
     del_V=zeros(3*a,1)
     for i 1:a
          for j 1:6
@@ -363,7 +364,7 @@ if iter==0     #in this part too
        tete[g]=atand(V_rm[g+4,1]/V_rm[g,1])
     end
 end
-#a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+#a=size(PowerModels.component_table(data, "bus", "bus_type"),1)
 # V_new=complex(zeros(24,1))
 
 #V_rm_k[i]=[V_rka V_rkb V_rkc V_mka V_mkb V_mkc]
@@ -406,7 +407,7 @@ end=#
 #ABC TYPE
 #V_rm=V_new=#
 
-#=a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+#=a=size(PowerModels.component_table(data, "bus", "bus_type"),1)
 del_V=zeros(3*a,1)
 for i 1:a
      for j 1:6
