@@ -36,3 +36,7 @@ zb_re=zeros(a,a)
 
 zb_im=zeros(a,a)
 zb_im=complex(zb_im);
+
+z_RE=ones(a,a)
+
+q=collect(1:(a+1))
