@@ -32,3 +32,7 @@ ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
 
 
 a=size(PowerModels.component_table(data, "bus", "bus_type"),1)
+zb_re=zeros(a,a)
+
+zb_im=zeros(a,a)
+zb_im=complex(zb_im);
