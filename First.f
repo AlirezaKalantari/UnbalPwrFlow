@@ -31,4 +31,4 @@ ct5=PowerModels.component_table(data, "load", ["load_bus","pd","qd"])
 ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
 
 
-a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
+a=size(PowerModels.component_table(data, "bus", "bus_type"),1)
