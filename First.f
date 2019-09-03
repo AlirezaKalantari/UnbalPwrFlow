@@ -29,3 +29,6 @@ ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 ct5=PowerModels.component_table(data, "load", ["load_bus","pd","qd"])
 ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
+
+
+a=size(PowerModels.component_table(data, "bus", "bus_type"),1))
