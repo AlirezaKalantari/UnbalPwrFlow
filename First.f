@@ -50,11 +50,14 @@ for l=1:a
     for m=1:a
         if zb_re[l,m]!==0
             zb_re[m,l]=zb_re[l,m]
-
         end
     end
 end
 
 for l=1:a
     zb_re[l,l]=-(zb_re[l,1]+zb_re[l,2]+zb_re[l,3]+zb_re[l,4]+zb_re[l,5])
+end
+
+for g in q
+    zb_im[ct4[g,2],ct4[g,3]]=ct4[g,5]
 end
