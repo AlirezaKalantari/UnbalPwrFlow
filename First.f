@@ -74,3 +74,6 @@ end
 for l=1:a
     zb_im[l,l]=-(zb_im[l,1]+zb_im[l,2]+zb_im[l,3]+zb_im[l,4]+zb_im[l,5])
 end
+
+ZBUS=zb_re+(1im*zb_im)
+YBUS=(ZBUS)^-1
