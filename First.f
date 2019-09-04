@@ -40,3 +40,8 @@ zb_im=complex(zb_im);
 z_RE=ones(a,a)
 
 q=collect(1:(a+1))
+
+for g in q
+        zb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
+
+end
