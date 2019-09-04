@@ -38,49 +38,40 @@ zb_im=complex(zb_im);
 z_RE=ones(5,5)
 
 q=collect(1:6)
-
 for g in q
-        zb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
+        yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
 
 end
 
-for l=1:5
-    for m=1:5
-        if zb_re[l,m]!==0
-            zb_re[m,l]=zb_re[l,m]
-
+for l=1:a
+    for m=1:a
+        if yb_re[l,m]!==0
+            yb_re[m,l]=yb_re[l,m]
         end
     end
 end
 
-for l=1:5
-    zb_re[l,l]=-(zb_re[l,1]+zb_re[l,2]+zb_re[l,3]+zb_re[l,4]+zb_re[l,5])
+for l=1:a
+    yb_re[l,l]=-(yb_re[l,1]+yb_re[l,2]+yb_re[l,3]+yb_re[l,4]+yb_re[l,5])
 end
-
 
 for g in q
-        zb_im[ct4[g,2],ct4[g,3]]=ct4[g,5]
-
+    yb_im[ct4[g,2],ct4[g,3]]=-imag(1/(ct4[g,4]+1im*ct4[g,5]))
 end
 
-for l=1:5
-    for m=1:5
-        if zb_im[l,m]!==0
-            zb_im[m,l]=zb_im[l,m]
-
+for l=1:a
+    for m=1:a
+        if yb_im[l,m]!==0
+            yb_im[m,l]=yb_im[l,m]
         end
     end
 end
 
-for l=1:5
-        zb_im[l,l]=-(zb_im[l,1]+zb_im[l,2]+zb_im[l,3]+zb_im[l,4]+zb_im[l,5])
+for l=1:a
+    yb_im[l,l]=-(yb_im[l,1]+yb_im[l,2]+yb_im[l,3]+yb_im[l,4]+yb_im[l,5])
 end
 
-zb_re #y_bus
-1im*zb_im
-ZBUS=zb_re+(1im*zb_im)
-YBUS=(ZBUS)^-1
-
+YBUS=yb_re+(1im*yb_im)
 iter=0
 
 PV_bus=zeros(1,1)
