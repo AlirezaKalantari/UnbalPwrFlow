@@ -47,7 +47,7 @@ z_RE=ones(a,a)
 q=collect(1:(a+1))
 
 for g in q
-        yb_re[ct4[g,2],ct4[g,3]]=(1/(ct4[g,4]+1im*ct4[g,5]))
+        yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
 
 end
 
@@ -60,7 +60,7 @@ for l=1:a
 end
 
 for l=1:a
-    yb_re[l,l]=(yb_re[l,1]+yb_re[l,2]+yb_re[l,3]+yb_re[l,4]+yb_re[l,5])
+    yb_re[l,l]=-(yb_re[l,1]+yb_re[l,2]+yb_re[l,3]+yb_re[l,4]+yb_re[l,5])
 end
 
 for g in q
@@ -76,7 +76,7 @@ for l=1:a
 end
 
 for l=1:a
-    yb_im[l,l]=(yb_im[l,1]+yb_im[l,2]+yb_im[l,3]+yb_im[l,4]+yb_im[l,5])
+    yb_im[l,l]=-(yb_im[l,1]+yb_im[l,2]+yb_im[l,3]+yb_im[l,4]+yb_im[l,5])
 end
 
 YBUS=yb_re+(1im*yb_im)
