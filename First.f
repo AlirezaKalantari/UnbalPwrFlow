@@ -54,3 +54,7 @@ for l=1:a
         end
     end
 end
+
+for l=1:a
+    zb_re[l,l]=-(zb_re[l,1]+zb_re[l,2]+zb_re[l,3]+zb_re[l,4]+zb_re[l,5])
+end
