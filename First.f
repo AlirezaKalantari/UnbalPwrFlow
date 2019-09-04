@@ -45,3 +45,12 @@ for g in q
         zb_re[ct4[g,2],ct4[g,3]]=ct4[g,4]
 
 end
+
+for l=1:a
+    for m=1:a
+        if zb_re[l,m]!==0
+            zb_re[m,l]=zb_re[l,m]
+
+        end
+    end
+end
