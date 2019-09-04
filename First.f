@@ -61,3 +61,12 @@ end
 for g in q
     zb_im[ct4[g,2],ct4[g,3]]=ct4[g,5]
 end
+
+for l=1:a
+    for m=1:a
+        if zb_im[l,m]!==0
+            zb_im[m,l]=zb_im[l,m]
+
+        end
+    end
+end
