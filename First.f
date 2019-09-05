@@ -88,15 +88,16 @@ for i=(1:size(ct3,1))
       d[1,1]=b-1
           end
 end
+d=d[1,1]
 
 iter=0
 
 
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
-G=collect(1:(4))    #number of generator #G=collect(1:(24))
-j=collect(1:(8))
-L=collect(1:4)    #number of load
+G=collect(1:d)    #number of generator #G=collect(1:(24))
+j=collect(1:(2*d))
+L=collect(1:d)    #number of load
 Y=ones(4,4)
 J=zeros(4,4)
 E_k=[1+0im ,1+0im ,1+0im ,1+0im] #E_k=ones(a,1); #E_k=E_k(complex)
