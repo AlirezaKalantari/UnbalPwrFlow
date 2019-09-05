@@ -25,7 +25,7 @@ display(data)
 PowerModels.print_summary(data)
 ct1 =PowerModels.component_table(data, "bus", "bus_type")'
 ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
-ct3=PowerModels.component_table(data, "gen", ["pmin", "pmax", "qmin", "qmax"])
+ct3=PowerModels.component_table(data, "gen", ["pg","pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 ct5=PowerModels.component_table(data, "load", ["load_bus","pd","qd"])
 ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
@@ -80,9 +80,17 @@ for l=1:a
 end
 
 YBUS=yb_re+(1im*yb_im)
+d=size(ct3,1)*ones(1,1)
 
+for i=(1:size(ct3,1))
+  b=size(ct3,1)
+    if ct3[i,2]!==0.00
+      d[1,1]=b-1
+          end
+end
 
 iter=0
+
 
 PV_bus=zeros(1,1)
 Iter=collect(1:1000)
