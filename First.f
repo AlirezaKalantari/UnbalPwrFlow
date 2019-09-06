@@ -88,7 +88,7 @@ for i=(1:size(ct3,1))
       d[1,1]=b-1
           end
 end
-d=d[1,1]
+real_pg=d[1,1]
 
 iter=0
 
@@ -122,4 +122,4 @@ Ql=zeros(size(L))
 Q_sp=zeros(size(G))
 Q_cal=zeros(size(G))
 delQ=zeros(size(G))
-tete=zeros(a,1) 
+tete=zeros(a,1)
