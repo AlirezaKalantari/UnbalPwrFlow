@@ -128,3 +128,8 @@ for i=1:(size(ct5,1))
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
 end
+
+for i=1:a
+    Pg[ct6[i,2]]=ct6[i,3]
+    Qg[ct6[i,2]]=ct6[i,4]
+end
