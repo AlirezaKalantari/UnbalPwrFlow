@@ -133,3 +133,6 @@ for i=1:a
     Pg[ct6[i,2]]=ct6[i,3]
     Qg[ct6[i,2]]=ct6[i,4]
 end
+
+P_sp=broadcast(-,Pg,Pl)'
+Q_sp=broadcast(-,Qg,Ql)'
