@@ -48,7 +48,6 @@ q=collect(1:(a+1))
 
 for g in q
         yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
-
 end
 
 for l=1:a
@@ -107,10 +106,10 @@ I_cal=complex(ones(a,1))
 δ_k=zeros(a,a)
 delI_r=zeros(a,1)
 delI_m=zeros(a,1)
-Pg=zeros(size(G))
+Pg=zeros(a)
 Pl=zeros(size(L))
-P_sp=zeros(size(G))
-P_cal=zeros(size(G))
+P_sp=zeros(a)
+P_cal=zeros(a)
 delP=zeros(size(G))
 del_I=zeros((2*a),1)
 del_V=zeros((2*a),1)
@@ -119,7 +118,7 @@ del_v=zeros((2*a),1)
 
 Qg=zeros(size(G))
 Ql=zeros(size(L))
-Q_sp=zeros(size(G))
+Q_sp=zeros(a)
 Q_cal=zeros(size(G))
 delQ=zeros(size(G))
 tete=zeros(a,1)
@@ -136,3 +135,9 @@ end
 
 P_sp=broadcast(-,Pg,Pl)'
 Q_sp=broadcast(-,Qg,Ql)'
+
+for i=1:a
+    if ct1[2,i]==1
+        println("Bus=s")
+    end
+end
