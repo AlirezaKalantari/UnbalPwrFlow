@@ -28,6 +28,9 @@ ct2=PowerModels.component_table(data, "bus", ["vmin", "vmax"])
 ct3=PowerModels.component_table(data, "gen", ["pg","pmin", "pmax", "qmin", "qmax"])
 ct4=PowerModels.component_table(data, "branch", ["f_bus","t_bus","br_r","br_x"])
 ct5=PowerModels.component_table(data, "load", ["load_bus","pd","qd"])
+
+
+
 ct6=PowerModels.component_table(data, "gen", ["gen_bus","pg","qg"])
 
 
@@ -120,13 +123,15 @@ Qg=zeros(a,1)
 Ql=zeros(a,1)
 Q_sp=zeros(a,1)
 Q_cal=zeros(a,1)
-delQ=zeros(size(G))
+delQ=zeros(a,1)
 tete=zeros(a,1)
 
 for i=1:(size(ct5,1))
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
 end
+
+ct6[2,2]= 2
 
 for i=1:a
     Pg[ct6[i,2]]=ct6[i,3]
