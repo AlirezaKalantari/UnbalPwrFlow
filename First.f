@@ -144,25 +144,29 @@ Q_sp=broadcast(-,Qg,Ql)'
 for j=1:1
     h=0
     for i=1:a
+        if ct1[2,i]==1
+            h+=1
+        end
+    end
+    println("Numer of S_Bus is =$h")
+end
+
+for j=1:1
+    h=0
+    for i=1:a
+        if ct1[2,i]==2
+            h+=1
+        end
+    end
+    println("Numer of PV_Bus is =$h")
+end
+
+for j=1:1
+    h=0
+    for i=1:a
         if ct1[2,i]==3
             h+=1
         end
     end
-    println("Numer PV_Bus is =$h")
-end
-
-for i=1:a
-    h=0
-    if ct1[2,i]==2
-        h+=1
-        println("Numer PV_Bus is =$h")
-    end
-end
-
-for i=1:a
-    h=0
-    if ct1[2,i]==3
-        h+=1
-        println("Numer PQ_Bus is =$h")
-    end
+    println("Numer of PQ_Bus is =$h")
 end
