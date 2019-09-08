@@ -95,11 +95,11 @@ real_pg=d[1,1]
 iter=0
 
 
-PV_bus=zeros(1,1)
+#PV_bus=zeros(1,1)
 Iter=collect(1:1000)
-G=collect(1:real_pg)    #number of generator #G=collect(1:(24))
+G=collect(1:a)    #number of generator #G=collect(1:(24))
 j=collect(1:(2*a))
-L=collect(1:real_pg)    #number of load
+L=collect(1:a)    #number of load
 Y=ones(a,a)
 J=zeros(a,a)
 E_k=complex(ones(a,1))
