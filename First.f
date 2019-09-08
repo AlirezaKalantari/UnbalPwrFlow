@@ -158,7 +158,7 @@ for j=1:1
             h+=1
         end
     end
-    println("Numer of PV_Bus is =$h")
+    println("Numer of PQ_Bus is =$h")
 end
 
 for j=1:1
@@ -168,5 +168,5 @@ for j=1:1
             h+=1
         end
     end
-    println("Numer of PQ_Bus is =$h")
+    println("Numer of PV_Bus is =$h")
 end
