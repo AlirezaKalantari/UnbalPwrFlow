@@ -142,7 +142,9 @@ P_sp=broadcast(-,Pg,Pl)'
 Q_sp=broadcast(-,Qg,Ql)'
 
 for i=1:a
+    h=0
     if ct1[2,i]==1
-        println("Bus=s")
+        h+=1
+        println("Numer S_Bus is =$h")
     end
 end
