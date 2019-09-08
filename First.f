@@ -148,3 +148,11 @@ for i=1:a
         println("Numer S_Bus is =$h")
     end
 end
+
+for i=1:a
+    h=0
+    if ct1[2,i]==2
+        h+=1
+        println("Numer PV_Bus is =$h")
+    end
+end
