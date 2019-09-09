@@ -97,16 +97,16 @@ iter=0
 
 #PV_bus=zeros(1,1)
 Iter=collect(1:1000)
-G=collect(1:a)    #number of generator #G=collect(1:(24))
+G=collect(1:a)    #number of generator
 j=collect(1:(2*a))
 L=collect(1:a)    #number of load
 Y=ones(a,a)
 J=zeros(a,a)
-E_k=complex(ones(a,1))
-I_cal=complex(ones(a,1))
-β_k=zeros(a,a)
-γ_k=zeros(a,a)
-δ_k=zeros(a,a)
+E_k=complex(ones(6*a,1))
+I_cal=complex(ones(6*a,1))
+β_k=zeros(3,3)
+γ_k=zeros(3,3)
+δ_k=zeros(3,3)
 delI_r=zeros(a,1)
 delI_m=zeros(a,1)
 Pg=zeros(a,1)
