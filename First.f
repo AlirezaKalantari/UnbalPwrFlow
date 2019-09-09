@@ -118,6 +118,7 @@ del_I=zeros(6*a,1)
 del_V=zeros(6*a,1)
 newdel_V=zeros(6*a,1)
 del_v=zeros(6*a,1)
+V_rm=complex(ones(6*a,1))
 
 Qg=zeros(6*a,1)
 Ql=zeros(6*a,1)
@@ -169,4 +170,9 @@ for j=1:1
         end
     end
     println("Numer of PV_Bus is =$h")
+end
+
+for i=1:(3*a)
+    V_rm[i,1]=real(E_k)[i,1]
+    V_rm[i+3*a,1]=imag(E_k)[i,1]
 end
