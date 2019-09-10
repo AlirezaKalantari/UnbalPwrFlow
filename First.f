@@ -104,7 +104,8 @@ Y=ones(a,a)
 J=zeros(a,a)
 E_k=complex(ones(6*a,1))
 I_cal=complex(ones(6*a,1))
-β_k=zeros(3,3)
+β_k=diagm(0=>[1; 1; 1]) 
+α_k=zeros(3,3)
 γ_k=zeros(3,3)
 δ_k=zeros(3,3)
 delI_r=zeros(6*a,1)
@@ -175,4 +176,12 @@ end
 for i=1:(3*a)
     V_rm[i,1]=real(E_k)[i,1]
     V_rm[i+3*a,1]=imag(E_k)[i,1]
+end
+
+
+#=for g in G
+    α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
+    β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)+2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
+    δ_k=α_k
+    γ_k=-β_k
 end
