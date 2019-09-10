@@ -98,6 +98,7 @@ iter=0
 #PV_bus=zeros(1,1)
 Iter=collect(1:1000)
 G=collect(1:a)    #number of generator
+G_1=G=collect(1:3*a)
 j=collect(1:(2*a))
 L=collect(1:a)    #number of load
 Y=ones(a,a)
@@ -107,7 +108,7 @@ I_cal=complex(ones(6*a,1))
 β_k=diagm(0=>ones(3*a))
 α_k=diagm(0=>ones(3*a))
 γ_k=diagm(0=>ones(3*a))
-δ_k=diagm(0=>ones(3*a)) 
+δ_k=diagm(0=>ones(3*a))
 delI_r=zeros(6*a,1)
 delI_m=zeros(6*a,1)
 Pg=zeros(6*a,1)
@@ -179,9 +180,10 @@ for i=1:(3*a)
 end
 
 
-#=for g in G
-    α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
+for g in G_1
+    #=α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
     β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)+2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
     δ_k=α_k
-    γ_k=-β_k
+    γ_k=-β_k=#
+    
 end
