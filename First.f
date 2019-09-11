@@ -195,3 +195,7 @@ for g in G_1
     delQ[g]=Q_sp[g]-Q_cal[g]
 
 end
+for g in G_1
+    delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
+    delI_m[g]=(delP[g]*V_rm[g+3,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3,1]^2+V_rm[g,1]^2)
+end
