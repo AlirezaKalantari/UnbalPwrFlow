@@ -214,10 +214,11 @@ for s in G_1
             #J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
 
             #=s=s+1
-            J[s,c]=imag(Ybus[s-1,b])+β_k[s-1,s-1]-((real(Ybus[s-1,b]))*(V_rm[b+3*a,1]/V_rm[s,1]))
-            J[s,c+1]=real(Ybus[s-1,b])-α_k[s-1,s-1]
+            J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b]))*(V_rm[b+3*a,1]/V_rm[s,1]))
+            J[s,c+1]=real(YBUS[s-1,b])-α_k[s-1,s-1]
             s=s-1=#
 
         end
+
     end
 end
