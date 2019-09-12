@@ -98,17 +98,17 @@ iter=0
 #PV_bus=zeros(1,1)
 Iter=collect(1:1000)
 G=collect(1:a)    #number of generator
-G_1=G=collect(1:3*a)
+G_1=G=collect(1:6*a)
 j=collect(1:(2*a))
 L=collect(1:a)    #number of load
-Y=ones(a,a)
-J=zeros(a,a)
+Y=ones(6*a,6*a)
+J=zeros(6*a,6*a)
 E_k=complex(ones(6*a,1))
 I_cal=complex(ones(6*a,1))
-β_k=diagm(0=>ones(3*a))
-α_k=diagm(0=>ones(3*a))
-γ_k=diagm(0=>ones(3*a))
-δ_k=diagm(0=>ones(3*a))
+β_k=diagm(0=>ones(6*a))
+α_k=diagm(0=>ones(6*a))
+γ_k=diagm(0=>ones(6*a))
+δ_k=diagm(0=>ones(6*a))
 delI_r=zeros(6*a,1)
 delI_m=zeros(6*a,1)
 Pg=zeros(6*a,1)
@@ -204,4 +204,14 @@ end
 for g in G_1
     del_I[(2*g-1),1]=delI_m[g]
     del_I[(2*g),1]=delI_r[g]
+end
+
+for s in G_1
+    for b in G_1
+        if s!==b && Ql[s]!==0
+         c=2*b-1
+            #J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b]))*(V_rm[b+3*a,1]/V_rm[s,1]))
+            #J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
+        end
+    end
 end
