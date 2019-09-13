@@ -233,12 +233,12 @@ end
     for b in G_1
         if a==b
 
-            J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
-            J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
-            a=a+1
-            J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
-            J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
-            a=a-1
+            J[2*s-1,b]=imag(Ybus[s,s])-α_k[s,s]
+            J[2*s-1,b+1]=real(Ybus[s,s])-β_k[s,s]
+            s=s+1
+            J[s,b]=real(Ybus[s-1,s-1])-α_k[s-1,s-1]
+            J[s,b+1]=-imag(Ybus[s-1,s-1])+β_k[s-1,s-1]
+            s=s-1
         end
     end
    elseif a!==b
