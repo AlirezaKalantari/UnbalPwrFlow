@@ -240,4 +240,13 @@ end
         a=a-1
     end
 
-end=#
+   elseif a!==b
+        c=2*b-1
+        J[a,c]=imag(Ybus[a,b])
+        J[a,c+1]=real(Ybus[a,b])
+        a=a+1
+        J[a,c]=real(Ybus[a-1,b])
+        J[a,c+1]=-imag(Ybus[a-1,b])
+        a=a-1
+    end
+end#=
