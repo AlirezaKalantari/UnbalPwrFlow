@@ -241,13 +241,13 @@ end
             s=s-1
         end
     end
-   elseif a!==b
+   elseif s!==b
         c=2*b-1
-        J[a,c]=imag(Ybus[a,b])
-        J[a,c+1]=real(Ybus[a,b])
-        a=a+1
-        J[a,c]=real(Ybus[a-1,b])
-        J[a,c+1]=-imag(Ybus[a-1,b])
-        a=a-1
+        J[s,c]=imag(Ybus[s,b])
+        J[s,c+1]=real(Ybus[s,b])
+        s=s+1
+        J[s,c]=real(Ybus[s-1,b])
+        J[s,c+1]=-imag(Ybus[s-1,b])
+        s=s-1
     end
 end#=
