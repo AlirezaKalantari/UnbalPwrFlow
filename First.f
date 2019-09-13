@@ -229,17 +229,18 @@ for s in G_1
     end
 end
 
-#=for b in G_1
-    if a==b
+#=for s in G_1
+    for b in G_1
+        if a==b
 
-        J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
-        J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
-        a=a+1
-        J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
-        J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
-        a=a-1
+            J[2*a-1,b]=imag(Ybus[a,a])-α_k[a,a]
+            J[2*a-1,b+1]=real(Ybus[a,a])-β_k[a,a]
+            a=a+1
+            J[a,b]=real(Ybus[a-1,a-1])-α_k[a-1,a-1]
+            J[a,b+1]=-imag(Ybus[a-1,a-1])+β_k[a-1,a-1]
+            a=a-1
+        end
     end
-
    elseif a!==b
         c=2*b-1
         J[a,c]=imag(Ybus[a,b])
