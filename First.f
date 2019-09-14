@@ -231,7 +231,7 @@ end
 
 #=for s in G_1
     for b in G_1
-        if a==b
+        if s==b
 
             J[2*s-1,b]=imag(YBUS[s,s])-α_k[s,s]
             J[2*s-1,b+1]=real(YBUS[s,s])-β_k[s,s]
