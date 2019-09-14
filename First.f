@@ -237,17 +237,17 @@ end
             J[2*s-1,b+1]=real(YBUS[s,s])-β_k[s,s]
             s=s+1
             J[s,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]
-            J[s,b+1]=-imag(Ybus[s-1,s-1])+β_k[s-1,s-1]
+            J[s,b+1]=-imag(YBUS[s-1,s-1])+β_k[s-1,s-1]
             s=s-1
         end
     end
    elseif s!==b
         c=2*b-1
-        J[s,c]=imag(Ybus[s,b])
-        J[s,c+1]=real(Ybus[s,b])
+        J[s,c]=imag(YBUS[s,b])
+        J[s,c+1]=real(YBUS[s,b])
         s=s+1
-        J[s,c]=real(Ybus[s-1,b])
-        J[s,c+1]=-imag(Ybus[s-1,b])
+        J[s,c]=real(YBUS[s-1,b])
+        J[s,c+1]=-imag(YBUS[s-1,b])
         s=s-1
     end
 end=#
