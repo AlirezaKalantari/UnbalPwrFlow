@@ -252,4 +252,4 @@ end
     end
 end=#
 
-println("salam saeed jan, I travel to Tehran now and start it the day ahead")
+println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
