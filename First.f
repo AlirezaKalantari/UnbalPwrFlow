@@ -99,7 +99,7 @@ iter=0
 Iter=collect(1:1000)
 G=collect(1:a)    #number of generator
 G_1=G=collect(1:6*a)
-j=collect(1:(2*a))
+j=collect(1:(6*a))
 L=collect(1:a)    #number of load
 Y=ones(6*a,6*a)
 J=zeros(6*a,6*a)
@@ -134,7 +134,7 @@ for i=1:(size(ct5,1))
     Ql[ct5[i,2]]=ct5[i,4]
 end
 
-ct6[2,2]= 2
+ct6[2,2]=2
 
 for i=1:a
     Pg[ct6[i,2]]=ct6[i,3]
