@@ -221,7 +221,7 @@ for s in G_1
         end
 
         #=if  s==b
-            J[2*s-1,b]=real(Ybus[s,s])-β_k[s,s]-((imag(Ybus[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
+            J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
             J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
             s=s+1
 
@@ -233,10 +233,10 @@ end
     for b in G_1
         if a==b
 
-            J[2*s-1,b]=imag(Ybus[s,s])-α_k[s,s]
-            J[2*s-1,b+1]=real(Ybus[s,s])-β_k[s,s]
+            J[2*s-1,b]=imag(YBUS[s,s])-α_k[s,s]
+            J[2*s-1,b+1]=real(YBUS[s,s])-β_k[s,s]
             s=s+1
-            J[s,b]=real(Ybus[s-1,s-1])-α_k[s-1,s-1]
+            J[s,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]
             J[s,b+1]=-imag(Ybus[s-1,s-1])+β_k[s-1,s-1]
             s=s-1
         end
