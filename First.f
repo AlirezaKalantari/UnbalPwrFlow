@@ -252,4 +252,18 @@ end
     end
 end=#
 
+#=for a in G
+   for b in G
+       if a!==b && Ql[a]!==0
+           c=2*b-1
+           J[a,c]=imag(Ybus[a,b])-α_k[a,a]-((real(Ybus[a,b])*(V_rm[a+3,1]/V_rm[a,1])))
+           J[a,c+3]=real(Ybus[a,b])-β_k[a,a]
+           a=a+1
+           J[a,c]=imag(Ybus[a-1,b])+β_k[a-1,a-1]-((real(Ybus[a-1,b])*(V_rm[a+3,1]/V_rm[a+3])))
+           J[a,c+3]=real(Ybus[a-1,b])-α_k[a-1,a-1]
+           a=a-1
+       end
+   end
+end=#
+
 println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
