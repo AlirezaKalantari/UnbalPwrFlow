@@ -256,10 +256,10 @@ end=#
    for b in G
        if s!==b && Ql[s]!==0
            c=2*b-1
-           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3,1]/V_rm[s,1])))
+           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
            J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
            s=s+1
-           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3,1]/V_rm[s+3])))
+           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3])))
            J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
            s=s-1
        end
