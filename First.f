@@ -252,16 +252,16 @@ end
     end
 end=#
 
-#=for a in G
+#=for s in G
    for b in G
-       if a!==b && Ql[a]!==0
+       if s!==b && Ql[s]!==0
            c=2*b-1
-           J[a,c]=imag(YBUS[a,b])-α_k[a,a]-((real(YBUS[a,b])*(V_rm[a+3,1]/V_rm[a,1])))
-           J[a,c+3]=real(YBUS[a,b])-β_k[a,a]
-           a=a+1
-           J[a,c]=imag(YBUS[a-1,b])+β_k[a-1,a-1]-((real(YBUS[a-1,b])*(V_rm[a+3,1]/V_rm[a+3])))
-           J[a,c+3]=real(YBUS[a-1,b])-α_k[a-1,a-1]
-           a=a-1
+           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3,1]/V_rm[s,1])))
+           J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
+           s=s+1
+           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3,1]/V_rm[s+3])))
+           J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
+           s=s-1
        end
    end
 end=#
