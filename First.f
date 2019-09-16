@@ -264,8 +264,8 @@ end=#
            s=s-1
            delI_m[s]=V_rm[s+3,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
            delI_r[s]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3,1]^2)
-           del_I[(2*a-1),1]=delI_m[g]
-           del_I[(2*a),1]=delI_r[g]
+           del_I[(2*b-1),1]=delI_m[s]
+           del_I[(2*b),1]=delI_r[s]
 
        end
    end
