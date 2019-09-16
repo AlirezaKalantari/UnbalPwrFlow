@@ -271,12 +271,6 @@ end=#
    end
 end=#
 
-#=for g in G
-    α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)-2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
-    β_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3,1]^2)+2*V_rm[g+3,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3,1]^2+V_rm[g,1]^2)^2)
-    δ_k=α_k
-    γ_k=-β_k
-end=#
 #del_v\del_I
 
 println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
