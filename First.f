@@ -270,10 +270,9 @@ for i=1:10^100
        end
     end=#
 
-
-
-
+    del_v\del_I
 end
+
 newdel_V=del_v+del_V
 newdel_V=del_V
 for g in G_1
@@ -281,10 +280,6 @@ for g in G_1
      iter=1
     end
 end
-
-
-
-
 
 
 println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
