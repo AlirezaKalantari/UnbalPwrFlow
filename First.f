@@ -130,6 +130,9 @@ Q_cal=zeros(6*a,1)
 delQ=zeros(6*a,1)
 tete=zeros(6*a,1)
 
+iter=0
+iter=collect(1:10^1000)
+
 for i=1:(size(ct5,1))
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
@@ -207,7 +210,7 @@ for g in G_2
     del_I[(2*g),1]=delI_r[g]
 end
 
-for i=1:10^100
+if iter==0
     for s in G_1
         for b in G_1
             if s!==b && Ql[s]!==0
