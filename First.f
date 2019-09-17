@@ -207,26 +207,25 @@ for g in G_1
 end
 
 for i=1:10^100
- for s in G_1
-    for b in G_1
-        if s!==b && Ql[s]!==0
-         c=2*b-1
-            #J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
-            #J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
+    for s in G_1
+        for b in G_1
+            if s!==b && Ql[s]!==0
+             c=2*b-1
+                #J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
+                #J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
+                #=s=s+1
+                J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
+                J[s,c+1]=real(YBUS[s-1,b])-α_k[s-1,s-1]
+                s=s-1=#
 
-            #=s=s+1
-            J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
-            J[s,c+1]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-            s=s-1=#
+            end
+            #=if  s==b
+                J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
+                J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+                s=s+1
 
+           end=#
         end
-
-        #=if  s==b
-            J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
-            J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-            s=s+1
-
-       end=#
     end
     #=for s in G_1
         for b in G_1
@@ -270,10 +269,10 @@ for i=1:10^100
        end
     end=#
 
-    #del_v\del_I
+
+
 
 end
-
 newdel_V=del_v+del_V
 newdel_V=del_V
 for g in G_1
@@ -281,6 +280,10 @@ for g in G_1
      iter=1
     end
 end
+
+
+
+
 
 
 println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
