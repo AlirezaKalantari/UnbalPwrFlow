@@ -99,6 +99,7 @@ iter=0
 Iter=collect(1:1000)
 G=collect(1:a)    #number of generator
 G_1=G=collect(1:6*a)
+G_2=collect(1:3*a)
 j=collect(1:(6*a))
 L=collect(1:a)    #number of load
 Y=ones(6*a,6*a)
@@ -180,14 +181,14 @@ for i=1:(3*a)
 end
 
 
-for g in G_1
+for g in G_2
     α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
     β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
     δ_k=α_k
     γ_k=-β_k
 end
 
-for g in G_1
+for g in G_2
     P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3*a,1]*imag(I_cal)[g]'
     Q_cal[g]=V_rm[g+3*a,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
@@ -196,12 +197,12 @@ for g in G_1
 
 end
 
-for g in G_1
+for g in G_2
     delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3*a,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
     delI_m[g]=(delP[g]*V_rm[g+3*a,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
 end
 
-for g in G_1
+for g in G_2
     del_I[(2*g-1),1]=delI_m[g]
     del_I[(2*g),1]=delI_r[g]
 end
