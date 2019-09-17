@@ -228,50 +228,52 @@ for i=1:10^100
 
        end=#
     end
-end
+    #=for s in G_1
+        for b in G_1
+            if s==b
 
-#=for s in G_1
-    for b in G_1
-        if s==b
-
-            J[2*s-1,b]=imag(YBUS[s,s])-α_k[s,s]
-            J[2*s-1,b+1]=real(YBUS[s,s])-β_k[s,s]
+                J[2*s-1,b]=imag(YBUS[s,s])-α_k[s,s]
+                J[2*s-1,b+1]=real(YBUS[s,s])-β_k[s,s]
+                s=s+1
+                J[s,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]
+                J[s,b+1]=-imag(YBUS[s-1,s-1])+β_k[s-1,s-1]
+                s=s-1
+            end
+        end
+       elseif s!==b
+            c=2*b-1
+            J[s,c]=imag(YBUS[s,b])
+            J[s,c+1]=real(YBUS[s,b])
             s=s+1
-            J[s,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]
-            J[s,b+1]=-imag(YBUS[s-1,s-1])+β_k[s-1,s-1]
+            J[s,c]=real(YBUS[s-1,b])
+            J[s,c+1]=-imag(YBUS[s-1,b])
             s=s-1
         end
-    end
-   elseif s!==b
-        c=2*b-1
-        J[s,c]=imag(YBUS[s,b])
-        J[s,c+1]=real(YBUS[s,b])
-        s=s+1
-        J[s,c]=real(YBUS[s-1,b])
-        J[s,c+1]=-imag(YBUS[s-1,b])
-        s=s-1
-    end
-end=#
+    end=#
 
-#=for s in G_1
-   for b in G_1
-       if s!==b && Ql[s]!==0
-           c=2*b-1
-           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
-           J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
-           s=s+1
-           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3])))
-           J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-           s=s-1
-           delI_m[s]=V_rm[s+3,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-           delI_r[s]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3,1]^2)
-           del_I[(2*b-1),1]=delI_m[s]
-           del_I[(2*b),1]=delI_r[s]
+    #=for s in G_1
+       for b in G_1
+           if s!==b && Ql[s]!==0
+               c=2*b-1
+               J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
+               J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
+               s=s+1
+               J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3])))
+               J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
+               s=s-1
+               delI_m[s]=V_rm[s+3,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+               delI_r[s]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3,1]^2)
+               del_I[(2*b-1),1]=delI_m[s]
+               del_I[(2*b),1]=delI_r[s]
 
+           end
        end
-   end
-end=#
+    end=#
 
-#del_v\del_I
+    #del_v\del_I
+
+end
+
+
 
 println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
