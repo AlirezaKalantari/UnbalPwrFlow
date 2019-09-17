@@ -206,7 +206,8 @@ for g in G_1
     del_I[(2*g),1]=delI_r[g]
 end
 
-for s in G_1
+for i=1:10^100
+ for s in G_1
     for b in G_1
         if s!==b && Ql[s]!==0
          c=2*b-1
