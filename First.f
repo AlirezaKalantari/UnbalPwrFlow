@@ -232,7 +232,7 @@ if iter==0
         end
     end
     #=for s in G_1
-        for b in G_1
+        for b in G_2
             if s==b
 
                 J[2*s-1,b]=imag(YBUS[s,s])-α_k[s,s]
@@ -255,7 +255,7 @@ if iter==0
     end=#
 
     #=for s in G_1
-       for b in G_1
+       for b in G_2
            if s!==b && Ql[s]!==0
                c=2*b-1
                J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
