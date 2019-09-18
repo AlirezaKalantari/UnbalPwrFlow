@@ -264,7 +264,7 @@ if iter==0
                J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3])))
                J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
                s=s-1
-               delI_m[s]=V_rm[s+3,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+               delI_m[s]=V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
                delI_r[s]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
                del_I[(2*b-1),1]=delI_m[s]
                del_I[(2*b),1]=delI_r[s]
@@ -274,15 +274,17 @@ if iter==0
     end=#
 
     del_v\del_I
-end
 
-newdel_V=del_v+del_V
-newdel_V=del_V
-for g in G_1
-    if del_v[g]-del_V[g]<10^(-(10)^100)
-     iter=1
+    newdel_V=del_v+del_V
+    newdel_V=del_V
+    for g in G_1
+        if del_v[g]-del_V[g]<10^(-(10)^100)
+         iter=1
+        end
     end
 end
+
+
 
 
 #println("salam saeed jan, Because there was no bus in terminal, I must to travel this night and start remaining work")
