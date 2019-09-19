@@ -223,12 +223,12 @@ if iter==0
                 s=s-1
 
             end
-            #=if  s==b
+            if  s==b
                 J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
                 J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
                 s=s+1
 
-           end=#
+           end
         end
     end
     #=for s in G_1
