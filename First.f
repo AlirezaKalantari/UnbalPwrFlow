@@ -281,6 +281,11 @@ if iter==0
          iter=1
         end
     end
+
+    for g=1:4
+       E_k[g]=V_rm[g,1]+((V_rm[g+4,1])*im)
+       tete[g]=atand(V_rm[g+4,1]/V_rm[g,1])
+    end
 end
 
 
