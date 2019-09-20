@@ -284,7 +284,7 @@ if iter==0
 
     for g=1:(6*a)
        E_k[g]=V_rm[g,1]+((V_rm[g+3*a,1])*im)
-       tete[g]=atand(V_rm[g+4,1]/V_rm[g,1])
+       tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
     end
 end
 
