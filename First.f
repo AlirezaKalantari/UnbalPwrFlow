@@ -184,12 +184,7 @@ for i=1:(3*a)
 end
 
 
-for g in G_2
-    α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
-    β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
-    δ_k=α_k
-    γ_k=-β_k
-end
+
 
 for g in G_2
     P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3*a,1]*imag(I_cal)[g]'
@@ -211,6 +206,13 @@ for g in G_2
 end
 
 if iter==0
+
+    for g in G_2
+        α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
+        β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
+        δ_k=α_k
+        γ_k=-β_k
+    end
     for s in G_1
         for b in G_2
             if s!==b && Ql[s]!==0
@@ -271,7 +273,7 @@ if iter==0
            end
        end
     end
-    
+
     for g=1:(6*a)
        E_k[g]=V_rm[g,1]+((V_rm[g+3*a,1])*im)
        tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
