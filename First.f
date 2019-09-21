@@ -183,15 +183,6 @@ for i=1:(3*a)
     V_rm[i+3*a,1]=imag(E_k)[i,1]
 end
 
-
-
-
-
-
-
-
-
-
 if iter==0
 
     for g in G_2
@@ -217,7 +208,7 @@ if iter==0
         del_I[(2*g-1),1]=delI_m[g]
         del_I[(2*g),1]=delI_r[g]
     end
-    
+
     for s in G_1
         for b in G_2
             if s!==b && Ql[s]!==0
@@ -238,6 +229,7 @@ if iter==0
             end
         end
     end
+
     for s in G_1
         for b in G_2
             if s==b
@@ -288,12 +280,12 @@ if iter==0
 
     newdel_V=del_v+del_V
     newdel_V=del_V
+
     for g in G_1
         if del_v[g]-del_V[g]<10^(-(10)^100)
          iter=1
         end
     end
-
 
 end
 
