@@ -186,14 +186,7 @@ end
 
 
 
-for g in G_2
-    P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3*a,1]*imag(I_cal)[g]'
-    Q_cal[g]=V_rm[g+3*a,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
 
-    delP[g]=P_sp[g]-P_cal[g]
-    delQ[g]=Q_sp[g]-Q_cal[g]
-
-end
 
 for g in G_2
     delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3*a,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
@@ -213,6 +206,15 @@ if iter==0
         δ_k=α_k
         γ_k=-β_k
     end
+
+    for g in G_2
+        P_cal[g]=V_rm[g,1]*real(I_cal)[g]'+V_rm[g+3*a,1]*imag(I_cal)[g]'
+        Q_cal[g]=V_rm[g+3*a,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
+
+        delP[g]=P_sp[g]-P_cal[g]
+        delQ[g]=Q_sp[g]-Q_cal[g]
+    end
+    
     for s in G_1
         for b in G_2
             if s!==b && Ql[s]!==0
