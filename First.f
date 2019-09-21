@@ -188,10 +188,7 @@ end
 
 
 
-for g in G_2
-    delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3*a,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
-    delI_m[g]=(delP[g]*V_rm[g+3*a,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
-end
+
 
 for g in G_2
     del_I[(2*g-1),1]=delI_m[g]
@@ -213,6 +210,11 @@ if iter==0
 
         delP[g]=P_sp[g]-P_cal[g]
         delQ[g]=Q_sp[g]-Q_cal[g]
+    end
+
+    for g in G_2
+        delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3*a,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
+        delI_m[g]=(delP[g]*V_rm[g+3*a,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
     end
     
     for s in G_1
