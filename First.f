@@ -178,12 +178,14 @@ for j=1:1
     println("Numer of PV_Bus is =$h")
 end
 
-for i=1:(3*a)
-    V_rm[i,1]=real(E_k)[i,1]
-    V_rm[i+3*a,1]=imag(E_k)[i,1]
-end
+
 
 if iter==0
+
+    for i=1:(3*a)
+        V_rm[i,1]=real(E_k)[i,1]
+        V_rm[i+3*a,1]=imag(E_k)[i,1]
+    end
 
     for g in G_2
         α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
