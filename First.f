@@ -50,7 +50,7 @@ z_RE=ones(a,a)
 q=collect(1:(a+1))
 
 for g in q
-        yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
+    yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
 end
 
 for l=1:a
@@ -90,10 +90,8 @@ for i=(1:size(ct3,1))
       d[1,1]=b-1
   end
 end
+
 real_pg=d[1,1]
-
-iter=0
-
 
 #PV_bus=zeros(1,1)
 Iter=collect(1:1000)
