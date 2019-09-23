@@ -88,7 +88,7 @@ for i=(1:size(ct3,1))
   b=size(ct3,1)
     if ct3[i,2]!==0.00
       d[1,1]=b-1
-          end
+  end
 end
 real_pg=d[1,1]
 
@@ -206,6 +206,7 @@ if iter==0
         delI_r[g]=(delP[g]*V_rm[g,1]+V_rm[g+3*a,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
         delI_m[g]=(delP[g]*V_rm[g+3*a,1]+V_rm[g,1]*delQ[g])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)
     end
+
     for g in G_2
         del_I[(2*g-1),1]=delI_m[g]
         del_I[(2*g),1]=delI_r[g]
@@ -226,7 +227,6 @@ if iter==0
                 J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
                 J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
                 s=s+1
-
             end
         end
     end
@@ -267,7 +267,6 @@ if iter==0
 
                del_I[(2*b-1),1]=delI_m[s]
                del_I[(2*b),1]=delI_r[s]
-
            end
        end
     end
