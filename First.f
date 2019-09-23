@@ -260,7 +260,7 @@ if iter==0
                J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
                J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
                s=s-1
-               delI_m[s]=V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+               #delI_m[s]=V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
                #delI_r[s]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
 
                #del_I[(2*b-1),1]=delI_m[s]
