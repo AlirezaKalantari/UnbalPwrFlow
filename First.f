@@ -304,7 +304,7 @@ end
            J[2*s-1,b+3]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
            s=s+1
            J[s,b]=J[2*s-1,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]+((imag(YBUS[s-1,b])+β_k[s-1,s-1])*(V_rm[s+1,1]/V_rm[s+1,1]))
-           J[s,b+3]=-V_rm[s+3,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+           J[s,b+3]=-V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
            s=s-1
        end
    end
