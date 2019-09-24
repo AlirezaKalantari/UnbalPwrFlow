@@ -288,13 +288,13 @@ if iter==0
 end
 
 #PV_bus
-#=for a in G
-   for b in G
-       if a!==b && Ql[a]!==0
+#=for s in G_1
+   for b in G_1
+       if s!==b && Ql[s]!==0
            c=2*b-1
-           J[a,c]=imag(Ybus[a,b])-α_k[a,a]-((real(Ybus[a,b])*(V_rm[a+3,1]/V_rm[a,1])))
-           J[a,c+3]=real(Ybus[a,b])-β_k[a,a]
-           a=a+1
+           J[s,c]=imag(Ybus[s,b])-α_k[s,s]-((real(Ybus[s,b])*(V_rm[s+3,1]/V_rm[s,1])))
+           J[s,c+3]=real(Ybus[s,b])-β_k[s,s]
+           s=s+1
        end
    end
 end=#
