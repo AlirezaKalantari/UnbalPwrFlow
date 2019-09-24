@@ -287,5 +287,16 @@ if iter==0
 
 end
 
+#PV_bus
+#=for a in G
+   for b in G
+       if a!==b && Ql[a]!==0
+           c=2*b-1
+           J[a,c]=imag(Ybus[a,b])-α_k[a,a]-((real(Ybus[a,b])*(V_rm[a+3,1]/V_rm[a,1])))
+           J[a,c+3]=real(Ybus[a,b])-β_k[a,a]
+           a=a+1
+       end
+   end
+end=#
 
 println("salam saeed jan, for some problem,I must go to gorgan tonight and I return two days and participle the meeting determined before")
