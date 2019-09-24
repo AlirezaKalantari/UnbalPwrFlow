@@ -288,26 +288,26 @@ if iter==0
 end
 
 #PV_bus
-#=for s in G_1
+for s in G_1
    for b in G_1
        if s!==b && Ql[s]!==0
            c=2*b-1
            J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
            J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
            s=s+1
-           J[s,c]=imag(Ybus[s-1,b])+β_k[s-1,s-1]-((real(Ybus[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
-           J[s,c+3]=real(Ybus[s-1,b])-α_k[s-1,s-1]
+           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
+           J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
            s=s-1
        end
-        if s==b
+        #=if s==b
            J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3,1]/V_rm[s]))
            J[2*s-1,b+3]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
            s=s+1
            J[s,b]=J[2*s-1,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]+((imag(YBUS[s-1,b])+β_k[s-1,s-1])*(V_rm[s+1,1]/V_rm[s+1,1]))
            J[s,b+3]=-V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
            s=s-1
-       end
+       end=#
    end
-end=#
+end
 
 println("salam saeed jan, for some problem,I must go to gorgan tonight and I return two days and participle the meeting determined before")
