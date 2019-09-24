@@ -292,8 +292,8 @@ end
    for b in G_1
        if s!==b && Ql[s]!==0
            c=2*b-1
-           J[s,c]=imag(Ybus[s,b])-α_k[s,s]-((real(Ybus[s,b])*(V_rm[s+3,1]/V_rm[s,1])))
-           J[s,c+3]=real(Ybus[s,b])-β_k[s,s]
+           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3,1]/V_rm[s,1])))
+           J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
            s=s+1
        end
    end
