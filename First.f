@@ -233,20 +233,20 @@ if iter==0
         for b in G_2
             for w=1:a
                 if s==b
-                J[2*s-1,b]=imag(YBUS[w,w])-α_k[w,w]
-                J[2*s-1,b+1]=real(YBUS[w,w])-β_k[w,w]
-                s=s+1
-                J[s,b]=real(YBUS[w-1,w-1])-α_k[w-1,w-1]
-                J[s,b+1]=-imag(YBUS[w-1,w-1])+β_k[w-1,w-1]
-                s=s-1
-             elseif s!==b
-                c=2*b-1
-                J[s,c]=imag(YBUS[w,b])
-                J[s,c+1]=real(YBUS[w,b])
-                s=s+1
-                J[s,c]=real(YBUS[w-1,b])
-                J[s,c+1]=-imag(YBUS[w-1,b])
-                s=s-1
+                    J[2*s-1,b]=imag(YBUS[w,w])-(α_k[w,w])
+                    J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
+                    s=s+1
+                    J[s,b]=real(YBUS[w,w])-α_k[w,w]
+                    J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
+                    s=s-1
+                    elseif s!==b
+                    c=2*b-1
+                    J[s,c]=imag(YBUS[w,b])
+                    J[s,c+1]=real(YBUS[w,b])
+                    s=s+1
+                    J[s,c]=real(YBUS[w,b])
+                    J[s,c+1]=-imag(YBUS[w,b])
+                    s=s-1
                 end
             end
         end
@@ -313,28 +313,3 @@ end
 end=#
 
 println("salam saeed jan, for some problem,I must go to gorgan tonight and I return two days and participle the meeting determined before")
-
-
-
-for s in G_1
-    for b in G_2
-        for w=1:a
-            if s==b
-                J[2*s-1,b]=imag(YBUS[w,w])-α_k[w,w]
-                J[2*s-1,b+1]=real(YBUS[w,w])-β_k[w,w]
-                s=s+1
-                J[s,b]=real(YBUS[w,w)-α_k[w,w]
-                J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
-                s=s-1
-             elseif s!==b
-                c=2*b-1
-                J[s,c]=imag(YBUS[w,b])
-                J[s,c+1]=real(YBUS[w,b])
-                s=s+1
-                J[s,c]=real(YBUS[w,b])
-                J[s,c+1]=-imag(YBUS[w,b])
-                s=s-1
-            end
-        end
-    end
-end
