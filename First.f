@@ -288,7 +288,7 @@ if iter==0
 end
 
 #PV_bus
-for s in G_1
+#=for s in G_1
    for b in G_2
        if s!==b && Ql[s]!==0
            c=2*b-1
@@ -308,6 +308,6 @@ for s in G_1
            s=s-1
        end=#
    end
-end
+end=#
 
 println("salam saeed jan, for some problem,I must go to gorgan tonight and I return two days and participle the meeting determined before")
