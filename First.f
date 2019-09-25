@@ -234,10 +234,10 @@ if iter==0
             for w=1:a
                 if s==b
                 J[2*s-1,b]=imag(YBUS[w,w])-α_k[w,w]
-                J[2*s-1,b+1]=real(YBUw[w,w])-β_k[w,w]
+                J[2*s-1,b+1]=real(YBUS[w,w])-β_k[w,w]
                 s=s+1
                 J[s,b]=real(YBUS[w-1,w-1])-α_k[w-1,w-1]
-                J[s,b+1]=-imag(YBUw[w-1,w-1])+β_k[w-1,w-1]
+                J[s,b+1]=-imag(YBUS[w-1,w-1])+β_k[w-1,w-1]
                 s=s-1
              elseif s!==b
                 c=2*b-1
