@@ -324,7 +324,7 @@ for s in G_1
             J[2*s-1,b+1]=real(YBUS[w,w])-β_k[w,w]
             s=s+1
             J[s,b]=real(YBUS[w,w)-α_k[w,w]
-            J[s,b+1]=-imag(YBUS[w-1,w-1])+β_k[w-1,w-1]
+            J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
             s=s-1
          elseif s!==b
             c=2*b-1
