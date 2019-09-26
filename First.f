@@ -112,8 +112,8 @@ delI_r=zeros(6*a,1)
 delI_m=zeros(6*a,1)
 Pg=zeros(6*a,1)
 Pl=zeros(6*a,1)
-P_sp=zeros(6*a,1)
-P_cal=zeros(6*a,1)
+P_sp=zeros(3*a,1)
+P_cal=zeros(3*a,1)
 delP=zeros(6*a,1)
 del_I=zeros(6*a,1)
 del_V=zeros(6*a,1)
@@ -184,7 +184,6 @@ for g in G_2
     delP[g]=P_sp[g]-P_cal[g]
     delQ[g]=Q_sp[g]-Q_cal[g]
 end
-
 
 
 
