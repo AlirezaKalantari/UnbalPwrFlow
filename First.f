@@ -102,7 +102,7 @@ j=collect(1:(6*a))
 L=collect(1:a)    #number of load
 Y=ones(6*a,6*a)
 J=zeros(6*a,6*a)
-E_k=complex(ones(6*a,1))
+E_k=complex(ones(3*a,1))
 I_cal=complex(ones(6*a,1))
 β_k=diagm(0=>ones(6*a))
 α_k=diagm(0=>ones(6*a))
@@ -313,3 +313,29 @@ end
 end=#
 
 println("salam saeed jan, for some problem,I must go to gorgan tonight and I return two days and participle the meeting determined before")
+
+
+
+
+for s in G_1
+    for b in G_2
+        for w=1:a
+            if s==b
+                J[2*s-1,b]=imag(YBUS[w,w])-(α_k[w,w])
+                J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
+                #s=s+1
+                J[s,b]=real(YBUS[w,w])-α_k[w,w]
+                J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
+                #s=s-1
+                elseif s!==b
+                c=2*b-1
+                J[s,c]=imag(YBUS[w,w])
+                J[s,c+1]=real(YBUS[w,w])
+                #s=s+1
+                J[s,c]=real(YBUS[w,w])
+                J[s,c+1]=-imag(YBUS[w,w])
+                #s=s-1
+            end
+        end
+    end
+end
