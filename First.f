@@ -143,8 +143,8 @@ for i=1:a
     Qg[ct6[i,2]]=ct6[i,4]
 end
 
-P_sp=broadcast(-,Pg,Pl)'
-Q_sp=broadcast(-,Qg,Ql)'
+P_sp=broadcast(-,Pg,Pl)
+Q_sp=broadcast(-,Qg,Ql)
 
 for j=1:1
     h=0
@@ -176,6 +176,16 @@ for j=1:1
     println("Numer of PV_Bus is =$h")
 end
 
+
+for g in G_2
+    P_cal[g]=V_rm[g,1]'*real(I_cal)[g]'+V_rm[g+3*a,1]*imag(I_cal)[g]'
+    Q_cal[g]=V_rm[g+3*a,1]*real(I_cal)[g]'-V_rm[g,1]*imag(I_cal)[g]'
+
+    delP[g]=P_sp[g]-P_cal[g]
+    delQ[g]=Q_sp[g]-Q_cal[g]
+end
+
+P_sp'-P_cal
 
 
 if iter==0
