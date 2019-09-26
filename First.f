@@ -178,6 +178,9 @@ end
 
 
 
+
+
+
 if iter==0
 
     for i=1:(3*a)
