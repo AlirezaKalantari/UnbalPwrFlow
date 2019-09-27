@@ -197,8 +197,8 @@ if iter==0
     end
 
     for g in G_2
-        α_k[g,g]=(Q_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
-        β_k[g,g]=(P_sp[g]*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
+        α_k[g,g]=(Q_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
+        β_k[g,g]=(P_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
         δ_k=α_k
         γ_k=-β_k
     end
@@ -211,25 +211,6 @@ if iter==0
     for g in G_2
         del_I[(2*g-1),1]=delI_m[g]
         del_I[(2*g),1]=delI_r[g]
-    end
-
-    for s in G_1
-        for b in G_2
-            if s!==b && Ql[s]!==0
-                c=2*b-1
-                J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
-                J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
-                s=s+1
-                J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
-                J[s,c+1]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-                s=s-1
-            end
-            if  s==b
-                J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
-                J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-                s=s+1
-            end
-        end
     end
 
     for s in G_1
@@ -254,6 +235,28 @@ if iter==0
             end
         end
     end
+
+
+    for s in G_1
+        for b in G_2
+            if s!==b && Ql[s]!==0
+                c=2*b-1
+                J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
+                J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
+                s=s+1
+                J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
+                J[s,c+1]=real(YBUS[s-1,b])-α_k[s-1,s-1]
+                s=s-1
+            end
+            if  s==b
+                J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
+                J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+                s=s+1
+            end
+        end
+    end
+
+
 
     for s in G_1
        for b in G_2
