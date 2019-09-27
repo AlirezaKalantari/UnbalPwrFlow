@@ -216,7 +216,7 @@ if iter==0
     for s in G_1
         for b in G_2
             for w=1:a
-                if s==b
+                if s==b && Ql[s]!==0
                     J[2*s-1,b]=imag(YBUS[w,w])-(α_k[w,w])
                     J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
                     s=s+1
