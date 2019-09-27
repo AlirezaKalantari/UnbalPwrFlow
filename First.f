@@ -223,7 +223,7 @@ if iter==0
                     J[s,b]=real(YBUS[w,w])-α_k[w,w]
                     J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
                     s=s-1
-                    elseif s!==b
+                    elseif s!==b  && Ql[s]!==0
                     c=2*b-1
                     J[s,c]=imag(YBUS[w,b])
                     J[s,c+1]=real(YBUS[w,b])
