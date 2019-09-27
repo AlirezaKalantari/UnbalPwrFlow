@@ -219,10 +219,9 @@ if iter==0
                 if s==b && Ql[s]!==0
                     J[2*s-1,b]=imag(YBUS[w,w])-(α_k[w,w])
                     J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
-                    |#s=s+1
-                    J[s,b]=real(YBUS[w,w])-α_k[w,w]
-                    J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
-                    #s=s-1
+                    J[s,b]=real(YBUS[w,w])-(β_k[w,w])
+                    J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
+                    
                     elseif s!==b  && Ql[s]!==0
                     c=2*b-1
                     J[s,c]=imag(YBUS[w,b])
