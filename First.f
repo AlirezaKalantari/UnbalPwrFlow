@@ -218,18 +218,18 @@ if iter==0
         for b in G_3
             for w=1:3
                 if  Ql[3*(b-1)+w]!==0
-                    J[3*(b-1)+w,3*(b-1)+w]=imag(YBUS[w,w])-(α_k[w,w])
-                    J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
-                    J[s,b]=real(YBUS[w,w])-(β_k[w,w])
-                    J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
+                    J[3*(b-1)+w,3*(b-1)+w]=imag(YBUS[b,b])-(α_k[6*(s-1)+w,6*(s-1)+w])
+                    #J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
+                    #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
+                    #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
 
-                    elseif s!==b  && Ql[s]!==0
+                    #=elseif s!==b  && Ql[s]!==0
                     c=2*b-1
                     J[s,c]=imag(YBUS[w,b])
                     J[s,c+1]=real(YBUS[w,b])
                     #s=s+1
                     J[s,c]=real(YBUS[w,b])
-                    J[s,c+1]=-imag(YBUS[w,b])
+                    J[s,c+1]=-imag(YBUS[w,b])=#
                     #s=s-1
                 end
             end
