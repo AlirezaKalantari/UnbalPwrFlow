@@ -235,6 +235,28 @@ if iter==0
     end
 
 
+    for b in a
+        for w=1:3
+            if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w]!==0
+                J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
+                J[6*(b-1)+w+3,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
+                #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
+                #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
+                #=elseif s!==b  && Ql[s]!==0
+                c=2*b-1
+                J[s,c]=imag(YBUS[w,b])
+                J[s,c+1]=real(YBUS[w,b])
+                #s=s+1
+                J[s,c]=real(YBUS[w,b])
+                J[s,c+1]=-imag(YBUS[w,b])=#
+                #s=s-1
+            end
+        end
+    end
+
+
+
+
     for s in G_1
         for b in G_2
             if s!==b && Ql[s]!==0
@@ -316,12 +338,12 @@ end
    end
 end=#
 
-println("salam saeed jan, for some problem,I must go to gorgan tonight and I return two days and participle the meeting determined before")
+println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
 
 
 
 
-for s in G_1
+#=for s in G_1
     for b in G_2
         for w=1:a
             if s==b
@@ -342,4 +364,4 @@ for s in G_1
             end
         end
     end
-end
+end=#
