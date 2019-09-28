@@ -124,6 +124,7 @@ V_rm=complex(ones(6*a,1))
 
 Qg=zeros(3*a,1)
 Ql=zeros(3*a,1)
+Ql_1=zeros(6*a,1)
 Q_sp=zeros(3*a,1)
 Q_cal=zeros(3*a,1)
 delQ=zeros(3*a,1)
@@ -214,24 +215,21 @@ if iter==0
         del_I[(2*g),1]=delI_r[g]
     end
 
-    for s in G_1
-        for b in G_3
-            for w=1:3
-                if  Ql[6*(b-1)+w]!==0 || Ql[6*(b-1)+w]!==0
-                    J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
-                    J[6*(b-0.5)+w,6*(b-0.5)+w]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
-                    #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
-                    #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
-
-                    #=elseif s!==b  && Ql[s]!==0
-                    c=2*b-1
-                    J[s,c]=imag(YBUS[w,b])
-                    J[s,c+1]=real(YBUS[w,b])
-                    #s=s+1
-                    J[s,c]=real(YBUS[w,b])
-                    J[s,c+1]=-imag(YBUS[w,b])=#
-                    #s=s-1
-                end
+    for b in a
+        for w=1:3
+            if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w]!==0
+                J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
+                J[6*(b-1)+w+3,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
+                #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
+                #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
+                #=elseif s!==b  && Ql[s]!==0
+                c=2*b-1
+                J[s,c]=imag(YBUS[w,b])
+                J[s,c+1]=real(YBUS[w,b])
+                #s=s+1
+                J[s,c]=real(YBUS[w,b])
+                J[s,c+1]=-imag(YBUS[w,b])=#
+                #s=s-1
             end
         end
     end
