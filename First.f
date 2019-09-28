@@ -98,6 +98,7 @@ Iter=collect(1:1000)
 G=collect(1:a)    #number of generator
 G_1=G=collect(1:6*a)
 G_2=collect(1:3*a)
+G_3=collect(1:2*a)
 j=collect(1:(6*a))
 L=collect(1:a)    #number of load
 Y=ones(6*a,6*a)
@@ -214,10 +215,10 @@ if iter==0
     end
 
     for s in G_1
-        for b in G_2
-            for w=1:a
-                if s==b && Ql[s]!==0
-                    J[2*s-1,b]=imag(YBUS[w,w])-(α_k[w,w])
+        for b in G_3
+            for w=1:3
+                if  Ql[3*(b-1)+w]!==0
+                    J[3*(b-1)+w,3*(b-1)+w]=imag(YBUS[w,w])-(α_k[w,w])
                     J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
                     J[s,b]=real(YBUS[w,w])-(β_k[w,w])
                     J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
