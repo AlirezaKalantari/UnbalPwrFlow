@@ -219,27 +219,8 @@ if iter==0
         for w=1:3
             if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w]!==0
                 J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
-                J[6*(b-1)+w+3,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
-                #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
-                #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
-                #=elseif s!==b  && Ql[s]!==0
-                c=2*b-1
-                J[s,c]=imag(YBUS[w,b])
-                J[s,c+1]=real(YBUS[w,b])
-                #s=s+1
-                J[s,c]=real(YBUS[w,b])
-                J[s,c+1]=-imag(YBUS[w,b])=#
-                #s=s-1
-            end
-        end
-    end
-
-
-    for b in a
-        for w=1:3
-            if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w]!==0
-                J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
-                J[6*(b-1)+w+3,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
+                J[6*(b-1)+w+3,6*(b-1)+w+3]=-V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
+                #J[6*(b-1)+w+3,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
                 #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
                 #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
                 #=elseif s!==b  && Ql[s]!==0
