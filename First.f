@@ -221,6 +221,7 @@ if iter==0
                 J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
                 J[6*(b-1)+w+3,6*(b-1)+w+3]=-V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
                 J[6*(b-1)+w+6,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
+                J[6*(b-1)+w+3,6*(b-1)+w+6]=-V_rm[b,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
                 #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
                 #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
                 #=elseif s!==b  && Ql[s]!==0
