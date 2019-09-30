@@ -238,6 +238,19 @@ if iter==0
         end
     end
 
+    for b in a
+        for c in a
+            for d=1:6
+                if b!==a &&  Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0
+                    J[6*(b-1)+d,d]=imag(YBUS[b,c])
+
+                end
+            end
+
+        end
+
+    end
+
 
 
 
@@ -348,4 +361,17 @@ println("salam saeed jan, because my mother is in the hospital, I have to take c
             end
         end
     end
+end=#
+
+
+#=for b in a
+    for c in a
+        for d=1:6
+            if b!==a &&  Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0
+                println("s")
+            end
+        end
+
+    end
+
 end=#
