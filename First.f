@@ -250,6 +250,7 @@ if iter==0
             end
         end
     end
+#check the Ql
 
 
 
