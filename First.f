@@ -250,7 +250,21 @@ if iter==0
             end
         end
     end
-#check the Ql
+ #check the Ql
+
+
+ for b in a
+     for c in a
+         for d=1:3
+             if b!==a &&  Ql_1[6*(b-1)+b]==0 || Ql_1[6*(b-1)+b+3]==0
+                 J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])-α_k[c,c]-((real(YBUS[b,c]))*(V_rm[c+3*a,1]/V_rm[c,1]))
+                 #J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
+                 #J[6*(b-1)+d+3,6*(c-1)+d]=imag(YBUS[b,c])
+                 #J[6*(b-1)+d+3,6*(c-1)+d+3]=imag(YBUS[b,c])
+             end
+         end
+     end
+ end
 
 
 
