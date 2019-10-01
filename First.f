@@ -238,8 +238,8 @@ if iter==0
         end
     end
 
-    for b in a
-        for c in a
+    for b=1:a
+        for c=1:a
             for d=1:3
                 if b!==a &&  (Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0)
                     J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
