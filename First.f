@@ -241,7 +241,7 @@ if iter==0
     for b in a
         for c in a
             for d=1:3
-                if b!==a &&  Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0
+                if b!==a &&  (Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0)
                     J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
                     J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
                     J[6*(b-1)+d+3,6*(c-1)+d]=imag(YBUS[b,c])
@@ -253,23 +253,23 @@ if iter==0
  #check the Ql
 
 
- for b in a
-     for c in a
-         for d=1:3
-             if b!==a &&  Ql_1[6*(b-1)+d]==0 || Ql_1[6*(b-1)+d+3]==0
+    for b in a
+        if ct1[2,b]==3
+            for c in a
+                for d=1:3
                  J[6*(b-1)+d,6*(c-1)+d]=real(YBUS[b,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[b,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[c+3*a,1]/V_rm[c,1])
                  #J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
                  #J[6*(b-1)+d+3,6*(c-1)+d]=imag(YBUS[b,c])
                  #J[6*(b-1)+d+3,6*(c-1)+d+3]=imag(YBUS[b,c])
-             end
-         end
-     end
- end
+                end
+            end
+        end
+    end
 
 
 
 
-    for s in G_1
+    #=for s in G_1
         for b in G_2
             if s!==b && Ql[s]!==0
                 c=2*b-1
@@ -286,11 +286,11 @@ if iter==0
                 s=s+1
             end
         end
-    end
+    end=#
 
 
 
-    for s in G_1
+    #=for s in G_1
        for b in G_2
            if s!==b && Ql[s]!==0
                c=2*b-1
@@ -307,7 +307,7 @@ if iter==0
                #del_I[(2*b),1]=delI_r[s]
            end
        end
-    end
+   end=#
 
     for g=1:(3*a)
        E_k[g]=V_rm[g,1]+((V_rm[g+3*a,1])*im)
@@ -376,17 +376,4 @@ println("salam saeed jan, because my mother is in the hospital, I have to take c
             end
         end
     end
-end=#
-
-
-#=for b in a
-    for c in a
-        for d=1:6
-            if b!==a &&  Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0
-                println("s")
-            end
-        end
-
-    end
-
 end=#
