@@ -215,7 +215,7 @@ if iter==0
         del_I[(2*g),1]=delI_r[g]
     end
 
-    for b in a
+    for b=1:a
         for w=1:3
             if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w+3]!==0
                 J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
