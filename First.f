@@ -261,7 +261,7 @@ if iter==0
                         for d=1:3
                             J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
                             J[6*(c-1)+d,6*(b-1)+d+3]=V_rm[b,1]/(V_rmbs,1]^2+V_rm[b+3*a,1]^2)
-                            J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
+                            J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
                             #J[6*(b-1)+d+3,6*(c-1)+d]=imag(YBUS[b,c])
                             #J[6*(b-1)+d+3,6*(c-1)+d+3]=imag(YBUS[b,c])
                         end
