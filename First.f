@@ -270,6 +270,16 @@ if iter==0
         end
     end
 
+    for b=1:a
+        if ct1[2,b]==3
+            for c=1:a
+                if YBUS[c,b]!==0.0
+                    
+                end
+            end
+        end
+    end
+
 
 
 
