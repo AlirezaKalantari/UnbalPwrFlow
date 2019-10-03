@@ -274,7 +274,9 @@ if iter==0
         if ct1[2,b]==3
             for c=1:a
                 if YBUS[c,b]!==0.0
-                    
+                    if c!==b
+                        
+                    end
                 end
             end
         end
