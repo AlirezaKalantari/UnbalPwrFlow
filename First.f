@@ -275,7 +275,9 @@ if iter==0
             for c=1:a
                 if YBUS[c,b]!==0.0
                     if c!==b
-                        
+                        for d=1:3
+                            
+                        end
                     end
                 end
             end
