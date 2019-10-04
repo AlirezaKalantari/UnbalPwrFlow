@@ -222,18 +222,6 @@ if iter==0
                 J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
                 J[6*(b-1)+w,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])
                 J[6*(b-1)+w+3,6*(b-1)+w]=real(YBUS[b,b])+(β_k[3*(b-1)+w,3*(b-1)+w]
-                #J[6*(b-1)+w+6,6*(b-1)+w+3]=-V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
-                #J[6*(b-1)+w+3,6*(b-1)+w+6]=-V_rm[b,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
-                #J[s,b]=real(YBUS[w,w])-(β_k[w,w])
-                #J[s,b+1]=-imag(YBUS[w,w])+(α_k[w,w])
-                #=elseif s!==b  && Ql[s]!==0
-                c=2*b-1
-                J[s,c]=imag(YBUS[w,b])
-                J[s,c+1]=real(YBUS[w,b])
-                #s=s+1
-                J[s,c]=real(YBUS[w,b])
-                J[s,c+1]=-imag(YBUS[w,b])=#
-                #s=s-1
             end
         end
     end
@@ -348,29 +336,6 @@ if iter==0
 
 end
 
-#PV_bus
-#=for s in G_1
-   for b in G_2
-       if s!==b && Ql[s]!==0
-           c=2*b-1
-           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
-           J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
-           s=s+1
-           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
-           J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-           s=s-1
-       end
-        #=if s==b
-           J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3,1]/V_rm[s]))
-           J[2*s-1,b+3]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-           s=s+1
-           J[s,b]=J[2*s-1,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]+((imag(YBUS[s-1,b])+β_k[s-1,s-1])*(V_rm[s+1,1]/V_rm[s+1,1]))
-           J[s,b+3]=-V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-           s=s-1
-       end=#
-   end
-end=#
-
 println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
 
 
@@ -397,4 +362,27 @@ println("salam saeed jan, because my mother is in the hospital, I have to take c
             end
         end
     end
+end=#
+
+#PV_bus
+#=for s in G_1
+   for b in G_2
+       if s!==b && Ql[s]!==0
+           c=2*b-1
+           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
+           J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
+           s=s+1
+           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
+           J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
+           s=s-1
+       end
+        #=if s==b
+           J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3,1]/V_rm[s]))
+           J[2*s-1,b+3]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+           s=s+1
+           J[s,b]=J[2*s-1,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]+((imag(YBUS[s-1,b])+β_k[s-1,s-1])*(V_rm[s+1,1]/V_rm[s+1,1]))
+           J[s,b+3]=-V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
+           s=s-1
+       end=#
+   end
 end=#
