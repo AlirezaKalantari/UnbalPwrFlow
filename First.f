@@ -229,7 +229,7 @@ if iter==0
     for b=1:a
         for c=1:a
             for d=1:3
-                if b!==a &&  (Ql_1[6*(b-1)+b]!==0 || Ql_1[6*(b-1)+b+3]!==0)
+                if b!==a &&  (Ql_1[6*(b-1)+c]!==0 || Ql_1[6*(b-1)+c+3]!==0)
                     J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
                     J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
                     J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[b,c])
