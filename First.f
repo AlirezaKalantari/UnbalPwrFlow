@@ -281,7 +281,7 @@ if iter==0
        tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
     end
 
-    del_v\del_I
+    del_v=J\del_I
 
     newdel_V=del_v+del_V
     newdel_V=del_V
