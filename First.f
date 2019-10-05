@@ -183,7 +183,7 @@ end
 
 
 
-if iter==0
+while inter==0
 
     for i=1:(3*a)
         V_rm[i,1]=real(E_k)[i,1]
@@ -238,7 +238,7 @@ if iter==0
             end
         end
     end
- #check the Ql
+    #check the Ql
 
 
     for b=1:a
@@ -292,7 +292,9 @@ if iter==0
         end
     end
 
+
 end
+
 
 println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
 
