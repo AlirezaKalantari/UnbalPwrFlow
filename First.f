@@ -191,8 +191,8 @@ if iter==0
     end
 
     for g in G_2
-        P_cal[g]=(V_rm[g,1]'*real(I_cal)[g])+(V_rm[g+3*a,1]*imag(I_cal)[g])      #equation 22
-        Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal)[g])-(V_rm[g,1]*imag(I_cal)[g])      #equation 23
+        P_cal[g]=(V_rm[g,1]'*real(I_cal[g]))+(V_rm[g+3*a,1]*imag(I_cal[g]))      #equation 22
+        Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal[g]))-(V_rm[g,1]*imag(I_cal[g]))      #equation 23
 
         delP[g]=P_sp[g]-P_cal[g]                                                 #equation 20
         delQ[g]=Q_sp[g]-Q_cal[g]                                                 #equation 20
@@ -281,7 +281,7 @@ if iter==0
        tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
     end
 
-    del_v=J\del_I
+    J\del_I=del_v
 
     newdel_V=del_v+del_V
     newdel_V=del_V
