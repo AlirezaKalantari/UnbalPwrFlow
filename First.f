@@ -289,6 +289,8 @@ while inter==0
     for g in G_2
         if -del_v[g]+del_V[g]<10^(-(10)^100)
          iter=1
+        else
+         inter=0
         end
     end
 
@@ -298,6 +300,13 @@ end
 
 println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
 
+for g in G_2
+    if -del_v[g]+del_V[g]<10^(-(10)^100)
+     iter=1
+    else
+     iter=0
+    end
+end
 
 
 
