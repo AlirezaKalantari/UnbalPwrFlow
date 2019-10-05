@@ -287,7 +287,7 @@ if iter==0
     newdel_V=del_V
 
     for g in G_2
-        if del_v[g]-del_V[g]<10^(-(10)^100)
+        if -del_v[g]+del_V[g]<10^(-(10)^100)
          iter=1
         end
     end
