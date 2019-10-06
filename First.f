@@ -269,6 +269,7 @@ while iter==0
                             J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
                             J[6*(b-1)+d+3,6*(c-1)+d+3]=zeros[1,1]
                             del_V[6*b+d,1]=del_V[d+3*a,1]
+                            delQ[6*b+d,1]=del_V[d+3*a,1]
                         end
                     end
                 end
