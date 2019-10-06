@@ -290,7 +290,7 @@ while inter==0
         if -del_v[g]+del_V[g]<10^(-(10)^100)
          iter=1
         else
-         inter=0
+         iter=0
         end
     end
 
