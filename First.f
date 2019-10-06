@@ -183,7 +183,7 @@ end
 
 
 
-while inter==0
+while iter==0
 
     for i=1:(3*a)
         V_rm[i,1]=real(E_k)[i,1]
