@@ -186,7 +186,7 @@ end
 while iter==0
 
     for i=1:(3*a)
-        V_rm[i,1]=real(E_k)[i,1]
+        V_rm[i,1]=real(E_k)[i,1]        #2
         V_rm[i+3*a,1]=imag(E_k)[i,1]
     end
 
