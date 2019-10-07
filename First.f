@@ -265,9 +265,9 @@ while iter==0
                     if c!==b
                         for d=1:3
                             J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
-                            J[6*(c-1)+d,6*(b-1)+d+3]=zeros[1,1]
+                            J[6*(c-1)+d,6*(b-1)+d+3]=0
                             J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
-                            J[6*(b-1)+d+3,6*(c-1)+d+3]=zeros[1,1]
+                            J[6*(b-1)+d+3,6*(c-1)+d+3]=0
                             del_V[6*b+d,1]=del_V[d+3*b,1]
                             delQ[6*b+d,1]=del_V[d+3*b,1]
                         end
@@ -302,16 +302,16 @@ end
 
 println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
 
-for g in G_2
+
+
+
+#=for g in G_2
     if -del_v[g]+del_V[g]<10^(-(10)^100)
      iter=1
     else
      iter=0
     end
-end
-
-
-
+end=#
 #=for s in G_1
     for b in G_2
         for w=1:a
@@ -334,7 +334,6 @@ end
         end
     end
 end=#
-
 #=PV_bus
 #=for s in G_1
    for b in G_2
@@ -397,3 +396,22 @@ end=#
        end
    end=#
 end=#
+
+for b=1:a
+    if ct1[2,b]==3
+        for c=1:a
+            if YBUS[c,b]!==0.0
+                if c!==b
+                    for d=1:3
+                        J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
+                        J[6*(c-1)+d,6*(b-1)+d+3]=0
+                        J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
+                        J[6*(b-1)+d+3,6*(c-1)+d+3]=0
+                        del_V[3*b+d,1]=del_V[d+3*b,1]
+                        delQ[3*b+d,1]=del_V[d+3*b,1]
+                    end
+                end
+            end
+        end
+    end
+end
