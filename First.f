@@ -145,8 +145,8 @@ for i=1:a
     Qg[ct6[i,2]]=ct6[i,4]
 end
 
-P_sp=broadcast(-,Pg,Pl)
-Q_sp=broadcast(-,Qg,Ql)
+P_sp=broadcast(-,Pg,Pl)             #3
+Q_sp=broadcast(-,Qg,Ql)             #4
 
 for j=1:1
     h=0
