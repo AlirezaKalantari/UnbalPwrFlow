@@ -211,8 +211,8 @@ while iter==0
     end
 
     for g in G_2
-        del_I[(2*g-1),1]=delI_m[g]
-        del_I[(2*g),1]=delI_r[g]
+        del_I[(2*g-1),1]=delI_m[g]      #18
+        del_I[(2*g),1]=delI_r[g]        #18
     end
 
     for b=1:a
