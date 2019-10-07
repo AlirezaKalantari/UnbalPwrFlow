@@ -195,7 +195,7 @@ while iter==0
         Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
 
         delP[g]=P_sp[g]-P_cal[g]                                                 #equation 20
-        delQ[g]=Q_sp[g]-Q_cal[g]                                                 #equation 20
+        delQ[g]=Q_sp[g]-Q_cal[g]                                                 #equation 21
     end
 
     for g in G_2
