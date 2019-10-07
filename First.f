@@ -216,7 +216,7 @@ while iter==0
     end
 
     for b=1:a
-        for w=1:3
+        for w=1:3                                                   #13
             if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w+3]!==0
                 J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
                 J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])
@@ -227,7 +227,7 @@ while iter==0
     end
 
     for b=1:a
-        for c=1:a
+        for c=1:a               #12
             for d=1:3
                 if b!==a &&  (Ql_1[6*(b-1)+d]!==0 || Ql_1[6*(b-1)+d+3]!==0)
                     J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
