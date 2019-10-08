@@ -95,10 +95,10 @@ end
 real_pg=d[1,1]
 
 #PV_bus=zeros(1,1)
-Iter=collect(1:1000)
-G=collect(1:a)    #number of generator
-G_1=G=collect(1:6*a)
-G_2=collect(1:3*a)
+Iter=collect(1:1000)    #iteraion
+G=collect(1:a)          #number of generator
+G_1=G=collect(1:6*a)    #collect 1 to 6*size of buse
+G_2=collect(1:3*a)      #collect 1 to 3*size of buse
 G_3=collect(1:2*a)
 j=collect(1:(6*a))
 L=collect(1:a)    #number of load
