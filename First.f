@@ -181,9 +181,6 @@ end
 
 
 
-
-
-
 while iter==0
 
     for i=1:(3*a)
@@ -241,7 +238,6 @@ while iter==0
     end
     #check the Ql
 
-
     for b=1:a
         if ct1[2,b]==3
             for c=1:a
@@ -278,7 +274,6 @@ while iter==0
         end
     end
 
-
     for g=1:(3*a)
        E_k[g]=V_rm[g,1]+((V_rm[g+3*a,1])*im)
        tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
@@ -296,8 +291,6 @@ while iter==0
          iter=0
         end
     end
-
-
 end
 
 
