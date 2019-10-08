@@ -15,7 +15,11 @@ using Ipopt
 #Pkg.add("Cbc")
 using Cbc
 
+<<<<<<< HEAD:First.f
 data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case5.m")        #add case
+=======
+data = PowerModels.parse_file("case5.m")
+>>>>>>> 75efcb65e8a3f954ef45b6b1af219b29689809f4:First_1.jl
 data["bus"]
 data["branch"]
 data["gen"]
