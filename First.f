@@ -49,7 +49,7 @@ z_RE=ones(a,a)
 
 q=collect(1:(size(ct4,1)))
 
-
+#create Y bus
 for g in q
     yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
 end
