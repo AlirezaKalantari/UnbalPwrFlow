@@ -47,7 +47,7 @@ yb_im=complex(zb_im);
 z_RE=ones(a,a)
 
 
-q=collect(1:size(ct4,1))
+q=collect(1:(size(ct4,1)))
 
 
 for g in q
