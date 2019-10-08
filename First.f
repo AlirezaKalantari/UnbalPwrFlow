@@ -47,7 +47,8 @@ yb_im=complex(zb_im);
 z_RE=ones(a,a)
 
 
-q=collect(1:(a+1))
+q=collect(1:size(ct4,1))
+
 
 for g in q
     yb_re[ct4[g,2],ct4[g,3]]=-real(1/(ct4[g,4]+1im*ct4[g,5]))
@@ -301,117 +302,3 @@ end
 
 
 println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
-
-
-
-
-#=for g in G_2
-    if -del_v[g]+del_V[g]<10^(-(10)^100)
-     iter=1
-    else
-     iter=0
-    end
-end=#
-#=for s in G_1
-    for b in G_2
-        for w=1:a
-            if s==b
-                J[2*s-1,b]=imag(YBUS[w,w])-(α_k[w,w])
-                J[2*s-1,b+1]=real(YBUS[w,w])-(β_k[w,w])
-                #s=s+1
-                J[s,b]=real(YBUS[w,w])-α_k[w,w]
-                J[s,b+1]=-imag(YBUS[w,w])+β_k[w,w]
-                #s=s-1
-                elseif s!==b
-                c=2*b-1
-                J[s,c]=imag(YBUS[w,w])
-                J[s,c+1]=real(YBUS[w,w])
-                #s=s+1
-                J[s,c]=real(YBUS[w,w])
-                J[s,c+1]=-imag(YBUS[w,w])
-                #s=s-1
-            end
-        end
-    end
-end=#
-#=PV_bus
-#=for s in G_1
-   for b in G_2
-       if s!==b && Ql[s]!==0
-           c=2*b-1
-           J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
-           J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
-           s=s+1
-           J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
-           J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-           s=s-1
-       end
-        #=if s==b
-           J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3,1]/V_rm[s]))
-           J[2*s-1,b+3]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-           s=s+1
-           J[s,b]=J[2*s-1,b]=real(YBUS[s-1,s-1])-α_k[s-1,s-1]+((imag(YBUS[s-1,b])+β_k[s-1,s-1])*(V_rm[s+1,1]/V_rm[s+1,1]))
-           J[s,b+3]=-V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-           s=s-1
-       end=#
-   end
-end=#
-    #=for s in G_1
-        for b in G_2
-            if s!==b && Ql[s]!==0
-                c=2*b-1
-                J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
-                J[s,c+1]=real(YBUS[s,b])-β_k[s,s]
-                s=s+1
-                J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b]))*(V_rm[s+3*a,1]/V_rm[s,1]))
-                J[s,c+1]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-                s=s-1
-            end
-            if  s==b
-                J[2*s-1,b]=real(YBUS[s,s])-β_k[s,s]-((imag(YBUS[s,b])-α_k[s,s])*(V_rm[s+3*a,1]/V_rm[s,1]))
-                J[2*s-1,b+1]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-                s=s+1
-            end
-        end
-    end=#
-
-
-
-    #=for s in G_1
-       for b in G_2
-           if s!==b && Ql[s]!==0
-               c=2*b-1
-               J[s,c]=imag(YBUS[s,b])-α_k[s,s]-((real(YBUS[s,b])*(V_rm[s+3*a,1]/V_rm[s,1])))
-               J[s,c+3]=real(YBUS[s,b])-β_k[s,s]
-               s=s+1
-               J[s,c]=imag(YBUS[s-1,b])+β_k[s-1,s-1]-((real(YBUS[s-1,b])*(V_rm[s+3*a,1]/V_rm[s+3*a])))
-               J[s,c+3]=real(YBUS[s-1,b])-α_k[s-1,s-1]
-               s=s-1
-               #delI_m[s]=V_rm[s+3*a,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-               #delI_r[s]=V_rm[s,1]/(V_rm[s,1]^2+V_rm[s+3*a,1]^2)
-
-               #del_I[(2*b-1),1]=delI_m[s]
-               #del_I[(2*b),1]=delI_r[s]
-           end
-       end
-   end=#
-end=#
-
-for b=1:a
-    if ct1[2,b]==3
-        for c=1:a
-            if YBUS[c,b]!==0.0
-                if c!==b
-                    for d=1:3
-                        J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
-                        J[6*(c-1)+d,6*(b-1)+d+3]=0
-                        J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
-                        J[6*(b-1)+d+3,6*(c-1)+d+3]=0
-                        del_V[3*b+d,1]=del_V[d+3*b,1]
-                        delQ[3*b+d,1]=del_V[d+3*b,1]
-                    end
-                end
-            end
-        end
-    end
-end
