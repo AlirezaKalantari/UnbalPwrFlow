@@ -104,9 +104,9 @@ G=collect(1:a)          #number of generator
 G_1=G=collect(1:6*a)    #collect 1 to 6*size of buse
 G_2=collect(1:3*a)      #collect 1 to 3*size of buse
 G_3=collect(1:2*a)      #collect 1 to 2*size of buse
-j=collect(1:(6*a))      #Jucobian
+j=collect(1:(6*a))      #iteration of Jucobian
 L=collect(1:a)          #number of load
-Y=ones(6*a,6*a)
+Y=ones(6*a,6*a)         #
 J=zeros(6*a,6*a)
 E_k=complex(ones(3*a,1))
 I_cal=complex(ones(6*a,1))
