@@ -112,8 +112,8 @@ E_k=complex(ones(3*a,1))    #voltage
 I_cal=complex(ones(6*a,1))  #current
 β_k=diagm(0=>ones(3*a))     #beta
 α_k=diagm(0=>ones(3*a))     #alpha
-γ_k=diagm(0=>ones(3*a))
-δ_k=diagm(0=>ones(3*a))
+γ_k=diagm(0=>ones(3*a))     #ghama
+δ_k=diagm(0=>ones(3*a))     #delta
 delI_r=zeros(3*a,1)
 delI_m=zeros(3*a,1)
 Pg=zeros(3*a,1)
