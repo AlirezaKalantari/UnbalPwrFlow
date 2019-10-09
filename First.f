@@ -116,8 +116,8 @@ I_cal=complex(ones(6*a,1))  #current
 δ_k=diagm(0=>ones(3*a))     #delta
 delI_r=zeros(3*a,1)         # real of delta current
 delI_m=zeros(3*a,1)         #imag of delta current
-Pg=zeros(3*a,1)
-Pl=zeros(3*a,1)
+Pg=zeros(3*a,1)             #generation power
+Pl=zeros(3*a,1)             #power of load
 P_sp=zeros(3*a,1)
 P_cal=zeros(3*a,1)
 delP=zeros(3*a,1)
