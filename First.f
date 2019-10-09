@@ -114,8 +114,8 @@ I_cal=complex(ones(6*a,1))  #current
 α_k=diagm(0=>ones(3*a))     #alpha
 γ_k=diagm(0=>ones(3*a))     #ghama
 δ_k=diagm(0=>ones(3*a))     #delta
-delI_r=zeros(3*a,1)
-delI_m=zeros(3*a,1)
+delI_r=zeros(3*a,1)         # real of delta current
+delI_m=zeros(3*a,1)         #imag of delta current
 Pg=zeros(3*a,1)
 Pl=zeros(3*a,1)
 P_sp=zeros(3*a,1)
