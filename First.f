@@ -127,7 +127,7 @@ newdel_V=zeros(6*a,1)       #voltage
 del_v=zeros(6*a,1)          #delta voltage
 V_rm=complex(ones(6*a,1))   #Voltage
 
-Qg=zeros(3*a,1)
+Qg=zeros(3*a,1)             #generation of reactive power  
 Ql=zeros(3*a,1)
 Ql_1=zeros(6*a,1)
 Q_sp=zeros(3*a,1)
