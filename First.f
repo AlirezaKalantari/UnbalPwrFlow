@@ -122,10 +122,10 @@ P_sp=zeros(3*a,1)           #specified active power
 P_cal=zeros(3*a,1)          #calculated active power
 delP=zeros(3*a,1)           #delta active power
 del_I=zeros(6*a,1)          #delta current
-del_V=zeros(6*a,1)          #delta voltage
-newdel_V=zeros(6*a,1)
-del_v=zeros(6*a,1)
-V_rm=complex(ones(6*a,1))
+del_V=zeros(6*a,1)          #delta Voltage
+newdel_V=zeros(6*a,1)       #voltage
+del_v=zeros(6*a,1)          #delta voltage
+V_rm=complex(ones(6*a,1))   #Voltage
 
 Qg=zeros(3*a,1)
 Ql=zeros(3*a,1)
