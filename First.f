@@ -138,7 +138,7 @@ tete=zeros(6*a,1)           #angle
 iter=0                      #iteration cycle
 iter=collect(1:10^1000)
 
-for i=1:(size(ct5,1))
+for i=1:(size(ct5,1))       #active & reactive power
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
 end
