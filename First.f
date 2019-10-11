@@ -149,8 +149,8 @@ for i=1:a                    #active & reactive generation of power
     Qg[ct6[i,2]]=ct6[i,4]
 end
 
-P_sp=broadcast(-,Pg,Pl)             #3
-Q_sp=broadcast(-,Qg,Ql)             #4
+P_sp=broadcast(-,Pg,Pl)             #equation 3
+Q_sp=broadcast(-,Qg,Ql)             #equation 4
 
 for j=1:1
     h=0
