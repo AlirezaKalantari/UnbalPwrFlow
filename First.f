@@ -135,7 +135,7 @@ Q_cal=zeros(3*a,1)          #calculated reactive power
 delQ=zeros(3*a,1)           #reactive power mismatch
 tete=zeros(6*a,1)           #angle
 
-iter=0
+iter=0                      #iteration cycle
 iter=collect(1:10^1000)
 
 for i=1:(size(ct5,1))
