@@ -97,8 +97,9 @@ for i=(1:size(ct3,1))
 end
 
 real_pg=d[1,1]
+ct6[2,2]=2
 
-#PV_bus=zeros(1,1)
+
 Iter=collect(1:1000)    #iteraion
 G=collect(1:a)          #number of generator
 G_1=G=collect(1:6*a)    #collect 1 to 6*size of buse
@@ -142,8 +143,6 @@ for i=1:(size(ct5,1))       #active & reactive power
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
 end
-
-ct6[2,2]=2
 
 for i=1:a
     Pg[ct6[i,2]]=ct6[i,3]
