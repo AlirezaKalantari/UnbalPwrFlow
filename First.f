@@ -139,12 +139,12 @@ tete=zeros(6*a,1)           #angle
 iter=0                      #iteration cycle
 iter=collect(1:10^1000)
 
-for i=1:(size(ct5,1))       #active & reactive power
+for i=1:(size(ct5,1))       #active & reactive load of power
     Pl[ct5[i,2]]=ct5[i,3]
     Ql[ct5[i,2]]=ct5[i,4]
 end
 
-for i=1:a
+for i=1:a                    #active & reactive generation of power
     Pg[ct6[i,2]]=ct6[i,3]
     Qg[ct6[i,2]]=ct6[i,4]
 end
