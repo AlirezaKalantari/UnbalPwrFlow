@@ -149,10 +149,10 @@ for i=1:a                    #active & reactive generation of power
     Qg[ct6[i,2]]=ct6[i,4]
 end
 
-P_sp=broadcast(-,Pg,Pl)             #equation 3
-Q_sp=broadcast(-,Qg,Ql)             #equation 4
+P_sp=broadcast(-,Pg,Pl)     #equation 3
+Q_sp=broadcast(-,Qg,Ql)     #equation 4
 
-for j=1:1
+for j=1:1                   #number of slag bus
     h=0
     for i=1:a
         if ct1[2,i]==1
@@ -162,7 +162,7 @@ for j=1:1
     println("Numer of S_Bus is =$h")
 end
 
-for j=1:1
+for j=1:1                    #number of PQ bus
     h=0
     for i=1:a
         if ct1[2,i]==2
@@ -172,7 +172,7 @@ for j=1:1
     println("Numer of PQ_Bus is =$h")
 end
 
-for j=1:1
+for j=1:1                    #number of PV bus
     h=0
     for i=1:a
         if ct1[2,i]==3
