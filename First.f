@@ -184,7 +184,7 @@ end
 
 
 
-while iter==0
+while iter==0                   #algorithm solution
 
     for i=1:(3*a)
         V_rm[i,1]=real(E_k)[i,1]        #equation2
@@ -241,16 +241,16 @@ while iter==0
     end
     #check the Ql
 
-    for b=1:a
+    for b=1:a               #calculation of Jucobian for pv buse
         if ct1[2,b]==3
             for c=1:a
                 if YBUS[c,b]!==0.0
                     if c==b
                         for d=1:3
                             J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
-                            J[6*(c-1)+d,6*(b-1)+d+3]=V_rm[b,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
+                            J[6*(c-1)+d,6*(b-1)+d+3]=V_rm[b,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)                                                                             #equation 30
                             J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
-                            J[6*(b-1)+d+3,6*(c-1)+d+3]=V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)
+                            J[6*(b-1)+d+3,6*(c-1)+d+3]=-V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)                                                                      #equation 31
                         end
                     end
                 end
