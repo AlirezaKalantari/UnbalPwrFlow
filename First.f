@@ -212,15 +212,15 @@ while iter==0
     end
 
     for g in G_2
-        del_I[(2*g-1),1]=delI_m[g]      #18
-        del_I[(2*g),1]=delI_r[g]        #18
+        del_I[(2*g-1),1]=delI_m[g]      #equation 18
+        del_I[(2*g),1]=delI_r[g]        #equation 18
     end
 
     for b=1:a
-        for w=1:3                                                   #13
+        for w=1:3                                                   #equation 13
             if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w+3]!==0
-                J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #14
-                J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])  #17
+                J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #equation 14
+                J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])  #equation 17
                 J[6*(b-1)+w,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])     #15
                 J[6*(b-1)+w+3,6*(b-1)+w]=real(YBUS[b,b])+(β_k[3*(b-1)+w,3*(b-1)+w])     #16
             end
