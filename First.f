@@ -187,7 +187,7 @@ end
 while iter==0
 
     for i=1:(3*a)
-        V_rm[i,1]=real(E_k)[i,1]        #2
+        V_rm[i,1]=real(E_k)[i,1]        #equation2
         V_rm[i+3*a,1]=imag(E_k)[i,1]
     end
 
@@ -195,12 +195,12 @@ while iter==0
         P_cal[g]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
         Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
 
-        delP[g]=P_sp[g]-P_cal[g]                                                 #equation 20
-        delQ[g]=Q_sp[g]-Q_cal[g]                                                 #equation 21
+        delP[g]=P_sp[g]-P_cal[g]                                              #equation 20
+        delQ[g]=Q_sp[g]-Q_cal[g]                                              #equation 21
     end
 
     for g in G_2
-        α_k[g,g]=(Q_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
+        α_k[g,g]=(Q_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of alpha
         β_k[g,g]=(P_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)
         δ_k=α_k
         γ_k=-β_k
