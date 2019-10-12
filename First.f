@@ -282,12 +282,13 @@ while iter==0                   #algorithm solution
        tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
     end
 
-    J\del_I=del_v
+    J\del_I=del_v       #calculation of Jucobian for obtaining of Unknowns parameters
+
 
     newdel_V=del_v+del_V
     newdel_V=del_V
 
-    for g in G_2
+    for g in G_2        #constrain of voltage
         if -del_v[g]+del_V[g]<10^(-(10)^100)
          iter=1
         else
@@ -297,4 +298,4 @@ while iter==0                   #algorithm solution
 end
 
 
-println("salam saeed jan, because my mother is in the hospital, I have to take care of her, when I return to Tehran, we set a meeting ")
+println("سلام سعید جان، وقت بخیر، من توضیحات کد رو نوشتم جلوی هر خط، لب تابمو رو دادم که درست کنن بلندگوشو تا باهمدیگه صحبت کنیم، امروز بعدازظهر دارم میرم کربلا، خوبی بدی دیدی حلال کن، اگه قابل باشم حتما برای خودت و خونواده ت دعا میکنم، انشااله برگشتم با قرار میذاریم، فقط سوالی که من در مورد کد داشتم این بود که چه طوری ولتاژهای نامتعادل رو وارد میکنیم توی کد. من کدهای تک تک معادلات یمقاله نوشتم، میخواستم خواهش کنم که اگه ممکنه منطق کدهارو هم یه نگاه کنی که درست کد زدم. خیلی مخلصیم. ارادتمند")
