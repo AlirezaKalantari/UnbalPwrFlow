@@ -120,6 +120,7 @@ delI_r=zeros(3*a,1)         # real of delta current
 delI_m=zeros(3*a,1)         #imag of delta current
 Pg=zeros(3*a,1)             #generation active power
 Pl=zeros(3*a,1)             #active power of load
+Pload_daily=Pl=zeros(3*a,1) 
 P_sp=zeros(3*a,1)           #specified active power
 P_cal=zeros(3*a,1)          #calculated active power
 delP=zeros(3*a,1)           #active power mismatch
