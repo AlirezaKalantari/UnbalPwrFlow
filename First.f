@@ -15,11 +15,11 @@ using Ipopt
 #Pkg.add("Cbc")
 using Cbc
 
-<<<<<<< HEAD:First.f
+
 data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case5.m")        #add case
-=======
+
 data = PowerModels.parse_file("case5.m")
->>>>>>> 75efcb65e8a3f954ef45b6b1af219b29689809f4:First_1.jl
+
 data["bus"]
 data["branch"]
 data["gen"]
@@ -108,6 +108,7 @@ G_3=collect(1:2*a)      #collect 1 to 2*size of buse
 j=collect(1:(6*a))      #iteration of Jucobian
 L=collect(1:a)          #number of load
 Y=ones(6*a,6*a)         #Y buse
+Ybus_un=ones(6*a,6*a)
 J=zeros(6*a,6*a)
 E_k=complex(ones(3*a,1))    #voltage
 I_cal=complex(ones(6*a,1))  #current
