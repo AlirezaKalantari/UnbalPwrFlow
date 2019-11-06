@@ -99,7 +99,7 @@ end
 real_pg=d[1,1]
 ct6[2,2]=2
 
-
+t=collect(1:24)
 Iter=collect(1:1000)    #iteraion
 G=collect(1:a)          #number of generator
 G_1=G=collect(1:6*a)    #collect 1 to 6*size of buse
