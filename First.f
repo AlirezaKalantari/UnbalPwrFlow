@@ -132,6 +132,7 @@ V_rm=complex(ones(6*a,1))   #Voltage
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
+Ql_daily=zeros(3*a,1) 
 Ql_1=zeros(6*a,1)           #reserve of reactive power generated
 Q_sp=zeros(3*a,1)           #specified reactive power
 Q_cal=zeros(3*a,1)          #calculated reactive power
