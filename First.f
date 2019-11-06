@@ -120,7 +120,7 @@ delI_r=zeros(3*a,1)         # real of delta current
 delI_m=zeros(3*a,1)         #imag of delta current
 Pg=zeros(3*a,1)             #generation active power
 Pl=zeros(3*a,1)             #active power of load
-Pload_daily=Pl=zeros(3*a,1) #active power of load
+Pload_daily=Pl=zeros(3*a,1) #daily active power of load
 P_sp=zeros(3*a,1)           #specified active power
 P_cal=zeros(3*a,1)          #calculated active power
 delP=zeros(3*a,1)           #active power mismatch
@@ -132,7 +132,7 @@ V_rm=complex(ones(6*a,1))   #Voltage
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
-Ql_daily=zeros(3*a,1) 
+Ql_daily=zeros(3*a,1)        # daily reactive power of generation
 Ql_1=zeros(6*a,1)           #reserve of reactive power generated
 Q_sp=zeros(3*a,1)           #specified reactive power
 Q_cal=zeros(3*a,1)          #calculated reactive power
