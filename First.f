@@ -99,17 +99,17 @@ end
 real_pg=d[1,1]
 ct6[2,2]=2
 
-T=collect(1:24)         #duration
-Iter=collect(1:1000)    #iteraion
-G=collect(1:a)          #number of generator
-G_1=G=collect(1:6*a)    #collect 1 to 6*size of buse
-G_2=collect(1:3*a)      #collect 1 to 3*size of buse
-G_3=collect(1:2*a)      #collect 1 to 2*size of buse
-j=collect(1:(6*a))      #iteration of Jucobian
-L=collect(1:a)          #number of load
-Y=ones(6*a,6*a)         #Y buse
-Ybus_un=ones(6*a,6*a)   #Y buse unbalance
-J=zeros(6*a,6*a)
+T=collect(1:24)             #duration
+Iter=collect(1:1000)        #iteraion
+G=collect(1:a)              #number of generator
+G_1=G=collect(1:6*a)        #collect 1 to 6*size of buse
+G_2=collect(1:3*a)          #collect 1 to 3*size of buse
+G_3=collect(1:2*a)          #collect 1 to 2*size of buse
+j=collect(1:(6*a))          #iteration of Jucobian
+L=collect(1:a)              #number of load
+Y=ones(6*a,6*a)             #Y buse
+Ybus_un=ones(6*a,6*a)       #Y buse unbalance
+J=zeros(6*a,6*a)            #Jucobian
 E_k=complex(ones(3*a,1))    #voltage
 I_cal=complex(ones(6*a,1))  #current
 β_k=diagm(0=>ones(3*a))     #beta
@@ -129,12 +129,12 @@ del_V=zeros(6*a,1)          #delta Voltage
 newdel_V=zeros(6*a,1)       #voltage
 del_v=zeros(6*a,1)          #delta voltage
 V_rm=complex(ones(6*a,1))   #Voltage
-solar_power=zeros(5,24)    #number of solar
+solar_power=zeros(5,24)     #number of solar
 
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
-Ql_daily=zeros(3*a,1)        # daily reactive power of generation
+Ql_daily=zeros(3*a,1)       # daily reactive power of generation
 Ql_1=zeros(6*a,1)           #reserve of reactive power generated
 Q_sp=zeros(3*a,1)           #specified reactive power
 Q_cal=zeros(3*a,1)          #calculated reactive power
@@ -149,8 +149,8 @@ for i=1:(size(ct5,1))       #active & reactive load of power
     Ql[ct5[i,2]]=ct5[i,4]
 end
 
-for i=1:a                    #active & reactive generation of power
-    Pg[ct6[i,2]]=ct6[i,3]+solar_power[i,1]
+for i=1:a                   #active & reactive generation of power
+    Pg[ct6[i,2]]=ct6[i,3]+solar_power[i,1]  #add solar power as generating power
     Qg[ct6[i,2]]=ct6[i,4]
 end
 
@@ -167,7 +167,7 @@ for j=1:1                   #number of slag bus
     println("Numer of S_Bus is =$h")
 end
 
-for j=1:1                    #number of PQ bus
+for j=1:1                   #number of PQ bus
     h=0
     for i=1:a
         if ct1[2,i]==2
@@ -190,7 +190,7 @@ end
 
 for t in t
 
-    while iter==0                   #algorithm solution
+    while iter==0                           #algorithm solution
 
         for i=1:(3*a)
             V_rm[i,1]=real(E_k)[i,1]        #equation2
@@ -247,7 +247,7 @@ for t in t
         end
         #check the Ql
 
-        for b=1:a               #calculation of Jucobian for pv buse
+        for b=1:a                            #calculation of Jucobian for pv buse
             if ct1[2,b]==3
                 for c=1:a
                     if YBUS[c,b]!==0.0       #equation 28-29
