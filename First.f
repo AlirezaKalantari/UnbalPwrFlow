@@ -129,7 +129,8 @@ del_V=zeros(6*a,1)          #delta Voltage
 newdel_V=zeros(6*a,1)       #voltage
 del_v=zeros(6*a,1)          #delta voltage
 V_rm=complex(ones(6*a,1))   #Voltage
-solar_power=zerose(5,24)    #number of solar
+solar_power=zeros(5,24)    #number of solar
+
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
@@ -149,7 +150,7 @@ for i=1:(size(ct5,1))       #active & reactive load of power
 end
 
 for i=1:a                    #active & reactive generation of power
-    Pg[ct6[i,2]]=ct6[i,3]
+    Pg[ct6[i,2]]=ct6[i,3]+solar_power[i,1]
     Qg[ct6[i,2]]=ct6[i,4]
 end
 
