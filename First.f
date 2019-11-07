@@ -99,7 +99,7 @@ end
 real_pg=d[1,1]
 ct6[2,2]=2
 
-T=collect(1:24)         #duration 
+T=collect(1:24)         #duration
 Iter=collect(1:1000)    #iteraion
 G=collect(1:a)          #number of generator
 G_1=G=collect(1:6*a)    #collect 1 to 6*size of buse
@@ -186,119 +186,126 @@ for j=1:1                    #number of PV bus
 end
 
 
+for t in t
 
-while iter==0                   #algorithm solution
+    while iter==0                   #algorithm solution
 
-    for i=1:(3*a)
-        V_rm[i,1]=real(E_k)[i,1]        #equation2
-        V_rm[i+3*a,1]=imag(E_k)[i,1]
-    end
-
-    for g in G_2
-        P_cal[g]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
-        Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
-
-        delP[g]=P_sp[g]-P_cal[g]                                              #equation 20
-        delQ[g]=Q_sp[g]-Q_cal[g]                                              #equation 21
-    end
-
-    for g in G_2
-        α_k[g,g]=(Q_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of alpha
-        β_k[g,g]=(P_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of beta
-        δ_k=α_k
-        γ_k=-β_k
-    end
-
-    for g in G_2
-        delI_r[g]=(delP[g]'*V_rm[g,1]+delQ[g]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
-        delI_m[g]=(delP[g]'*V_rm[g+3*a,1]+delQ[g]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
-    end
-
-    for g in G_2
-        del_I[(2*g-1),1]=delI_m[g]      #equation 18
-        del_I[(2*g),1]=delI_r[g]        #equation 18
-    end
-
-    for b=1:a
-        for w=1:3                                                   #equation 13
-            if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w+3]!==0
-                J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #equation 14
-                J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])  #equation 17
-                J[6*(b-1)+w,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])     #equation 15
-                J[6*(b-1)+w+3,6*(b-1)+w]=real(YBUS[b,b])+(β_k[3*(b-1)+w,3*(b-1)+w])     #equation 16
-            end
+        for i=1:(3*a)
+            V_rm[i,1]=real(E_k)[i,1]        #equation2
+            V_rm[i+3*a,1]=imag(E_k)[i,1]
         end
-    end
 
-    for b=1:a
-        for c=1:a               #equation 12
-            for d=1:3
-                if b!==a &&  (Ql_1[6*(b-1)+d]!==0 || Ql_1[6*(b-1)+d+3]!==0)
-                    J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
-                    J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
-                    J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[b,c])
-                    J[6*(b-1)+d+3,6*(c-1)+d+3]=-imag(YBUS[b,c])
+        for g in G_2
+            P_cal[g]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
+            Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
+
+            delP[g]=P_sp[g]-P_cal[g]                                              #equation 20
+            delQ[g]=Q_sp[g]-Q_cal[g]                                              #equation 21
+        end
+
+        for g in G_2
+            α_k[g,g]=(Q_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of alpha
+            β_k[g,g]=(P_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of beta
+            δ_k=α_k
+            γ_k=-β_k
+        end
+
+        for g in G_2
+            delI_r[g]=(delP[g]'*V_rm[g,1]+delQ[g]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
+            delI_m[g]=(delP[g]'*V_rm[g+3*a,1]+delQ[g]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
+        end
+
+        for g in G_2
+            del_I[(2*g-1),1]=delI_m[g]      #equation 18
+            del_I[(2*g),1]=delI_r[g]        #equation 18
+        end
+
+        for b=1:a
+            for w=1:3                                                   #equation 13
+                if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w+3]!==0
+                    J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #equation 14
+                    J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])  #equation 17
+                    J[6*(b-1)+w,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])     #equation 15
+                    J[6*(b-1)+w+3,6*(b-1)+w]=real(YBUS[b,b])+(β_k[3*(b-1)+w,3*(b-1)+w])     #equation 16
                 end
             end
         end
-    end
-    #check the Ql
 
-    for b=1:a               #calculation of Jucobian for pv buse
-        if ct1[2,b]==3
-            for c=1:a
-                if YBUS[c,b]!==0.0       #equation 28-29
-                    if c==b
-                        for d=1:3
-                            J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
-                            J[6*(c-1)+d,6*(b-1)+d+3]=V_rm[b,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)                                                                             #equation 30
-                            J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
-                            J[6*(b-1)+d+3,6*(c-1)+d+3]=-V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)                                                                      #equation 31
+        for b=1:a
+            for c=1:a               #equation 12
+                for d=1:3
+                    if b!==a &&  (Ql_1[6*(b-1)+d]!==0 || Ql_1[6*(b-1)+d+3]!==0)
+                        J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
+                        J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
+                        J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[b,c])
+                        J[6*(b-1)+d+3,6*(c-1)+d+3]=-imag(YBUS[b,c])
+                    end
+                end
+            end
+        end
+        #check the Ql
+
+        for b=1:a               #calculation of Jucobian for pv buse
+            if ct1[2,b]==3
+                for c=1:a
+                    if YBUS[c,b]!==0.0       #equation 28-29
+                        if c==b
+                            for d=1:3
+                                J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
+                                J[6*(c-1)+d,6*(b-1)+d+3]=V_rm[b,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)                                                                             #equation 30
+                                J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[c,1])
+                                J[6*(b-1)+d+3,6*(c-1)+d+3]=-V_rm[b+3*a,1]/(V_rm[b,1]^2+V_rm[b+3*a,1]^2)                                                                      #equation 31
+                            end
                         end
                     end
                 end
             end
         end
-    end
 
-    for b=1:a
-        if ct1[2,b]==3
-            for c=1:a
-                if YBUS[c,b]!==0.0
-                    if c!==b
-                        for d=1:3                    #equation 33-34
-                            J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
-                            J[6*(c-1)+d,6*(b-1)+d+3]=0
-                            J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
-                            J[6*(b-1)+d+3,6*(c-1)+d+3]=0
-                            del_V[6*b+d,1]=del_V[d+3*b,1]
-                            del_V[d+3*b,1]=delQ[3*(b-1)+d,1]
+        for b=1:a
+            if ct1[2,b]==3
+                for c=1:a
+                    if YBUS[c,b]!==0.0
+                        if c!==b
+                            for d=1:3                    #equation 33-34
+                                J[6*(c-1)+d,6*(b-1)+d]=real(YBUS[c,b])-(β_k[3*(b-1)+d,3*(b-1)+d])-(imag(YBUS[c,b])-(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
+                                J[6*(c-1)+d,6*(b-1)+d+3]=0
+                                J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[c,b])+(β_k[3*(b-1)+d,3*(b-1)+d])+(imag(YBUS[b,b])+(α_k[3*(b-1)+d,3*(b-1)+d]))*(V_rm[b+3*a,1]/V_rm[b,1])
+                                J[6*(b-1)+d+3,6*(c-1)+d+3]=0
+                                del_V[6*b+d,1]=del_V[d+3*b,1]
+                                del_V[d+3*b,1]=delQ[3*(b-1)+d,1]
+                            end
                         end
                     end
                 end
             end
         end
-    end
 
-    for g=1:(3*a)
-       E_k[g]=V_rm[g,1]+((V_rm[g+3*a,1])*im)
-       tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
-    end
+        for g=1:(3*a)
+           E_k[g]=V_rm[g,1]+((V_rm[g+3*a,1])*im)
+           tete[g]=atand(V_rm[g+3*a,1]/V_rm[g,1])
+        end
 
-    J\del_I=del_v       #calculation of Jucobian for obtaining of Unknowns parameters
+        J\del_I=del_v       #calculation of Jucobian for obtaining of Unknowns parameters
 
 
-    newdel_V=del_v+del_V
-    newdel_V=del_V
+        newdel_V=del_v+del_V
+        newdel_V=del_V
 
-    for g in G_2        #constrain of voltage
-        if -del_v[g]+del_V[g]<10^(-(10)^100)
-         iter=1
-        else
-         iter=0
+        for g in G_2        #constrain of voltage
+            if -del_v[g]+del_V[g]<10^(-(10)^100)
+             iter=1
+            else
+             iter=0
+            end
         end
     end
+
+
+
+
 end
+
 
 
 println("سلام سعید جان، وقت بخیر، من توضیحات کد رو نوشتم جلوی هر خط، لب تابمو رو دادم که درست کنن بلندگوشو تا باهمدیگه صحبت کنیم، امروز بعدازظهر دارم میرم کربلا، خوبی بدی دیدی حلال کن، اگه قابل باشم حتما برای خودت و خونواده ت دعا میکنم، انشااله برگشتم با قرار میذاریم، فقط سوالی که من در مورد کد داشتم این بود که چه طوری ولتاژهای نامتعادل رو وارد میکنیم توی کد. من کدهای تک تک معادلات یمقاله نوشتم، میخواستم خواهش کنم که اگه ممکنه منطق کدهارو هم یه نگاه کنی که درست کد زدم. خیلی مخلصیم. ارادتمند")
