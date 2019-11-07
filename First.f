@@ -86,8 +86,11 @@ for l=1:a
     yb_im[l,l]=-(yb_im[l,1]+yb_im[l,2]+yb_im[l,3]+yb_im[l,4]+yb_im[l,5])
 end
 
-YBUS=yb_re+(1im*yb_im)  #Y buse
+YBUS=yb_re+(1im*yb_im)      #Y buse
 d=size(ct3,1)*ones(1,1)
+
+#make unbalance ybus
+
 
 for i=(1:size(ct3,1))
   b=size(ct3,1)
