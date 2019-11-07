@@ -129,7 +129,7 @@ del_V=zeros(6*a,1)          #delta Voltage
 newdel_V=zeros(6*a,1)       #voltage
 del_v=zeros(6*a,1)          #delta voltage
 V_rm=complex(ones(6*a,1))   #Voltage
-solar power=zerose(5,24)
+solar_power=zerose(5,24)    #number of solar
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
