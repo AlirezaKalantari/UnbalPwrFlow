@@ -90,6 +90,7 @@ YBUS=yb_re+(1im*yb_im)      #Y buse
 d=size(ct3,1)*ones(1,1)
 
 #make unbalance ybus
+#add time to any of P
 
 
 for i=(1:size(ct3,1))
