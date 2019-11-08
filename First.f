@@ -134,7 +134,7 @@ newdel_V=zeros(6*a,1)       #voltage
 del_v=zeros(6*a,1)          #delta voltage
 V_rm=complex(ones(6*a,1))   #Voltage
 solar_power=zeros(5,24)     #number of solar
-
+data_demand=zeros(5,24)
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
@@ -312,8 +312,10 @@ end
 
 println("سلام سعید جان، وقت بخیر، من توضیحات کد رو نوشتم جلوی هر خط، لب تابمو رو دادم که درست کنن بلندگوشو تا باهمدیگه صحبت کنیم، امروز بعدازظهر دارم میرم کربلا، خوبی بدی دیدی حلال کن، اگه قابل باشم حتما برای خودت و خونواده ت دعا میکنم، انشااله برگشتم با قرار میذاریم، فقط سوالی که من در مورد کد داشتم این بود که چه طوری ولتاژهای نامتعادل رو وارد میکنیم توی کد. من کدهای تک تک معادلات یمقاله نوشتم، میخواستم خواهش کنم که اگه ممکنه منطق کدهارو هم یه نگاه کنی که درست کد زدم. خیلی مخلصیم. ارادتمند")
 
+
+
 #=for i=1:(size(ct5,1))       #active & reactive load of power
-    Pl[ct5[i,2]]=ct5[i,3]
+    Pl[t,ct5[i,2]]=data_demand[t,s]
     Ql[ct5[i,2]]=ct5[i,4]
 end
 
