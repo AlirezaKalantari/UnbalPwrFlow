@@ -134,7 +134,7 @@ newdel_V=zeros(6*a,1)       #voltage
 del_v=zeros(6*a,1)          #delta voltage
 V_rm=complex(ones(6*a,1))   #Voltage
 solar_power=zeros(5,24)     #number of solar
-data_demand=zeros(5,24)     #demand of any time
+data_demand=complex(zeros(5,24))   #demand of any time
 
 Qg=zeros(3*a,1)             #generation of reactive power
 Ql=zeros(3*a,1)             #reactive power of generation
@@ -315,8 +315,8 @@ println("سلام سعید جان، وقت بخیر، من توضیحات کد �
 
 
 #=for i=1:(size(ct5,1))       #active & reactive load of power
-    Pl[t,ct5[i,2]]=data_demand[t,s]
-    Ql[ct5[i,2]]=ct5[i,4]
+    Pl[t,ct5[i,2]]=data_demand[i,t]
+    Ql[t,ct5[i,2]]=ct5[i,4]
 end
 
 for i=1:a                   #active & reactive generation of power
