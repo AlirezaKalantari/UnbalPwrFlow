@@ -316,7 +316,7 @@ println("سلام سعید جان، وقت بخیر، من توضیحات کد �
 
 #=for i=1:(size(ct5,1))       #active & reactive load of power
     Pl[t,ct5[i,2]]=real(data_demand[i,t])
-    Ql[t,ct5[i,2]]=ct5[i,4]
+    Ql[t,ct5[i,2]]=imag(data_demand[i,t])
 end
 
 for i=1:a                   #active & reactive generation of power
