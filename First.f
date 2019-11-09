@@ -322,9 +322,11 @@ end
     end
 end
 
-for i=1:a                   #active & reactive generation of power
-    Pg[ct6[i,2]]=ct6[i,3]+solar_power[i,1]  #add solar power as generating power
-    Qg[ct6[i,2]]=ct6[i,4]
+for t=1:24
+    for i=1:a                   #active & reactive generation of power
+        Pg[ct6[i,2]]=ct6[i,3]+solar_power[i,1]  #add solar power as generating power
+        Qg[ct6[i,2]]=ct6[i,4]
+    end
 end
 
 P_sp=broadcast(-,Pg,Pl)     #equation 3
