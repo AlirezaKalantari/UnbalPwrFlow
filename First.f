@@ -330,10 +330,10 @@ for t=1:24
 end
 for g in G_2
     P_cal[g,t]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
-    Q_cal[g]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
+    Q_cal[g,t]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
 
-    delP[g]=P_sp[g]-P_cal[g]                                              #equation 20
-    delQ[g]=Q_sp[g]-Q_cal[g]                                              #equation 21
+    delP[g,t]=P_sp[g,t]-P_cal[g,t]                                              #equation 20
+    delQ[g,t]=Q_sp[g,t]-Q_cal[g,t]                                              #equation 21
 end
 
 P_sp=broadcast(-,Pg,Pl)     #equation 3
