@@ -324,7 +324,7 @@ end
 
 for t=1:24
     for i=1:a                   #active & reactive generation of power
-        Pg[ct6[t,[i,2]]=ct6[i,3]+solar_power[i,1]  #add solar power as generating power
+        Pg[ct6[t,[i,2]]=ct6[i,3]+solar_power[i,t]  #add solar power as generating power
         Qg[ct6[t,[i,2]]=ct6[i,4]
     end
 end
