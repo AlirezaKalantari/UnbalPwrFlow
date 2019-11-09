@@ -328,12 +328,15 @@ for t=1:24
         Qg[ct6[t,[i,2]]=ct6[i,4]
     end
 end
-for g in G_2
-    P_cal[g,t]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
-    Q_cal[g,t]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
 
-    delP[g,t]=P_sp[g,t]-P_cal[g,t]                                              #equation 20
-    delQ[g,t]=Q_sp[g,t]-Q_cal[g,t]                                              #equation 21
+for t=1:24
+    for g in G_2
+        P_cal[g,t]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
+        Q_cal[g,t]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
+
+        delP[g,t]=P_sp[g,t]-P_cal[g,t]                                          #equation 20
+        delQ[g,t]=Q_sp[g,t]-Q_cal[g,t]                                          #equation 21
+    end
 end
 
 P_sp=broadcast(-,Pg,Pl)     #equation 3
