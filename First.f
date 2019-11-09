@@ -316,14 +316,14 @@ end
 #Pl=zeros(3*a,1,24)
 #Ql=zeros(3*a,1,24)
 #=for t=1:24
-    for i=1:(size(ct5,1))       #active & reactive load of power
+    for i=1:(size(ct5,1))       #active & reactive load of power of any time
         Pl[ct5[i,2],t]=real(data_demand[i,t])
         Ql[ct5[i,2],t]=imag(data_demand[i,t])
     end
 end
 
 for t=1:24
-    for i=1:a                   #active & reactive generation of power
+    for i=1:a                   #active & reactive generation of power of any time
         Pg[ct6[t,[i,2]]=ct6[i,3]+solar_power[i,t]  #add solar power as generating power
         Qg[ct6[t,[i,2]]=ct6[i,4]
     end
