@@ -318,10 +318,10 @@ end
 
 #P_sp=zeros(3*a,1,t)           #specified active power
 #P_cal=zeros(3*a,1,t)
-#delP=zeros(3*a,1,24)
-#Qg=zeros(3*a,1,24)
-#Pl=zeros(3*a,1,24)
-#Ql=zeros(3*a,1,24)
+#delP=zeros(3*a,24)
+#Qg=zeros(3*a,24)
+#Pl=zeros(3*a,24)
+#Ql=zeros(3*a,24)
 #=for t=1:24
     for i=1:(size(ct5,1))       #active & reactive load of power of any time
         Pl[ct5[i,2],t]=real(data_demand[i,t])
