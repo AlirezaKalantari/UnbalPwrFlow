@@ -317,9 +317,9 @@ end
 
 
 #P_sp=zeros(3*a,1,t)           #specified active power
-#P_cal=zeros(3*a,1,t)  
+#P_cal=zeros(3*a,1,t)
 #delP=zeros(3*a,1,24)
-#Ql=zeros(3*a,1,24)
+#Qg=zeros(3*a,1,24)
 #Pl=zeros(3*a,1,24)
 #Ql=zeros(3*a,1,24)
 #=for t=1:24
@@ -331,8 +331,8 @@ end
 
 for t=1:24
     for i=1:a                   #active & reactive generation of power of any time
-        Pg[ct6[t,[i,2]]=ct6[i,3]+solar_power[i,t]  #add solar power as generating power
-        Qg[ct6[t,[i,2]]=ct6[i,4]
+        Pg[ct6[i,2],t]=ct6[i,3]+solar_power[i,t]  #add solar power as generating power
+        Qg[ct6[i,2],t]=ct6[i,4]
     end
 end
 
