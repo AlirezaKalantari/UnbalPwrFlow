@@ -319,6 +319,7 @@ end
 #P_sp=zeros(3*a,24)           #specified active power
 #P_cal=zeros(3*a,24)
 #Q_cal=zeros(3*a,24)
+#Q_sp=zeros(3*a,24) 
 #delP=zeros(3*a,24)
 #Qg=zeros(3*a,24)
 #Pg=zeros(3*a,24)
