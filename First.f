@@ -349,10 +349,13 @@ for t=1:24
     end
 end
 
-for g in G_2
-    delI_r[g,t]=(delP[g,t]'*V_rm[g,1]+delQ[g,t]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
-    delI_m[g,t]=(delP[g,t]'*V_rm[g+3*a,1]+delQ[g,t]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
+for t=1:24
+    for g in G_2
+        delI_r[g,t]=(delP[g,t]'*V_rm[g,1]+delQ[g,t]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
+        delI_m[g,t]=(delP[g,t]'*V_rm[g+3*a,1]+delQ[g,t]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
+    end
 end
+
 
 P_sp=broadcast(-,Pg,Pl)     #equation 3
 Q_sp=broadcast(-,Qg,Ql)=#
