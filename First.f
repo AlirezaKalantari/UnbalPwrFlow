@@ -325,6 +325,7 @@ end
 #Pg=zeros(3*a,24)
 #Pl=zeros(3*a,24)
 #Ql=zeros(3*a,24)
+#delI_r=zeros(3*a,t)
 #=for t=1:24
     for i=1:(size(ct5,1))       #active & reactive load of power of any time
         Pl[ct5[i,2],t]=real(data_demand[i,t])
