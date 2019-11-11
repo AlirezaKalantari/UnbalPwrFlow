@@ -319,7 +319,7 @@ end
 #P_sp=zeros(3*a,24)           #specified active power
 #P_cal=zeros(3*a,24)
 #Q_cal=zeros(3*a,24)
-#Q_sp=zeros(3*a,24) 
+#Q_sp=zeros(3*a,24)
 #delP=zeros(3*a,24)
 #Qg=zeros(3*a,24)
 #Pg=zeros(3*a,24)
@@ -347,6 +347,11 @@ for t=1:24
         delP[g,t]=P_sp[g,t]-P_cal[g,t]                                          #equation 20
         delQ[g,t]=Q_sp[g,t]-Q_cal[g,t]                                          #equation 21
     end
+end
+
+for g in G_2
+    delI_r[g,t]=(delP[g]'*V_rm[g,1]+delQ[g]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
+    delI_m[g]=(delP[g]'*V_rm[g+3*a,1]+delQ[g]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
 end
 
 P_sp=broadcast(-,Pg,Pl)     #equation 3
