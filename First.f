@@ -329,21 +329,23 @@ end
 #delI_r=zeros(3*a,t)
 #delI_m=zeros(3*a,t)
 #I_cal=complex(ones(6*a,1),24)
+#β_k=diagm(0=>ones(3*a))
+
 #=for t=1:24
     for i=1:(size(ct5,1))       #active & reactive load of power of any time
         Pl[ct5[i,2],t]=real(data_demand[i,t])
         Ql[ct5[i,2],t]=imag(data_demand[i,t])
     end
-end
+end=#
 
-for t=1:24
+#=for t=1:24
     for i=1:a                   #active & reactive generation of power of any time
         Pg[ct6[i,2],t]=ct6[i,3]+solar_power[i,t]  #add solar power as generating power
         Qg[ct6[i,2],t]=ct6[i,4]
     end
-end
+end=#
 
-for t=1:24
+#=for t=1:24
     for g in G_2
         P_cal[g,t]=(V_rm[g,1]'*real(I_cal[g])+V_rm[g+3*a,1]*imag(I_cal[g]))     #equation 22
         Q_cal[g,t]=(V_rm[g+3*a,1]'*real(I_cal[g])-V_rm[g,1]*imag(I_cal[g]))     #equation 23
@@ -351,15 +353,15 @@ for t=1:24
         delP[g,t]=P_sp[g,t]-P_cal[g,t]                                          #equation 20
         delQ[g,t]=Q_sp[g,t]-Q_cal[g,t]                                          #equation 21
     end
-end
+end=#
 
-for t=1:24
+#=for t=1:24
     for g in G_2
         delI_r[g,t]=(delP[g,t]'*V_rm[g,1]+delQ[g,t]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
         delI_m[g,t]=(delP[g,t]'*V_rm[g+3*a,1]+delQ[g,t]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
     end
-end
+end=#
 
 
-P_sp=broadcast(-,Pg,Pl)     #equation 3
+#=P_sp=broadcast(-,Pg,Pl)     #equation 3
 Q_sp=broadcast(-,Qg,Ql)=#
