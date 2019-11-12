@@ -328,6 +328,7 @@ end
 #Ql=zeros(3*a,24)
 #delI_r=zeros(3*a,t)
 #delI_m=zeros(3*a,t)
+#I_cal=complex(ones(6*a,1),24)
 #=for t=1:24
     for i=1:(size(ct5,1))       #active & reactive load of power of any time
         Pl[ct5[i,2],t]=real(data_demand[i,t])
