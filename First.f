@@ -332,6 +332,7 @@ end
 #β_k=diagm(0=>ones(3*a),t)
 #α_k=diagm(0=>ones(3*a),t)
 #γ_k=diagm(0=>ones(3*a),t)
+#δ_k=diagm(0=>ones(3*a)) 
 
 
 
