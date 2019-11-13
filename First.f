@@ -316,7 +316,7 @@ end
 
 
 
-#P_sp=zeros(3*a,24)           #specified active power
+P_sp=zeros(3,24)           #specified active power
 #P_cal=zeros(3*a,24)
 #Q_cal=zeros(3*a,24)
 #Q_sp=zeros(3*a,24)
@@ -331,8 +331,8 @@ end
 #I_cal=complex(ones(6*a,1),24)
 #β_k=diagm(0=>ones(3*a),t)
 #α_k=diagm(0=>ones(3*a),t)
-#γ_k=diagm(0=>ones(3*a),t)
-#δ_k=diagm(0=>ones(3*a),t)
+#γ_k=diagm(0=>ones(3*a))
+#δ_k=diagm(0=>ones(3*a))
 
 
 
@@ -374,6 +374,8 @@ end=#
     δ_k=α_k
     γ_k=-β_k
 end=#
+
+
 
 
 #=P_sp=broadcast(-,Pg,Pl)     #equation 3
