@@ -18,7 +18,7 @@ using Cbc
 
 data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case39.m")        #add case
 
-data = PowerModels.parse_file("case5.m")
+data = PowerModels.parse_file("case39.m")
 
 data["bus"]
 data["branch"]
