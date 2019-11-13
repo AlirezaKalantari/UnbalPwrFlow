@@ -329,8 +329,8 @@ P_sp=zeros(3,24)           #specified active power
 #delI_r=zeros(3*a,24)
 #delI_m=zeros(3*a,24)
 #I_cal=complex(ones(6*a,1),24)
-#β_k=diagm(0=>ones(3*a),t)
-#α_k=diagm(0=>ones(3*a),t)
+#β_k=diagm(0=>ones(3*a))
+#α_k=diagm(0=>ones(3*a))
 #γ_k=diagm(0=>ones(3*a))
 #δ_k=diagm(0=>ones(3*a))
 
