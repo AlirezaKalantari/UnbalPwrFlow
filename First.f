@@ -332,7 +332,7 @@ end
 #β_k=diagm(0=>ones(3*a),t)
 #α_k=diagm(0=>ones(3*a),t)
 #γ_k=diagm(0=>ones(3*a),t)
-#δ_k=diagm(0=>ones(3*a),t) 
+#δ_k=diagm(0=>ones(3*a),t)
 
 
 
@@ -366,6 +366,13 @@ end=#
         delI_r[g,t]=(delP[g,t]'*V_rm[g,1]+delQ[g,t]'*V_rm[g+3*a,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 18
         delI_m[g,t]=(delP[g,t]'*V_rm[g+3*a,1]+delQ[g,t]'*V_rm[g,1])/(V_rm[g+3*a,1]^2+V_rm[g,1]^2)             #equation 19
     end
+end=#
+
+#=for g in G_2
+    α_k[g,g]=(Q_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of alpha
+    β_k[g,g]=(P_sp[g]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of beta
+    δ_k=α_k
+    γ_k=-β_k
 end=#
 
 
