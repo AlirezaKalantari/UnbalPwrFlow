@@ -16,7 +16,7 @@ using Ipopt
 using Cbc
 
 
-data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case5.m")        #add case
+data = PowerModels.parse_file("C:/Users/kalan/Desktop/matpower7.0/data/case39.m")        #add case
 
 data = PowerModels.parse_file("case5.m")
 
