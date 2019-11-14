@@ -366,10 +366,11 @@ end=#
     end
 end=#
 
-#=
+#=for t=1:24
 for g in G_2
     del_I[(2*g-1),t]=delI_m[g,t]
-    del_I[(2*g),t]=delI_r[g]
+    del_I[(2*g),t]=delI_r[g,t]
+end
 end
 =#
 
