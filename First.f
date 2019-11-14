@@ -368,8 +368,8 @@ end=#
 
 #=
 for g in G_2
-    del_I[(2*g-1),1]=delI_m[g]      
-    del_I[(2*g),1]=delI_r[g]
+    del_I[(2*g-1),t]=delI_m[g]
+    del_I[(2*g),t]=delI_r[g]
 end
 =#
 
