@@ -343,7 +343,7 @@ end
 end=#
 
 #=for t=1:24
-    for i=1:a                   #active & reactive generation of power of any time
+    for i=1:a                                     #active & reactive generation of power of any time
         Pg[ct6[i,2],t]=ct6[i,3]+solar_power[i,t]  #add solar power as generating power
         Qg[ct6[i,2],t]=ct6[i,4]
     end
@@ -366,12 +366,21 @@ end=#
     end
 end=#
 
+#=
+for g in G_2
+    del_I[(2*g-1),1]=delI_m[g]      
+    del_I[(2*g),1]=delI_r[g]
+end
+=#
+
 #=for g in G_2
     α_k[g,g]=(Q_sp[g,t]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)-2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g,t])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of alpha
     β_k[g,g]=(P_sp[g,t]'*(V_rm[g,1]^2-V_rm[g+3*a,1]^2)+2*V_rm[g+3*a,1]*V_rm[g,1]*P_sp[g,t])/((V_rm[g+3*a,1]^2+V_rm[g,1]^2)^2)       #calculation of beta
     δ_k=α_k
     γ_k=-β_k
 end=#
+
+
 
 
 
