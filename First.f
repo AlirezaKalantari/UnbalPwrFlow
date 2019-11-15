@@ -382,7 +382,7 @@ end=#
 #=for b=1:a
     for w=1:3                                                   #equation 13
         if  Ql_1[6*(b-1)+w,t]!==0 || Ql_1[6*(b-1)+w+3,t]!==0
-        J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #equation 14
+            J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #equation 14
         end
     end
 end=#
