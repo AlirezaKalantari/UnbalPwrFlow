@@ -379,6 +379,14 @@ end=#
     γ_k=-β_k
 end=#
 
+#=for b=1:a
+    for w=1:3                                                   #equation 13
+        if  Ql_1[6*(b-1)+w]!==0 || Ql_1[6*(b-1)+w+3]!==0
+            
+        end
+    end
+end=#
+
 
 #=P_sp=broadcast(-,Pg,Pl)
 Q_sp=broadcast(-,Qg,Ql)=#
