@@ -384,7 +384,8 @@ end=#
         if  Ql_1[6*(b-1)+w,t]!==0 || Ql_1[6*(b-1)+w+3,t]!==0
             J[6*(b-1)+w,6*(b-1)+w]=imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])       #equation 14
             J[6*(b-1)+w+3,6*(b-1)+w+3]=-imag(YBUS[b,b])-(α_k[3*(b-1)+w,3*(b-1)+w])  #equation 17
-            
+            J[6*(b-1)+w,6*(b-1)+w+3]=real(YBUS[b,b])-(β_k[3*(b-1)+w,3*(b-1)+w])     #equation 15
+
         end
     end
 end=#
