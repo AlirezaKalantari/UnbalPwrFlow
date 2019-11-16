@@ -392,6 +392,11 @@ end=#
     end
 end=#
 
+#=for d=1:3
+    if b!==a &&  (Ql_1[6*(b-1)+d]!==0 || Ql_1[6*(b-1)+d+3]!==0)
+
+    end
+end=#
 
 #=P_sp=broadcast(-,Pg,Pl)
 Q_sp=broadcast(-,Qg,Ql)=#
