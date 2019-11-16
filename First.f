@@ -397,6 +397,7 @@ end=#
         J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
         J[6*(b-1)+d,6*(c-1)+d+3]=real(YBUS[b,c])
         J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[b,c])
+        J[6*(b-1)+d+3,6*(c-1)+d+3]=-imag(YBUS[b,c])
     end
 end=#
 
