@@ -392,6 +392,7 @@ end=#
     end
 end=#
 
+#=for t=1:24
 #=for d=1:3
     if b!==a &&  (Ql_1[6*(b-1)+d]!==0 || Ql_1[6*(b-1)+d+3]!==0)
         J[6*(b-1)+d,6*(c-1)+d]=imag(YBUS[b,c])
@@ -399,6 +400,7 @@ end=#
         J[6*(b-1)+d+3,6*(c-1)+d]=real(YBUS[b,c])
         J[6*(b-1)+d+3,6*(c-1)+d+3]=-imag(YBUS[b,c])
     end
+end=#
 end=#
 
 #=P_sp=broadcast(-,Pg,Pl)
